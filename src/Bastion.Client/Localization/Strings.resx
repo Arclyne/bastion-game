@@ -12,8 +12,2068 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Game.Title" xml:space="preserve">
+  <data name="AIDifficulty.BoardClassicChip" xml:space="preserve">
+    <value>9×9</value>
+    <comment>Same in both languages.</comment>
+  </data>
+  <data name="AIDifficulty.BoardLabel" xml:space="preserve">
+    <value>BOARD</value>
+    <comment>Heading of the board size chips.</comment>
+  </data>
+  <data name="AIDifficulty.BoardRapidChip" xml:space="preserve">
+    <value>7×7</value>
+    <comment>Same in both languages.</comment>
+  </data>
+  <data name="AIDifficulty.ClockChipFormat" xml:space="preserve">
+    <value>{0} min</value>
+    <comment>{0} is the clock length in minutes.</comment>
+  </data>
+  <data name="AIDifficulty.ClockLabel" xml:space="preserve">
+    <value>CLOCK</value>
+    <comment>Heading of the clock chips.</comment>
+  </data>
+  <data name="AIDifficulty.HintToggle" xml:space="preserve">
+    <value>Hints</value>
+    <comment>Switch of the hint option.</comment>
+  </data>
+  <data name="AIDifficulty.LevelLabel" xml:space="preserve">
+    <value>LEVEL</value>
+    <comment>Heading of the level list.</comment>
+  </data>
+  <data name="AIDifficulty.NoClockChip" xml:space="preserve">
+    <value>No clock</value>
+    <comment>Clock option with no time limit.</comment>
+  </data>
+  <data name="AIDifficulty.PlayButton" xml:space="preserve">
+    <value>PLAY</value>
+    <comment>Starts the match against the AI.</comment>
+  </data>
+  <data name="AIDifficulty.StrengthFormat" xml:space="preserve">
+    <value>about {0} Elo</value>
+    <comment>{0} is the approximate strength.</comment>
+  </data>
+  <data name="AIDifficulty.Subtitle" xml:space="preserve">
+    <value>VERSUS AI</value>
+    <comment>Subtitle of GUI_AIDifficulty.</comment>
+  </data>
+  <data name="AIDifficulty.UndoToggle" xml:space="preserve">
+    <value>Undo moves</value>
+    <comment>Switch of the undo option.</comment>
+  </data>
+  <data name="AIMatchEnd.DefeatTitle" xml:space="preserve">
+    <value>YOU LOST</value>
+    <comment>Heading when the player loses.</comment>
+  </data>
+  <data name="AIMatchEnd.ExperienceCaption" xml:space="preserve">
+    <value>EXPERIENCE</value>
+    <comment>Caption of the experience tile.</comment>
+  </data>
+  <data name="AIMatchEnd.MistakeFormat" xml:space="preserve">
+    <value>Move {0}</value>
+    <comment>{0} is the move number of the mistake.</comment>
+  </data>
+  <data name="AIMatchEnd.MistakeOne" xml:space="preserve">
+    <value>You left a very long path.</value>
+    <comment>Placeholder review: comes from the server.</comment>
+  </data>
+  <data name="AIMatchEnd.MistakeThree" xml:space="preserve">
+    <value>You could have jumped your rival.</value>
+    <comment>Placeholder review: comes from the server.</comment>
+  </data>
+  <data name="AIMatchEnd.MistakeTwo" xml:space="preserve">
+    <value>You used a wall too early.</value>
+    <comment>Placeholder review: comes from the server.</comment>
+  </data>
+  <data name="AIMatchEnd.MovesCaption" xml:space="preserve">
+    <value>MOVES</value>
+    <comment>Caption of the move count tile.</comment>
+  </data>
+  <data name="AIMatchEnd.ReviewLabel" xml:space="preserve">
+    <value>REVIEW: THREE MISTAKES</value>
+    <comment>Heading of the review list.</comment>
+  </data>
+  <data name="AIMatchEnd.Subtitle" xml:space="preserve">
+    <value>MATCH OVER</value>
+    <comment>Subtitle of GUI_AIMatchEnd.</comment>
+  </data>
+  <data name="AIMatchEnd.VictoryTitle" xml:space="preserve">
+    <value>YOU WON!</value>
+    <comment>Heading when the player wins.</comment>
+  </data>
+  <data name="ActiveSessions.ChangePasswordBody" xml:space="preserve">
+    <value>If someone opened them without permission, they will open them again with the same password. Change it now?</value>
+    <comment>CU-10 RN-05: after closing all the others, propose a password change.</comment>
+  </data>
+  <data name="ActiveSessions.CloseAllBody" xml:space="preserve">
+    <value>Close all the other sessions?</value>
+    <comment>Confirm body for the close all option.</comment>
+  </data>
+  <data name="ActiveSessions.CloseAllButton" xml:space="preserve">
+    <value>CLOSE ALL THE OTHERS</value>
+    <comment>Keeps the current one.</comment>
+  </data>
+  <data name="ActiveSessions.CloseBody" xml:space="preserve">
+    <value>Close the session on {0}, last used {1}?</value>
+    <comment>Confirm body (CU-10 step 6). {0} device, {1} last use.</comment>
+  </data>
+  <data name="ActiveSessions.CloseButton" xml:space="preserve">
+    <value>CLOSE</value>
+    <comment>Closes one session.</comment>
+  </data>
+  <data name="ActiveSessions.CurrentBadge" xml:space="preserve">
+    <value>THIS DEVICE</value>
+    <comment>Marks the current session, which CU-10 forbids closing from here.</comment>
+  </data>
+  <data name="ActiveSessions.Subtitle" xml:space="preserve">
+    <value>Active sessions</value>
+    <comment>CU-10 main flow step 4.</comment>
+  </data>
+  <data name="AddFriend.SearchButton" xml:space="preserve">
+    <value>SEARCH</value>
+    <comment>Primary action of CU-30.</comment>
+  </data>
+  <data name="AddFriend.SearchLabel" xml:space="preserve">
+    <value>PLAYER NAME OR FRIEND CODE</value>
+    <comment>One field for both, as CU-30 asks.</comment>
+  </data>
+  <data name="AddFriend.SearchPlaceholder" xml:space="preserve">
+    <value>who are you looking for</value>
+    <comment>Hint of the search field.</comment>
+  </data>
+  <data name="AddFriend.Subtitle" xml:space="preserve">
+    <value>ADD A FRIEND</value>
+    <comment>CU-30 main flow step 1.</comment>
+  </data>
+  <data name="AddFriend.SuggestionReason" xml:space="preserve">
+    <value>you played together recently</value>
+    <comment>Why the suggestion appears (CU-30 RN-07).</comment>
+  </data>
+  <data name="AdminPanel.GrantButton" xml:space="preserve">
+    <value>GRANT THE ROLE</value>
+    <comment>Primary action of CU-46.</comment>
+  </data>
+  <data name="AdminPanel.GrantConfirmBody" xml:space="preserve">
+    <value>This player will be able to review reports and apply sanctions.</value>
+    <comment>What granting the role means.</comment>
+  </data>
+  <data name="AdminPanel.LogsButton" xml:space="preserve">
+    <value>LOGS</value>
+    <comment>CU-48 entry from the moderation panel.</comment>
+  </data>
+  <data name="AdminPanel.NicknameLabel" xml:space="preserve">
+    <value>PLAYER NAME</value>
+    <comment>Candidate nickname.</comment>
+  </data>
+  <data name="AdminPanel.QueueButton" xml:space="preserve">
+    <value>REPORT QUEUE</value>
+    <comment>CU-43 entry from the moderation panel.</comment>
+  </data>
+  <data name="AdminPanel.RegisteredLabel" xml:space="preserve">
+    <value>MEMBER SINCE</value>
+    <comment>The fecha_registro of the account.</comment>
+  </data>
+  <data name="AdminPanel.StateLabel" xml:space="preserve">
+    <value>ACCOUNT STATE</value>
+    <comment>The estado_cuenta.</comment>
+  </data>
+  <data name="AdminPanel.Subtitle" xml:space="preserve">
+    <value>MODERATOR CANDIDATE</value>
+    <comment>CU-46 main flow step 3.</comment>
+  </data>
+  <data name="AdminPanel.TypeLabel" xml:space="preserve">
+    <value>ACCOUNT TYPE</value>
+    <comment>The tipo_cuenta.</comment>
+  </data>
+  <data name="AiLevel.APPRENTICE" xml:space="preserve">
+    <value>Apprentice</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="AiLevel.ARCHITECT" xml:space="preserve">
+    <value>Architect</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="AiLevel.BASTION" xml:space="preserve">
     <value>Bastion</value>
-    <comment>Window title.</comment>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="AiLevel.BUILDER" xml:space="preserve">
+    <value>Builder</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Appeal.SendButton" xml:space="preserve">
+    <value>SEND THE APPEAL</value>
+    <comment>Primary action of CU-45.</comment>
+  </data>
+  <data name="Appeal.StillActiveNotice" xml:space="preserve">
+    <value>Your sanction stays in force while a moderator reviews the appeal.</value>
+    <comment>CU-45 states this so the player does not expect it to lift.</comment>
+  </data>
+  <data name="Appeal.Subtitle" xml:space="preserve">
+    <value>APPEAL YOUR SANCTION</value>
+    <comment>CU-45 main flow step 1.</comment>
+  </data>
+  <data name="Appeal.TextLabel" xml:space="preserve">
+    <value>WHY DO YOU THINK IT IS WRONG</value>
+    <comment>The appeal text.</comment>
+  </data>
+  <data name="Appeal.TextPlaceholder" xml:space="preserve">
+    <value>explain what happened</value>
+    <comment>Hint of the appeal.</comment>
+  </data>
+  <data name="ApplySanction.ApplyButton" xml:space="preserve">
+    <value>APPLY</value>
+    <comment>Primary action of CU-44.</comment>
+  </data>
+  <data name="ApplySanction.ConfirmBody" xml:space="preserve">
+    <value>The player will not be able to use the chat for one day.</value>
+    <comment>CU-44 RN-08: the confirmation sums the sanction up in one sentence.</comment>
+  </data>
+  <data name="ApplySanction.DurationDay" xml:space="preserve">
+    <value>ONE DAY</value>
+    <comment>Duration option.</comment>
+  </data>
+  <data name="ApplySanction.DurationLabel" xml:space="preserve">
+    <value>HOW LONG</value>
+    <comment>Duration of a temporary sanction.</comment>
+  </data>
+  <data name="ApplySanction.DurationWeek" xml:space="preserve">
+    <value>ONE WEEK</value>
+    <comment>Duration option.</comment>
+  </data>
+  <data name="ApplySanction.PlayerLabel" xml:space="preserve">
+    <value>PLAYER</value>
+    <comment>Who is being sanctioned.</comment>
+  </data>
+  <data name="ApplySanction.ScopeAccount" xml:space="preserve">
+    <value>ACCOUNT</value>
+    <comment>Scope option.</comment>
+  </data>
+  <data name="ApplySanction.ScopeChat" xml:space="preserve">
+    <value>CHAT</value>
+    <comment>Scope option. Not translated.</comment>
+  </data>
+  <data name="ApplySanction.ScopeLabel" xml:space="preserve">
+    <value>SCOPE</value>
+    <comment>Chat only or the whole account.</comment>
+  </data>
+  <data name="ApplySanction.Subtitle" xml:space="preserve">
+    <value>APPLY A SANCTION</value>
+    <comment>CU-44 main flow step 1.</comment>
+  </data>
+  <data name="ApplySanction.TypeLabel" xml:space="preserve">
+    <value>TYPE</value>
+    <comment>Temporary or permanent.</comment>
+  </data>
+  <data name="ApplySanction.TypePermanent" xml:space="preserve">
+    <value>PERMANENT</value>
+    <comment>Type option.</comment>
+  </data>
+  <data name="ApplySanction.TypeTemporary" xml:space="preserve">
+    <value>TEMPORARY</value>
+    <comment>Type option.</comment>
+  </data>
+  <data name="BannedAccount.AppealButton" xml:space="preserve">
+    <value>APPEAL</value>
+    <comment>Opens GUI_Appeal.</comment>
+  </data>
+  <data name="BannedAccount.EndLabel" xml:space="preserve">
+    <value>ENDS ON</value>
+    <comment>Label of the sanction end date.</comment>
+  </data>
+  <data name="BannedAccount.ExitButton" xml:space="preserve">
+    <value>EXIT</value>
+    <comment>Returns to the sign in.</comment>
+  </data>
+  <data name="BannedAccount.Notice" xml:space="preserve">
+    <value>Your account cannot enter the game for now.</value>
+    <comment>Explains the block.</comment>
+  </data>
+  <data name="BannedAccount.ReasonLabel" xml:space="preserve">
+    <value>REASON</value>
+    <comment>Label of the sanction reason.</comment>
+  </data>
+  <data name="BannedAccount.Subtitle" xml:space="preserve">
+    <value>ACCOUNT SUSPENDED</value>
+    <comment>Subtitle of GUI_BannedAccount.</comment>
+  </data>
+  <data name="BannedAccount.TypeLabel" xml:space="preserve">
+    <value>TYPE</value>
+    <comment>Label of the sanction type.</comment>
+  </data>
+  <data name="BoxPurchaseConfirm.Button" xml:space="preserve">
+    <value>OPEN IT</value>
+    <comment>Primary action of CU-39.</comment>
+  </data>
+  <data name="BoxPurchaseConfirm.GuaranteeNotice" xml:space="preserve">
+    <value>You have opened 7 boxes without a rare item. The tenth one guarantees it.</value>
+    <comment>CU-39 RN-05 asks for the streak and the guarantee to be visible.</comment>
+  </data>
+  <data name="BoxPurchaseConfirm.Subtitle" xml:space="preserve">
+    <value>CONFIRM THE BOX</value>
+    <comment>CU-39 main flow step 4.</comment>
+  </data>
+  <data name="ChangeEmail.DoneBody" xml:space="preserve">
+    <value>We sent a link to the new address. It stays pending until you confirm it.</value>
+    <comment>Success dialog (D-20: the old address stays until the new one is confirmed).</comment>
+  </data>
+  <data name="ChangeEmail.NewLabel" xml:space="preserve">
+    <value>NEW EMAIL ADDRESS</value>
+    <comment>Label of the new address.</comment>
+  </data>
+  <data name="ChangeEmail.NewPlaceholder" xml:space="preserve">
+    <value>you@email.com</value>
+    <comment>Hint of the new address.</comment>
+  </data>
+  <data name="ChangeEmail.Notice" xml:space="preserve">
+    <value>Your account goes back to pending until you open the link we send to the new address.</value>
+    <comment>States the consequence before the player commits.</comment>
+  </data>
+  <data name="ChangeEmail.PasswordLabel" xml:space="preserve">
+    <value>CURRENT PASSWORD</value>
+    <comment>Asked again to confirm it is you.</comment>
+  </data>
+  <data name="ChangeEmail.PasswordPlaceholder" xml:space="preserve">
+    <value>the one you use now</value>
+    <comment>Hint.</comment>
+  </data>
+  <data name="ChangeEmail.Subtitle" xml:space="preserve">
+    <value>Change your email</value>
+    <comment>CU-09 alternate flow FA-01.</comment>
+  </data>
+  <data name="ChangeNickname.ConfirmButton" xml:space="preserve">
+    <value>CHANGE</value>
+    <comment>Primary option of the confirm dialog, as CU-13 names it.</comment>
+  </data>
+  <data name="ChangeNickname.ConfirmDetail" xml:space="preserve">
+    <value>it is your only change. your matches and your elo stay; the old name becomes free.</value>
+    <comment>Detail line of the confirm dialog (CU-13 RN-01 and RN-03).</comment>
+  </data>
+  <data name="ChangeNickname.ConfirmFormat" xml:space="preserve">
+    <value>{0} -&gt; {1}</value>
+    <comment>Body of the confirm dialog: old and new nickname. Not translated.</comment>
+  </data>
+  <data name="ChangeNickname.ConfirmTitle" xml:space="preserve">
+    <value>change your name?</value>
+    <comment>Title of the confirm dialog (CU-13 step 3, prototype 9d).</comment>
+  </data>
+  <data name="ChangeNickname.CurrentLabel" xml:space="preserve">
+    <value>YOUR NAME NOW</value>
+    <comment>Label of the read only current value.</comment>
+  </data>
+  <data name="ChangeNickname.DoneBody" xml:space="preserve">
+    <value>Name changed.</value>
+    <comment>Success dialog after CU-13 step 12.</comment>
+  </data>
+  <data name="ChangeNickname.NewLabel" xml:space="preserve">
+    <value>NEW NAME</value>
+    <comment>Label of the new nickname.</comment>
+  </data>
+  <data name="ChangeNickname.NewPlaceholder" xml:space="preserve">
+    <value>3 to 30 characters</value>
+    <comment>Hint. CU-02 RN-01.</comment>
+  </data>
+  <data name="ChangeNickname.Notice" xml:space="preserve">
+    <value>You can only do this once, and it cannot be undone. Your friends will see the new name.</value>
+    <comment>CU-13 RN-01: the change is unique and irreversible.</comment>
+  </data>
+  <data name="ChangeNickname.Subtitle" xml:space="preserve">
+    <value>Change your name</value>
+    <comment>CU-13 main flow step 1.</comment>
+  </data>
+  <data name="ChangePassword.ConfirmLabel" xml:space="preserve">
+    <value>CONFIRM PASSWORD</value>
+    <comment>Label of the confirmation.</comment>
+  </data>
+  <data name="ChangePassword.ConfirmPlaceholder" xml:space="preserve">
+    <value>type it again</value>
+    <comment>Hint of the confirmation.</comment>
+  </data>
+  <data name="ChangePassword.CurrentLabel" xml:space="preserve">
+    <value>CURRENT PASSWORD</value>
+    <comment>Label of the current password.</comment>
+  </data>
+  <data name="ChangePassword.CurrentPlaceholder" xml:space="preserve">
+    <value>the one you use now</value>
+    <comment>Hint.</comment>
+  </data>
+  <data name="ChangePassword.DoneBody" xml:space="preserve">
+    <value>Password changed. Your other sessions were closed.</value>
+    <comment>Success dialog. The second sentence is CU-03 RN-07.</comment>
+  </data>
+  <data name="ChangePassword.NewLabel" xml:space="preserve">
+    <value>NEW PASSWORD</value>
+    <comment>Label of the new password.</comment>
+  </data>
+  <data name="ChangePassword.NewPlaceholder" xml:space="preserve">
+    <value>at least 8 characters</value>
+    <comment>Hint. CU-02 RN-03.</comment>
+  </data>
+  <data name="ChangePassword.Subtitle" xml:space="preserve">
+    <value>Change your password</value>
+    <comment>CU-09 main flow step 1.</comment>
+  </data>
+  <data name="CoinHistory.BalanceCaption" xml:space="preserve">
+    <value>BALANCE</value>
+    <comment>Caption of the balance on top.</comment>
+  </data>
+  <data name="CoinHistory.Subtitle" xml:space="preserve">
+    <value>YOUR COINS</value>
+    <comment>CU-40 main flow step 4.</comment>
+  </data>
+  <data name="Common.AvatarPlaceholder" xml:space="preserve">
+    <value>photo</value>
+    <comment>Text inside the avatar circle while there is no image.</comment>
+  </data>
+  <data name="Common.BackButton" xml:space="preserve">
+    <value>BACK</value>
+    <comment>Returns to the previous screen from a read only one.</comment>
+  </data>
+  <data name="Common.BackLink" xml:space="preserve">
+    <value>&lt; back</value>
+    <comment>Link at the top left of every panel screen.</comment>
+  </data>
+  <data name="Common.CancelButton" xml:space="preserve">
+    <value>CANCEL</value>
+    <comment>Leaves a form without applying anything.</comment>
+  </data>
+  <data name="Common.ChangeButton" xml:space="preserve">
+    <value>CHANGE</value>
+    <comment>Small outline button beside a value.</comment>
+  </data>
+  <data name="Common.ContinueButton" xml:space="preserve">
+    <value>CONTINUE</value>
+    <comment>Primary option of a first step.</comment>
+  </data>
+  <data name="Common.CopyButton" xml:space="preserve">
+    <value>COPY</value>
+    <comment>Disabled until the clipboard is available.</comment>
+  </data>
+  <data name="Common.EditButton" xml:space="preserve">
+    <value>EDIT</value>
+    <comment>Small outline button (prototypes 5a, 9f).</comment>
+  </data>
+  <data name="Common.PasswordPolicyWarning" xml:space="preserve">
+    <value>at least 8 characters and three of: lowercase, uppercase, digits, symbols</value>
+    <comment>CU-03 RN-03 policy. One line under the field.</comment>
+  </data>
+  <data name="Common.SaveButton" xml:space="preserve">
+    <value>SAVE</value>
+    <comment>Primary action of a form that edits something that already exists.</comment>
+  </data>
+  <data name="Common.ScreenUnavailable" xml:space="preserve">
+    <value>This section is not available yet.</value>
+    <comment>Shown when a screen has not been built yet.</comment>
+  </data>
+  <data name="Common.ServerUnreachable" xml:space="preserve">
+    <value>We could not reach the server. Try again in a moment.</value>
+    <comment>Any screen, when the server does not answer.</comment>
+  </data>
+  <data name="Common.ViewButton" xml:space="preserve">
+    <value>VIEW</value>
+    <comment>Small outline button that opens a list.</comment>
+  </data>
+  <data name="CosmeticItem.PAWN_CLASSIC" xml:space="preserve">
+    <value>Classic pawn</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="CosmeticItem.PAWN_STONE" xml:space="preserve">
+    <value>Stone pawn</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="CosmeticItem.TITLE_BUILDER" xml:space="preserve">
+    <value>Builder</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="CosmeticItem.TITLE_ROOKIE" xml:space="preserve">
+    <value>Rookie</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="CosmeticItem.TITLE_STRATEGIST" xml:space="preserve">
+    <value>Strategist</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Customize.EquipButton" xml:space="preserve">
+    <value>EQUIP IT</value>
+    <comment>Primary action of CU-14.</comment>
+  </data>
+  <data name="Customize.PreviewPlaceholder" xml:space="preserve">
+    <value>PREVIEW</value>
+    <comment>The rotating board preview belongs to the game renderer.</comment>
+  </data>
+  <data name="Customize.SlotBoard" xml:space="preserve">
+    <value>BOARD</value>
+    <comment>One of the six slots.</comment>
+  </data>
+  <data name="Customize.SlotEmotes" xml:space="preserve">
+    <value>EMOTES</value>
+    <comment>One of the six slots. Not translated.</comment>
+  </data>
+  <data name="Customize.SlotFrame" xml:space="preserve">
+    <value>FRAME</value>
+    <comment>One of the six slots.</comment>
+  </data>
+  <data name="Customize.SlotPawn" xml:space="preserve">
+    <value>PAWN</value>
+    <comment>One of the six slots.</comment>
+  </data>
+  <data name="Customize.SlotTitle" xml:space="preserve">
+    <value>TITLE</value>
+    <comment>One of the six slots.</comment>
+  </data>
+  <data name="Customize.SlotWalls" xml:space="preserve">
+    <value>WALLS</value>
+    <comment>One of the six slots.</comment>
+  </data>
+  <data name="Customize.Subtitle" xml:space="preserve">
+    <value>CUSTOMIZE</value>
+    <comment>CU-14 main flow step 1.</comment>
+  </data>
+  <data name="DeleteAccount.DeleteButton" xml:space="preserve">
+    <value>DELETE MY ACCOUNT</value>
+    <comment>Final action of CU-11.</comment>
+  </data>
+  <data name="DeleteAccount.DoneBody" xml:space="preserve">
+    <value>Your account was deleted.</value>
+    <comment>Notice over GUI_Login after CU-11 step 12.</comment>
+  </data>
+  <data name="DeleteAccount.LossFormat" xml:space="preserve">
+    <value>elo {0}, {1} matches, {2} skins and {3} coins, your friends and your ranking spot. your name becomes free for others.</value>
+    <comment>Loss box body: the CU-11 list with the real figures, as prototype 9g shows them.</comment>
+  </data>
+  <data name="DeleteAccount.LossTitle" xml:space="preserve">
+    <value>what is lost</value>
+    <comment>Title of the loss box (prototype 9g).</comment>
+  </data>
+  <data name="DeleteAccount.Notice" xml:space="preserve">
+    <value>this is final and cannot be undone.</value>
+    <comment>The list of what is lost, required by CU-11 main flow step 1.</comment>
+  </data>
+  <data name="DeleteAccount.PasswordLabel" xml:space="preserve">
+    <value>CURRENT PASSWORD</value>
+    <comment>Confirms it is really you.</comment>
+  </data>
+  <data name="DeleteAccount.PasswordPlaceholder" xml:space="preserve">
+    <value>the one you use now</value>
+    <comment>Hint.</comment>
+  </data>
+  <data name="DeleteAccount.Subtitle" xml:space="preserve">
+    <value>Delete your account</value>
+    <comment>CU-11 main flow step 1.</comment>
+  </data>
+  <data name="DeleteAccount.Word" xml:space="preserve">
+    <value>DELETE</value>
+    <comment>The word the player must type (CU-11 RN-01). Compared without case.</comment>
+  </data>
+  <data name="DeleteAccount.WordLabelFormat" xml:space="preserve">
+    <value>type {0} to confirm</value>
+    <comment>Label of the word field. {0} is DeleteAccountWord.</comment>
+  </data>
+  <data name="DeleteAccount.WrongPassword" xml:space="preserve">
+    <value>that is not your password</value>
+    <comment>Under the password field when it does not match.</comment>
+  </data>
+  <data name="Dialog.AcceptButton" xml:space="preserve">
+    <value>OK</value>
+    <comment>Dismisses a dialog without taking any other action.</comment>
+  </data>
+  <data name="Dialog.CancelButton" xml:space="preserve">
+    <value>CANCEL</value>
+    <comment>Default secondary option of GUI_MessageConfirm: the one that keeps the current state.</comment>
+  </data>
+  <data name="Dialog.ConfirmButton" xml:space="preserve">
+    <value>CONFIRM</value>
+    <comment>Default primary option of GUI_MessageConfirm. Callers override it with the concrete verb.</comment>
+  </data>
+  <data name="Dialog.ConfirmTitle" xml:space="preserve">
+    <value>ARE YOU SURE?</value>
+    <comment>Title of GUI_MessageConfirm.</comment>
+  </data>
+  <data name="Dialog.ErrorTitle" xml:space="preserve">
+    <value>SOMETHING WENT WRONG</value>
+    <comment>Title of GUI_MessageError. Plain wording: CON-12 asks for text an eight year old understands.</comment>
+  </data>
+  <data name="Dialog.RetryButton" xml:space="preserve">
+    <value>RETRY</value>
+    <comment>Second option of GUI_MessageError (CU-02 EX-01).</comment>
+  </data>
+  <data name="Dialog.SignInButton" xml:space="preserve">
+    <value>SIGN IN</value>
+    <comment>Second option of GUI_MessageWarning when the email is already registered (CU-02 FA-10).</comment>
+  </data>
+  <data name="Dialog.SuccessTitle" xml:space="preserve">
+    <value>ALL SET</value>
+    <comment>Title of GUI_MessageSuccess.</comment>
+  </data>
+  <data name="Dialog.WarningTitle" xml:space="preserve">
+    <value>CHECK THIS</value>
+    <comment>Title of GUI_MessageWarning.</comment>
+  </data>
+  <data name="EditProfile.IconsButton" xml:space="preserve">
+    <value>ICONS</value>
+    <comment>Selected: the avatar is one of the predefined icons.</comment>
+  </data>
+  <data name="EditProfile.IconsHint" xml:space="preserve">
+    <value>32 icons (animals, objects) or your jpg/png, 2 MB max</value>
+    <comment>Hint under the icon chips (prototype 9c).</comment>
+  </data>
+  <data name="EditProfile.LanguageLabel" xml:space="preserve">
+    <value>account language</value>
+    <comment>Label of the idioma_preferido selector (CU-12 RN-08).</comment>
+  </data>
+  <data name="EditProfile.LinkInvalid" xml:space="preserve">
+    <value>it has to start with https://</value>
+    <comment>CU-12 FA-02.</comment>
+  </data>
+  <data name="EditProfile.LinkPlaceholder" xml:space="preserve">
+    <value>paste a url...</value>
+    <comment>Hint text. Not translated: it is the required prefix.</comment>
+  </data>
+  <data name="EditProfile.LinkShortener" xml:space="preserve">
+    <value>no link shorteners: paste the full address</value>
+    <comment>CU-12 RN-04.</comment>
+  </data>
+  <data name="EditProfile.LinksHint" xml:space="preserve">
+    <value>they are reviewed before publishing; no payment links or outside invitations</value>
+    <comment>Hint under the link rows.</comment>
+  </data>
+  <data name="EditProfile.LinksLabel" xml:space="preserve">
+    <value>links to your socials · max. 4</value>
+    <comment>CU-12 RN-03.</comment>
+  </data>
+  <data name="EditProfile.MoreIconsChip" xml:space="preserve">
+    <value>&gt;</value>
+    <comment>Dashed chip after the seven visible icons. Not translated.</comment>
+  </data>
+  <data name="EditProfile.NicknameHint" xml:space="preserve">
+    <value>you can only change it once. after that it stays.</value>
+    <comment>CU-13 RN-01.</comment>
+  </data>
+  <data name="EditProfile.NicknameLabel" xml:space="preserve">
+    <value>name</value>
+    <comment>Read only box: the nickname changes from account settings (CU-13).</comment>
+  </data>
+  <data name="EditProfile.PreviewFormat" xml:space="preserve">
+    <value>{0} · {1}</value>
+    <comment>Preview line: nickname and title.</comment>
+  </data>
+  <data name="EditProfile.PreviewHint" xml:space="preserve">
+    <value>this is how others see you</value>
+    <comment>Second line of the preview box.</comment>
+  </data>
+  <data name="EditProfile.RemoveLinkButton" xml:space="preserve">
+    <value>X</value>
+    <comment>Square button that clears a link row. Not translated.</comment>
+  </data>
+  <data name="EditProfile.SavedBody" xml:space="preserve">
+    <value>Profile saved.</value>
+    <comment>Success dialog after CU-12 main flow step 16.</comment>
+  </data>
+  <data name="EditProfile.SpectatorsText" xml:space="preserve">
+    <value>let other players watch my matches</value>
+    <comment>Text of the permite_espectadores checkbox.</comment>
+  </data>
+  <data name="EditProfile.Subtitle" xml:space="preserve">
+    <value>Edit profile</value>
+    <comment>CU-12. Header subtitle.</comment>
+  </data>
+  <data name="EditProfile.TitleLabel" xml:space="preserve">
+    <value>equipped title</value>
+    <comment>Label of the title selector.</comment>
+  </data>
+  <data name="EditProfile.UploadButton" xml:space="preserve">
+    <value>UPLOAD IMAGE</value>
+    <comment>Disabled until image upload exists.</comment>
+  </data>
+  <data name="EndReason.ABANDONMENT" xml:space="preserve">
+    <value>Abandoned</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="EndReason.DRAW" xml:space="preserve">
+    <value>Draw</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="EndReason.GOAL" xml:space="preserve">
+    <value>Reached the goal</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="EndReason.RESIGNATION" xml:space="preserve">
+    <value>Resignation</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="EndReason.TIMEOUT" xml:space="preserve">
+    <value>Time ran out</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="FirstTime.IconLabel" xml:space="preserve">
+    <value>CHOOSE YOUR ICON</value>
+    <comment>Heading of the icon grid.</comment>
+  </data>
+  <data name="FirstTime.NicknameLabel" xml:space="preserve">
+    <value>PLAYER NAME</value>
+    <comment>Label of the read only nickname.</comment>
+  </data>
+  <data name="FirstTime.Notice" xml:space="preserve">
+    <value>You can only change your pawn and your icon once.</value>
+    <comment>Warns that the change is single use (D-13).</comment>
+  </data>
+  <data name="FirstTime.PawnLabel" xml:space="preserve">
+    <value>CHOOSE YOUR PAWN</value>
+    <comment>Heading of the pawn chips.</comment>
+  </data>
+  <data name="FirstTime.SkipButton" xml:space="preserve">
+    <value>SKIP</value>
+    <comment>Keeps the defaults and opens the main menu.</comment>
+  </data>
+  <data name="FirstTime.StartButton" xml:space="preserve">
+    <value>START</value>
+    <comment>Saves the choice and opens the main menu.</comment>
+  </data>
+  <data name="FirstTime.Subtitle" xml:space="preserve">
+    <value>YOUR FIRST TIME</value>
+    <comment>Subtitle of GUI_FirstTime.</comment>
+  </data>
+  <data name="ForgotPassword.BackLink" xml:space="preserve">
+    <value>&lt; back to sign in</value>
+    <comment>Back link of prototype 9a.</comment>
+  </data>
+  <data name="ForgotPassword.EmailLabel" xml:space="preserve">
+    <value>email</value>
+    <comment>Label of the email field.</comment>
+  </data>
+  <data name="ForgotPassword.EmailPlaceholder" xml:space="preserve">
+    <value>you@email.com</value>
+    <comment>Hint.</comment>
+  </data>
+  <data name="ForgotPassword.GuestHint" xml:space="preserve">
+    <value>guest accounts have no email. they cannot be recovered.</value>
+    <comment>Dashed box hint. Guest accounts have no address (CU-06).</comment>
+  </data>
+  <data name="ForgotPassword.GuestTitle" xml:space="preserve">
+    <value>did you enter as a guest?</value>
+    <comment>Dashed box title (prototype 9a).</comment>
+  </data>
+  <data name="ForgotPassword.Notice" xml:space="preserve">
+    <value>If that address has an account we will send you a code. It expires in one hour.</value>
+    <comment>Worded so it does not reveal whether the address exists (CU-03 RN-01).</comment>
+  </data>
+  <data name="ForgotPassword.SendButton" xml:space="preserve">
+    <value>SEND THE CODE</value>
+    <comment>Primary action.</comment>
+  </data>
+  <data name="ForgotPassword.Subtitle" xml:space="preserve">
+    <value>Recover your password</value>
+    <comment>CU-03 main flow step 1.</comment>
+  </data>
+  <data name="Friends.AddButton" xml:space="preserve">
+    <value>ADD A FRIEND</value>
+    <comment>Leads to CU-30.</comment>
+  </data>
+  <data name="Friends.OfflineLabel" xml:space="preserve">
+    <value>not connected</value>
+    <comment>State shown under the name.</comment>
+  </data>
+  <data name="Friends.OnlineLabel" xml:space="preserve">
+    <value>online now</value>
+    <comment>State shown under the name.</comment>
+  </data>
+  <data name="Friends.Subtitle" xml:space="preserve">
+    <value>YOUR FRIENDS</value>
+    <comment>The list the social use cases return to.</comment>
+  </data>
+  <data name="Game.Title" xml:space="preserve">
+    <value>BASTIÓN</value>
+    <comment>Header wordmark. Product name: not translated.</comment>
+  </data>
+  <data name="GameMode.CLASSIC" xml:space="preserve">
+    <value>Classic 9×9</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="GameMode.FOUR_PLAYERS" xml:space="preserve">
+    <value>Four players</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="GameMode.QUICK" xml:space="preserve">
+    <value>Quick 7×7</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Icon.BEAR" xml:space="preserve">
+    <value>bear</value>
+    <comment>Predefined icon, sample data until the catalog exists.</comment>
+  </data>
+  <data name="Icon.CAT" xml:space="preserve">
+    <value>cat</value>
+    <comment>Predefined icon, sample data until the catalog exists.</comment>
+  </data>
+  <data name="Icon.FOX" xml:space="preserve">
+    <value>fox</value>
+    <comment>Predefined icon, sample data until the catalog exists.</comment>
+  </data>
+  <data name="Icon.LIGHTHOUSE" xml:space="preserve">
+    <value>lighthouse</value>
+    <comment>Predefined icon, sample data until the catalog exists.</comment>
+  </data>
+  <data name="Icon.OWL" xml:space="preserve">
+    <value>owl</value>
+    <comment>Predefined icon, sample data until the catalog exists.</comment>
+  </data>
+  <data name="Icon.PAWN" xml:space="preserve">
+    <value>pawn</value>
+    <comment>Predefined icon, sample data until the catalog exists.</comment>
+  </data>
+  <data name="Icon.WALL" xml:space="preserve">
+    <value>wall</value>
+    <comment>Predefined icon, sample data until the catalog exists.</comment>
+  </data>
+  <data name="Language.English" xml:space="preserve">
+    <value>ENGLISH</value>
+    <comment>Language endonym (D-21: en). Not translated.</comment>
+  </data>
+  <data name="Language.SpanishMexico" xml:space="preserve">
+    <value>ESPAÑOL (MX)</value>
+    <comment>Language endonym (D-21: es-MX). Not translated.</comment>
+  </data>
+  <data name="Leaderboard.EloHeader" xml:space="preserve">
+    <value>ELO</value>
+    <comment>Column header: rating.</comment>
+  </data>
+  <data name="Leaderboard.Empty" xml:space="preserve">
+    <value>Nobody is ranked in this mode yet.</value>
+    <comment>Shown when the mode has no ranked players (CU-35 RN-01).</comment>
+  </data>
+  <data name="Leaderboard.Loading" xml:space="preserve">
+    <value>loading the ranking...</value>
+    <comment>Shown while the page is requested.</comment>
+  </data>
+  <data name="Leaderboard.MatchesHeader" xml:space="preserve">
+    <value>MATCHES</value>
+    <comment>Column header: ranked matches played.</comment>
+  </data>
+  <data name="Leaderboard.ModeLabel" xml:space="preserve">
+    <value>GAME MODE</value>
+    <comment>Label of the game mode filter.</comment>
+  </data>
+  <data name="Leaderboard.NextButton" xml:space="preserve">
+    <value>NEXT &gt;</value>
+    <comment>Next page.</comment>
+  </data>
+  <data name="Leaderboard.NotRankedFormat" xml:space="preserve">
+    <value>play {0} more ranked matches to appear</value>
+    <comment>Own row when the player does not qualify yet (CU-35 FA-02). {0} = matches left.</comment>
+  </data>
+  <data name="Leaderboard.PageFormat" xml:space="preserve">
+    <value>page {0}</value>
+    <comment>{0} = page number.</comment>
+  </data>
+  <data name="Leaderboard.PlayerHeader" xml:space="preserve">
+    <value>PLAYER</value>
+    <comment>Column header: player name.</comment>
+  </data>
+  <data name="Leaderboard.PositionHeader" xml:space="preserve">
+    <value>#</value>
+    <comment>Column header: position.</comment>
+  </data>
+  <data name="Leaderboard.PreviousButton" xml:space="preserve">
+    <value>&lt; PREVIOUS</value>
+    <comment>Previous page.</comment>
+  </data>
+  <data name="Leaderboard.Subtitle" xml:space="preserve">
+    <value>THE RANKING</value>
+    <comment>CU-35 main flow step 4.</comment>
+  </data>
+  <data name="Leaderboard.WinsHeader" xml:space="preserve">
+    <value>WINS</value>
+    <comment>Column header: ranked matches won.</comment>
+  </data>
+  <data name="Leaderboard.YouLabel" xml:space="preserve">
+    <value>You</value>
+    <comment>Marks the player own pinned row.</comment>
+  </data>
+  <data name="Lesson.BOARD_AND_GOAL" xml:space="preserve">
+    <value>The board and the goal</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Lesson.CLOCK" xml:space="preserve">
+    <value>The clock</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Lesson.FOUR_PLAYERS" xml:space="preserve">
+    <value>Four-player match</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Lesson.JUMP_OPPONENT" xml:space="preserve">
+    <value>Jumping the opponent</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Lesson.MOVE_PAWN" xml:space="preserve">
+    <value>Moving the pawn</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Lesson.PLACE_WALLS" xml:space="preserve">
+    <value>Placing walls</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="Lesson.WALLS_NO_TRAP" xml:space="preserve">
+    <value>Walls that do not trap</value>
+    <comment>Catalog name, key = table.code (D-21).</comment>
+  </data>
+  <data name="LinkAccount.Notice" xml:space="preserve">
+    <value>Your progress is kept: elo, coins, items and matches.</value>
+    <comment>States which progress survives the link (CU-07).</comment>
+  </data>
+  <data name="LinkAccount.Subtitle" xml:space="preserve">
+    <value>LINK YOUR ACCOUNT</value>
+    <comment>Subtitle of GUI_LinkAccount.</comment>
+  </data>
+  <data name="LinkType.DISCORD" xml:space="preserve">
+    <value>discord</value>
+    <comment>Link type. Brand name, not translated.</comment>
+  </data>
+  <data name="LinkType.OTHER" xml:space="preserve">
+    <value>other</value>
+    <comment>Link type for any other site.</comment>
+  </data>
+  <data name="LinkType.TWITCH" xml:space="preserve">
+    <value>twitch</value>
+    <comment>Link type. Brand name, not translated.</comment>
+  </data>
+  <data name="LinkType.YOUTUBE" xml:space="preserve">
+    <value>youtube</value>
+    <comment>Link type. Brand name, not translated.</comment>
+  </data>
+  <data name="Login.AccountBanned" xml:space="preserve">
+    <value>your account is banned</value>
+    <comment>Account status BANNED (CU-01 RN-04).</comment>
+  </data>
+  <data name="Login.AccountLocked" xml:space="preserve">
+    <value>your account is locked for {0} more minutes</value>
+    <comment>Shown when too many failed attempts locked the account (CU-01 FA-07). {0} = minutes left.</comment>
+  </data>
+  <data name="Login.AccountPending" xml:space="preserve">
+    <value>your account has not been verified yet</value>
+    <comment>Account status PENDING (CU-01 RN-04).</comment>
+  </data>
+  <data name="Login.AccountSuspended" xml:space="preserve">
+    <value>your account is suspended</value>
+    <comment>Account status SUSPENDED (CU-01 RN-04).</comment>
+  </data>
+  <data name="Login.CreateAccountButton" xml:space="preserve">
+    <value>CREATE ACCOUNT</value>
+    <comment>Leads to CU-02.</comment>
+  </data>
+  <data name="Login.CredentialsRejected" xml:space="preserve">
+    <value>that player name or password is wrong</value>
+    <comment>CU-01 alternate flow: one message for both, so the field that failed is not revealed.</comment>
+  </data>
+  <data name="Login.ForgotLink" xml:space="preserve">
+    <value>I FORGOT MY PASSWORD</value>
+    <comment>Leads to CU-03.</comment>
+  </data>
+  <data name="Login.GuestButton" xml:space="preserve">
+    <value>PLAY AS A GUEST</value>
+    <comment>Leads to CU-06. As a guest no elo and no items are kept.</comment>
+  </data>
+  <data name="Login.IdentifierLabel" xml:space="preserve">
+    <value>PLAYER NAME OR EMAIL</value>
+    <comment>One field for both: CU-01 accepts either identifier.</comment>
+  </data>
+  <data name="Login.IdentifierPlaceholder" xml:space="preserve">
+    <value>how we know you</value>
+    <comment>Hint of the identifier field.</comment>
+  </data>
+  <data name="Login.IdentifierRequired" xml:space="preserve">
+    <value>type your player name or email</value>
+    <comment>Under the empty identifier field.</comment>
+  </data>
+  <data name="Login.PasswordLabel" xml:space="preserve">
+    <value>PASSWORD</value>
+    <comment>Label of the password field.</comment>
+  </data>
+  <data name="Login.PasswordPlaceholder" xml:space="preserve">
+    <value>your password</value>
+    <comment>Hint of the password field.</comment>
+  </data>
+  <data name="Login.PasswordRequired" xml:space="preserve">
+    <value>type your password</value>
+    <comment>Under the empty password field.</comment>
+  </data>
+  <data name="Login.SignInButton" xml:space="preserve">
+    <value>SIGN IN</value>
+    <comment>Primary action of CU-01.</comment>
+  </data>
+  <data name="Login.SignInDetail" xml:space="preserve">
+    <value>with your player name or your email</value>
+    <comment>Second line of the primary button.</comment>
+  </data>
+  <data name="Login.SigningIn" xml:space="preserve">
+    <value>SIGNING IN...</value>
+    <comment>Sign-in button caption while the request is running.</comment>
+  </data>
+  <data name="Login.Subtitle" xml:space="preserve">
+    <value>SIGN IN TO YOUR ACCOUNT</value>
+    <comment>CU-01 main flow step 1.</comment>
+  </data>
+  <data name="Login.Success" xml:space="preserve">
+    <value>Welcome back, {0}.</value>
+    <comment>Shown after a successful sign-in. {0} = player name.</comment>
+  </data>
+  <data name="Logs.AccessOption" xml:space="preserve">
+    <value>ACCESS</value>
+    <comment>The BitacoraAcceso.</comment>
+  </data>
+  <data name="Logs.DatePlaceholder" xml:space="preserve">
+    <value>dd/mm/yyyy</value>
+    <comment>Hint of the date fields.</comment>
+  </data>
+  <data name="Logs.FromLabel" xml:space="preserve">
+    <value>FROM</value>
+    <comment>Start of the date range.</comment>
+  </data>
+  <data name="Logs.ModerationOption" xml:space="preserve">
+    <value>MODERATION</value>
+    <comment>The moderation log.</comment>
+  </data>
+  <data name="Logs.SearchButton" xml:space="preserve">
+    <value>SEARCH</value>
+    <comment>Primary action of CU-48.</comment>
+  </data>
+  <data name="Logs.Subtitle" xml:space="preserve">
+    <value>THE LOGS</value>
+    <comment>CU-48 main flow step 1.</comment>
+  </data>
+  <data name="Logs.ToLabel" xml:space="preserve">
+    <value>TO</value>
+    <comment>End of the date range.</comment>
+  </data>
+  <data name="Logs.WhichLabel" xml:space="preserve">
+    <value>WHICH LOG</value>
+    <comment>Access log or moderation log.</comment>
+  </data>
+  <data name="MainMenu.CoinsCaption" xml:space="preserve">
+    <value>COINS</value>
+    <comment>Caption of the coin balance tile.</comment>
+  </data>
+  <data name="MainMenu.CustomizeButton" xml:space="preserve">
+    <value>CUSTOMIZE</value>
+    <comment>Small button of the main menu.</comment>
+  </data>
+  <data name="MainMenu.EloCaption" xml:space="preserve">
+    <value>ELO</value>
+    <comment>Caption of the elo tile. Proper name: not translated.</comment>
+  </data>
+  <data name="MainMenu.FindMatchButton" xml:space="preserve">
+    <value>FIND MATCH</value>
+    <comment>Primary action of the main menu.</comment>
+  </data>
+  <data name="MainMenu.FindMatchDetail" xml:space="preserve">
+    <value>against someone at your level</value>
+    <comment>Second line of the find match button. Must not wrap.</comment>
+  </data>
+  <data name="MainMenu.FriendsButton" xml:space="preserve">
+    <value>FRIENDS</value>
+    <comment>Small button of the main menu.</comment>
+  </data>
+  <data name="MainMenu.HistoryButton" xml:space="preserve">
+    <value>HISTORY</value>
+    <comment>Small button of the main menu.</comment>
+  </data>
+  <data name="MainMenu.HowToPlayButton" xml:space="preserve">
+    <value>HOW TO PLAY</value>
+    <comment>Opens the tutorial index.</comment>
+  </data>
+  <data name="MainMenu.LevelFormat" xml:space="preserve">
+    <value>level {0}</value>
+    <comment>{0} is the player level.</comment>
+  </data>
+  <data name="MainMenu.ModerationButton" xml:space="preserve">
+    <value>MODERATION</value>
+    <comment>Entry to the moderation tools from the home hub.</comment>
+  </data>
+  <data name="MainMenu.PrivateButton" xml:space="preserve">
+    <value>PRIVATE MATCH</value>
+    <comment>Opens GUI_PrivateMatch.</comment>
+  </data>
+  <data name="MainMenu.PrivateDetail" xml:space="preserve">
+    <value>with a code</value>
+    <comment>Second line of the private match button.</comment>
+  </data>
+  <data name="MainMenu.RankingButton" xml:space="preserve">
+    <value>LEADERBOARD</value>
+    <comment>Small button of the main menu.</comment>
+  </data>
+  <data name="MainMenu.SettingsButton" xml:space="preserve">
+    <value>SETTINGS</value>
+    <comment>Opens the settings.</comment>
+  </data>
+  <data name="MainMenu.ShopButton" xml:space="preserve">
+    <value>SHOP</value>
+    <comment>Small button of the main menu.</comment>
+  </data>
+  <data name="MainMenu.StreakCaption" xml:space="preserve">
+    <value>STREAK</value>
+    <comment>Caption of the current streak tile.</comment>
+  </data>
+  <data name="MainMenu.Subtitle" xml:space="preserve">
+    <value>MAIN MENU</value>
+    <comment>Subtitle of GUI_MainMenu.</comment>
+  </data>
+  <data name="MainMenu.VersusAiButton" xml:space="preserve">
+    <value>VERSUS AI</value>
+    <comment>Opens GUI_AIDifficulty.</comment>
+  </data>
+  <data name="MainMenu.VersusAiDetail" xml:space="preserve">
+    <value>practice at your own pace</value>
+    <comment>Second line of the versus AI button.</comment>
+  </data>
+  <data name="MainScreen.IndexButton" xml:space="preserve">
+    <value>ALL SCREENS</value>
+    <comment>Provisional entry to GUI_Menu, the index of every screen.</comment>
+  </data>
+  <data name="MainScreen.Intro" xml:space="preserve">
+    <value>Move your pawn to the other side and place walls to slow your rival down.</value>
+    <comment>Short pitch on the title screen. Wraps inside the card.</comment>
+  </data>
+  <data name="MainScreen.Subtitle" xml:space="preserve">
+    <value>WALLS AND PATHS</value>
+    <comment>Tagline under the wordmark on the title screen. Product name: not translated.</comment>
+  </data>
+  <data name="Match.BoardPlaceholder" xml:space="preserve">
+    <value>PLAY AREA</value>
+    <comment>Label of the board area, not drawn yet.</comment>
+  </data>
+  <data name="Match.ChatPlaceholder" xml:space="preserve">
+    <value>Type a message…</value>
+    <comment>Placeholder of the match chat field.</comment>
+  </data>
+  <data name="Match.ChatSampleOne" xml:space="preserve">
+    <value>Nice move!</value>
+    <comment>Placeholder message: chat comes from the server.</comment>
+  </data>
+  <data name="Match.ChatTitle" xml:space="preserve">
+    <value>Chat</value>
+    <comment>Heading of the match chat.</comment>
+  </data>
+  <data name="Match.DrawBody" xml:space="preserve">
+    <value>Do you want to offer your rival a draw?</value>
+    <comment>Body of the draw confirmation.</comment>
+  </data>
+  <data name="Match.DrawButton" xml:space="preserve">
+    <value>OFFER A DRAW</value>
+    <comment>Opens the draw confirmation (CU-22).</comment>
+  </data>
+  <data name="Match.DrawConfirmButton" xml:space="preserve">
+    <value>OFFER</value>
+    <comment>Confirm button of the draw dialog.</comment>
+  </data>
+  <data name="Match.MoveChip" xml:space="preserve">
+    <value>MOVE</value>
+    <comment>Chip that selects the move action.</comment>
+  </data>
+  <data name="Match.ResignBody" xml:space="preserve">
+    <value>Do you really want to resign? You will lose the match.</value>
+    <comment>Body of the resign confirmation.</comment>
+  </data>
+  <data name="Match.ResignButton" xml:space="preserve">
+    <value>RESIGN</value>
+    <comment>Opens the resign confirmation (CU-23).</comment>
+  </data>
+  <data name="Match.ResignConfirmButton" xml:space="preserve">
+    <value>RESIGN</value>
+    <comment>Confirm button of the resign dialog.</comment>
+  </data>
+  <data name="Match.Subtitle" xml:space="preserve">
+    <value>MATCH IN PROGRESS</value>
+    <comment>Subtitle of GUI_Match.</comment>
+  </data>
+  <data name="Match.TurnFormat" xml:space="preserve">
+    <value>TURN {0}</value>
+    <comment>{0} is the turn number.</comment>
+  </data>
+  <data name="Match.WallChip" xml:space="preserve">
+    <value>WALL</value>
+    <comment>Chip that selects the wall action.</comment>
+  </data>
+  <data name="MatchEnd.AddOpponentButton" xml:space="preserve">
+    <value>ADD OPPONENT</value>
+    <comment>Opens the card of the opponent.</comment>
+  </data>
+  <data name="MatchEnd.BackMenuButton" xml:space="preserve">
+    <value>BACK TO THE MENU</value>
+    <comment>Returns to the main menu.</comment>
+  </data>
+  <data name="MatchEnd.CoinsCaption" xml:space="preserve">
+    <value>COINS</value>
+    <comment>Caption of the coins tile.</comment>
+  </data>
+  <data name="MatchEnd.DefeatTitle" xml:space="preserve">
+    <value>DEFEAT</value>
+    <comment>Heading when the player loses.</comment>
+  </data>
+  <data name="MatchEnd.EloCaption" xml:space="preserve">
+    <value>ELO</value>
+    <comment>Caption of the elo change tile. Proper name: not translated.</comment>
+  </data>
+  <data name="MatchEnd.ExperienceCaption" xml:space="preserve">
+    <value>EXPERIENCE</value>
+    <comment>Caption of the experience tile.</comment>
+  </data>
+  <data name="MatchEnd.FindAnotherButton" xml:space="preserve">
+    <value>FIND ANOTHER</value>
+    <comment>Starts another search.</comment>
+  </data>
+  <data name="MatchEnd.VictoryTitle" xml:space="preserve">
+    <value>VICTORY!</value>
+    <comment>Heading when the player wins.</comment>
+  </data>
+  <data name="MatchEnd.WatchReplayButton" xml:space="preserve">
+    <value>WATCH REPLAY</value>
+    <comment>Opens GUI_Replay.</comment>
+  </data>
+  <data name="MatchHistory.Loss" xml:space="preserve">
+    <value>You lost</value>
+    <comment>Result of the row.</comment>
+  </data>
+  <data name="MatchHistory.Subtitle" xml:space="preserve">
+    <value>YOUR MATCHES</value>
+    <comment>CU-36 main flow step 4.</comment>
+  </data>
+  <data name="MatchHistory.Win" xml:space="preserve">
+    <value>You won</value>
+    <comment>Result of the row.</comment>
+  </data>
+  <data name="Matchmaking.BrowseNote" xml:space="preserve">
+    <value>You can keep using the game while you wait.</value>
+    <comment>Reminder that the search does not block the game (RN-08).</comment>
+  </data>
+  <data name="Matchmaking.ElapsedFormat" xml:space="preserve">
+    <value>You have been searching for {0}</value>
+    <comment>{0} is the elapsed time as m:ss.</comment>
+  </data>
+  <data name="Matchmaking.Subtitle" xml:space="preserve">
+    <value>LOOKING FOR A MATCH</value>
+    <comment>Subtitle of GUI_Matchmaking.</comment>
+  </data>
+  <data name="Matchmaking.Title" xml:space="preserve">
+    <value>Looking for your rival…</value>
+    <comment>Heading of the search panel.</comment>
+  </data>
+  <data name="ModerationQueue.ReviewButton" xml:space="preserve">
+    <value>REVIEW IT</value>
+    <comment>Opens CU-43 step 5.</comment>
+  </data>
+  <data name="ModerationQueue.Subtitle" xml:space="preserve">
+    <value>WAITING FOR REVIEW</value>
+    <comment>CU-43 main flow step 3.</comment>
+  </data>
+  <data name="OpponentDisconnected.BackButton" xml:space="preserve">
+    <value>BACK TO THE MATCH</value>
+    <comment>Keeps waiting.</comment>
+  </data>
+  <data name="OpponentDisconnected.ClaimButton" xml:space="preserve">
+    <value>CLAIM THE WIN</value>
+    <comment>Enabled after sixty seconds.</comment>
+  </data>
+  <data name="OpponentDisconnected.ElapsedFormat" xml:space="preserve">
+    <value>Offline for {0}</value>
+    <comment>{0} is the elapsed time as m:ss.</comment>
+  </data>
+  <data name="OpponentDisconnected.Hint" xml:space="preserve">
+    <value>If they do not come back, you can claim the win after 60 seconds.</value>
+    <comment>Explains when the claim unlocks (RN-03).</comment>
+  </data>
+  <data name="OpponentDisconnected.Title" xml:space="preserve">
+    <value>YOUR RIVAL DISCONNECTED</value>
+    <comment>Heading of the panel over the board.</comment>
+  </data>
+  <data name="PendingVerification.AcceptButton" xml:space="preserve">
+    <value>OK</value>
+    <comment>Returns to the sign in.</comment>
+  </data>
+  <data name="PendingVerification.NoticeFormat" xml:space="preserve">
+    <value>We sent an email to {0}. Open it to activate your account.</value>
+    <comment>{0} is the masked email address.</comment>
+  </data>
+  <data name="PendingVerification.ResendButton" xml:space="preserve">
+    <value>RESEND VERIFICATION EMAIL</value>
+    <comment>Sends the verification email again.</comment>
+  </data>
+  <data name="PendingVerification.ResentBody" xml:space="preserve">
+    <value>Done, we sent you another email.</value>
+    <comment>Body of the message after resending.</comment>
+  </data>
+  <data name="PendingVerification.Subtitle" xml:space="preserve">
+    <value>VERIFY YOUR EMAIL</value>
+    <comment>Subtitle of GUI_PendingVerification.</comment>
+  </data>
+  <data name="PlayerCard.AddFriendButton" xml:space="preserve">
+    <value>ADD AS A FRIEND</value>
+    <comment>Leads to CU-30.</comment>
+  </data>
+  <data name="PlayerCard.HeadToHeadCaption" xml:space="preserve">
+    <value>BETWEEN YOU TWO</value>
+    <comment>Caption of the head to head score.</comment>
+  </data>
+  <data name="PlayerCard.ReportButton" xml:space="preserve">
+    <value>REPORT</value>
+    <comment>CU-42 entry from another player's card.</comment>
+  </data>
+  <data name="PlayerCard.Subtitle" xml:space="preserve">
+    <value>ANOTHER PLAYER</value>
+    <comment>CU-16 main flow step 4.</comment>
+  </data>
+  <data name="PlayerCard.WatchButton" xml:space="preserve">
+    <value>WATCH</value>
+    <comment>CU-40 entry from another player's card.</comment>
+  </data>
+  <data name="PrivateMatch.CodeLabel" xml:space="preserve">
+    <value>ROOM CODE</value>
+    <comment>Label of the code field.</comment>
+  </data>
+  <data name="PrivateMatch.CodePlaceholder" xml:space="preserve">
+    <value>K4M93X</value>
+    <comment>Example code, six characters. Same in both languages.</comment>
+  </data>
+  <data name="PrivateMatch.CodeRequired" xml:space="preserve">
+    <value>type the six-character code</value>
+    <comment>Warning under the room code field when it is too short (CU-19 RN-02).</comment>
+  </data>
+  <data name="PrivateMatch.CreateButton" xml:space="preserve">
+    <value>CREATE ROOM</value>
+    <comment>Opens the waiting room as host.</comment>
+  </data>
+  <data name="PrivateMatch.CreateHint" xml:space="preserve">
+    <value>Create a room and share the code with your friends.</value>
+    <comment>Explains the create column.</comment>
+  </data>
+  <data name="PrivateMatch.CreateTitle" xml:space="preserve">
+    <value>CREATE A ROOM</value>
+    <comment>Heading of the create column.</comment>
+  </data>
+  <data name="PrivateMatch.JoinButton" xml:space="preserve">
+    <value>ENTER</value>
+    <comment>Opens the waiting room as guest.</comment>
+  </data>
+  <data name="PrivateMatch.JoinTitle" xml:space="preserve">
+    <value>JOIN WITH A CODE</value>
+    <comment>Heading of the join column.</comment>
+  </data>
+  <data name="PrivateMatch.Subtitle" xml:space="preserve">
+    <value>PRIVATE MATCH</value>
+    <comment>Subtitle of GUI_PrivateMatch.</comment>
+  </data>
+  <data name="Profile.AddLinkChip" xml:space="preserve">
+    <value>add +</value>
+    <comment>Dashed chip that opens GUI_EditProfile.</comment>
+  </data>
+  <data name="Profile.AvatarPlaceholder" xml:space="preserve">
+    <value>ICON</value>
+    <comment>Placeholder until the icon catalogue exists.</comment>
+  </data>
+  <data name="Profile.AverageLengthFormat" xml:space="preserve">
+    <value>average length {0} moves</value>
+    <comment>Footer of the by mode panel.</comment>
+  </data>
+  <data name="Profile.ByModeTitle" xml:space="preserve">
+    <value>by mode</value>
+    <comment>Title of the left panel (prototype 5a).</comment>
+  </data>
+  <data name="Profile.HeaderFormat" xml:space="preserve">
+    <value>{0} · level {1} · since {2}</value>
+    <comment>{0} equipped title, {1} level, {2} registration month formatted by CurrentCulture.</comment>
+  </data>
+  <data name="Profile.LinksTitle" xml:space="preserve">
+    <value>links</value>
+    <comment>Label of the links bar.</comment>
+  </data>
+  <data name="Profile.MatchesTile" xml:space="preserve">
+    <value>matches</value>
+    <comment>Caption of the first stat tile.</comment>
+  </data>
+  <data name="Profile.ModeStatFormat" xml:space="preserve">
+    <value>{0} · {1}</value>
+    <comment>Per mode row. {0} count, {1} percentage formatted by CurrentCulture.</comment>
+  </data>
+  <data name="Profile.NoTitle" xml:space="preserve">
+    <value>no title</value>
+    <comment>Dashed chip: the player equips no title.</comment>
+  </data>
+  <data name="Profile.SeeAllLink" xml:space="preserve">
+    <value>see all &gt;</value>
+    <comment>Footer of the titles panel. Leads to GUI_Customize, not built yet.</comment>
+  </data>
+  <data name="Profile.StreakTile" xml:space="preserve">
+    <value>best streak</value>
+    <comment>Caption of the third stat tile.</comment>
+  </data>
+  <data name="Profile.Subtitle" xml:space="preserve">
+    <value>Your profile</value>
+    <comment>Menu entry for GUI_Profile.</comment>
+  </data>
+  <data name="Profile.TitlesTitle" xml:space="preserve">
+    <value>titles</value>
+    <comment>Title of the right panel.</comment>
+  </data>
+  <data name="Profile.TopEloTile" xml:space="preserve">
+    <value>top elo</value>
+    <comment>Caption of the fourth stat tile.</comment>
+  </data>
+  <data name="Profile.WinsTile" xml:space="preserve">
+    <value>wins</value>
+    <comment>Caption of the second stat tile: a percentage.</comment>
+  </data>
+  <data name="PurchaseConfirm.BalanceLabel" xml:space="preserve">
+    <value>YOU HAVE</value>
+    <comment>The balance before the purchase.</comment>
+  </data>
+  <data name="PurchaseConfirm.Button" xml:space="preserve">
+    <value>BUY</value>
+    <comment>Primary action of CU-38.</comment>
+  </data>
+  <data name="PurchaseConfirm.ItemLabel" xml:space="preserve">
+    <value>WHAT YOU ARE BUYING</value>
+    <comment>The item.</comment>
+  </data>
+  <data name="PurchaseConfirm.PriceLabel" xml:space="preserve">
+    <value>PRICE</value>
+    <comment>The price in coins.</comment>
+  </data>
+  <data name="PurchaseConfirm.RemainingLabel" xml:space="preserve">
+    <value>YOU WILL HAVE</value>
+    <comment>CU-38 RN-07 asks for the resulting balance.</comment>
+  </data>
+  <data name="PurchaseConfirm.Subtitle" xml:space="preserve">
+    <value>CONFIRM YOUR PURCHASE</value>
+    <comment>CU-38 main flow step 4.</comment>
+  </data>
+  <data name="Register.BirthDateFuture" xml:space="preserve">
+    <value>that date has not happened yet</value>
+    <comment>The date of birth is later than today.</comment>
+  </data>
+  <data name="Register.BirthDateInvalid" xml:space="preserve">
+    <value>that date does not exist</value>
+    <comment>Day, month and year do not form a calendar date.</comment>
+  </data>
+  <data name="Register.BirthDateLabel" xml:space="preserve">
+    <value>DATE OF BIRTH</value>
+    <comment>Label shared by the three date fields.</comment>
+  </data>
+  <data name="Register.CancelButton" xml:space="preserve">
+    <value>CANCEL</value>
+    <comment>CU-02 FA-01.</comment>
+  </data>
+  <data name="Register.CheckTheForm" xml:space="preserve">
+    <value>Some fields need a look before we can create the account.</value>
+    <comment>Alert shown when the form is sent with errors.</comment>
+  </data>
+  <data name="Register.ConfirmationLabel" xml:space="preserve">
+    <value>CONFIRM PASSWORD</value>
+    <comment>Label of the confirmation field.</comment>
+  </data>
+  <data name="Register.ConfirmationMismatch" xml:space="preserve">
+    <value>the passwords do not match</value>
+    <comment>CU-02 FA-03.</comment>
+  </data>
+  <data name="Register.ConfirmationPlaceholder" xml:space="preserve">
+    <value>type it again</value>
+    <comment>Hint text of the confirmation field.</comment>
+  </data>
+  <data name="Register.CreateButton" xml:space="preserve">
+    <value>CREATE ACCOUNT</value>
+    <comment>CU-02 main flow step 2, primary option.</comment>
+  </data>
+  <data name="Register.CreateButtonDetail" xml:space="preserve">
+    <value>we will send you an email to activate it</value>
+    <comment>Second line of the primary button. Announces the verification token of main flow step 20.</comment>
+  </data>
+  <data name="Register.Creating" xml:space="preserve">
+    <value>CREATING...</value>
+    <comment>Create button caption while the request is running.</comment>
+  </data>
+  <data name="Register.DayPlaceholder" xml:space="preserve">
+    <value>dd</value>
+    <comment>Day hint. Two letters: the field is narrow.</comment>
+  </data>
+  <data name="Register.DiscardBody" xml:space="preserve">
+    <value>If you leave now you lose what you typed in the form.</value>
+    <comment>CU-02 FA-01 step 2.</comment>
+  </data>
+  <data name="Register.DiscardButton" xml:space="preserve">
+    <value>DISCARD</value>
+    <comment>CU-02 FA-01: leaves and clears the form.</comment>
+  </data>
+  <data name="Register.EmailInvalid" xml:space="preserve">
+    <value>that does not look like an email address</value>
+    <comment>CU-02 FA-04.</comment>
+  </data>
+  <data name="Register.EmailLabel" xml:space="preserve">
+    <value>EMAIL ADDRESS</value>
+    <comment>Label of the email field.</comment>
+  </data>
+  <data name="Register.EmailPlaceholder" xml:space="preserve">
+    <value>you@email.com</value>
+    <comment>Sample address, adapted per language.</comment>
+  </data>
+  <data name="Register.EmailTaken" xml:space="preserve">
+    <value>there is already an account with that email</value>
+    <comment>CU-02 FA-05: the server reported a duplicate email.</comment>
+  </data>
+  <data name="Register.KeepEditingButton" xml:space="preserve">
+    <value>KEEP EDITING</value>
+    <comment>CU-02 FA-01: stays on the form.</comment>
+  </data>
+  <data name="Register.MonthPlaceholder" xml:space="preserve">
+    <value>mm</value>
+    <comment>Month hint. Two letters: the field is narrow.</comment>
+  </data>
+  <data name="Register.NicknameInvalid" xml:space="preserve">
+    <value>only letters, digits and underscore</value>
+    <comment>CU-02 RN-04: the shape of a nickname.</comment>
+  </data>
+  <data name="Register.NicknameLabel" xml:space="preserve">
+    <value>PLAYER NAME</value>
+    <comment>Label of the nickname field.</comment>
+  </data>
+  <data name="Register.NicknameLength" xml:space="preserve">
+    <value>use 3 to 30 characters</value>
+    <comment>CU-02 FA-03, RN-01.</comment>
+  </data>
+  <data name="Register.NicknamePlaceholder" xml:space="preserve">
+    <value>3 to 30 characters</value>
+    <comment>Hint text. The bound comes from CU-02 RN-01 and from Usuario.nickname NVARCHAR(30).</comment>
+  </data>
+  <data name="Register.NicknameTaken" xml:space="preserve">
+    <value>that player name is already taken</value>
+    <comment>CU-02 FA-05: the server reported a duplicate nickname.</comment>
+  </data>
+  <data name="Register.PasswordLabel" xml:space="preserve">
+    <value>PASSWORD</value>
+    <comment>Label of the password field.</comment>
+  </data>
+  <data name="Register.PasswordPlaceholder" xml:space="preserve">
+    <value>at least 8 characters</value>
+    <comment>Hint text. The minimum comes from CU-02 RN-03.</comment>
+  </data>
+  <data name="Register.PasswordPolicy" xml:space="preserve">
+    <value>mix upper case, lower case, digits or symbols: at least three of the four</value>
+    <comment>CU-02 RN-03: three character groups.</comment>
+  </data>
+  <data name="Register.PasswordTooShort" xml:space="preserve">
+    <value>use at least 8 characters</value>
+    <comment>CU-02 FA-03, RN-03.</comment>
+  </data>
+  <data name="Register.Rejected" xml:space="preserve">
+    <value>The account could not be created. Try again.</value>
+    <comment>CU-02 alternate flow: the server refused.</comment>
+  </data>
+  <data name="Register.ServerUnreachable" xml:space="preserve">
+    <value>We could not reach the server. Try again in a moment.</value>
+    <comment>CU-02 alternate flow: no answer.</comment>
+  </data>
+  <data name="Register.Subtitle" xml:space="preserve">
+    <value>CREATE YOUR ACCOUNT</value>
+    <comment>CU-02 main flow step 1. Header subtitle.</comment>
+  </data>
+  <data name="Register.TermsLinkText" xml:space="preserve">
+    <value>terms of use</value>
+    <comment>Trailing part of RegisterTermsText painted as a link. Change one and you change the other.</comment>
+  </data>
+  <data name="Register.TermsRequired" xml:space="preserve">
+    <value>you have to accept the terms to continue</value>
+    <comment>CU-02 FA-07. Drawn under the checkbox.</comment>
+  </data>
+  <data name="Register.TermsText" xml:space="preserve">
+    <value>I accept the terms of use</value>
+    <comment>CU-02 main flow step 2. IMPORTANT: must end exactly with RegisterTermsLinkText, which is painted as a link.</comment>
+  </data>
+  <data name="Register.Underage" xml:space="preserve">
+    <value>you must be at least 8 years old</value>
+    <comment>CU-02 RN-05 and D-06.</comment>
+  </data>
+  <data name="Register.YearPlaceholder" xml:space="preserve">
+    <value>yyyy</value>
+    <comment>Year hint, in the convention of each language.</comment>
+  </data>
+  <data name="RegistrationSuccess.Detail" xml:space="preserve">
+    <value>you can close the game while you check it</value>
+    <comment>Second line of the primary button.</comment>
+  </data>
+  <data name="RegistrationSuccess.EmailLabel" xml:space="preserve">
+    <value>SENT TO</value>
+    <comment>Label of the masked address box.</comment>
+  </data>
+  <data name="RegistrationSuccess.Notice" xml:space="preserve">
+    <value>Your account is ready. Sign in with your player name or email.</value>
+    <comment>Notice body. Wraps to three lines.</comment>
+  </data>
+  <data name="RegistrationSuccess.SignInButton" xml:space="preserve">
+    <value>GO TO SIGN IN</value>
+    <comment>Primary option: returns to GUI_Login.</comment>
+  </data>
+  <data name="RegistrationSuccess.Subtitle" xml:space="preserve">
+    <value>ACCOUNT CREATED</value>
+    <comment>CU-02 main flow step 21. Header subtitle.</comment>
+  </data>
+  <data name="Replay.ExitButton" xml:space="preserve">
+    <value>EXIT</value>
+    <comment>Leaves the replay.</comment>
+  </data>
+  <data name="Replay.MoveFormat" xml:space="preserve">
+    <value>Move {0} of {1}</value>
+    <comment>{0} is the current move and {1} the total.</comment>
+  </data>
+  <data name="Replay.NextButton" xml:space="preserve">
+    <value>NEXT</value>
+    <comment>Goes forward one move.</comment>
+  </data>
+  <data name="Replay.NotationTitle" xml:space="preserve">
+    <value>NOTATION</value>
+    <comment>Heading of the notation panel.</comment>
+  </data>
+  <data name="Replay.PauseButton" xml:space="preserve">
+    <value>PAUSE</value>
+    <comment>Pauses the playback.</comment>
+  </data>
+  <data name="Replay.PlayButton" xml:space="preserve">
+    <value>PLAY</value>
+    <comment>Starts the playback.</comment>
+  </data>
+  <data name="Replay.PreviousButton" xml:space="preserve">
+    <value>PREVIOUS</value>
+    <comment>Goes back one move.</comment>
+  </data>
+  <data name="Replay.ResultFormat" xml:space="preserve">
+    <value>{0} won</value>
+    <comment>{0} is the winner nickname.</comment>
+  </data>
+  <data name="Replay.Title" xml:space="preserve">
+    <value>REPLAY</value>
+    <comment>Heading of GUI_Replay.</comment>
+  </data>
+  <data name="Report.DescriptionLabel" xml:space="preserve">
+    <value>TELL US MORE</value>
+    <comment>Optional description field.</comment>
+  </data>
+  <data name="Report.DescriptionPlaceholder" xml:space="preserve">
+    <value>optional</value>
+    <comment>Hint of the description.</comment>
+  </data>
+  <data name="Report.EvidenceNotice" xml:space="preserve">
+    <value>We will attach the match and the chat so a moderator can check what happened.</value>
+    <comment>CU-42 RN-02: the player is told what evidence travels with the report.</comment>
+  </data>
+  <data name="Report.ReasonAbuse" xml:space="preserve">
+    <value>Offensive messages</value>
+    <comment>One of the five reasons of CU-42.</comment>
+  </data>
+  <data name="Report.ReasonCheating" xml:space="preserve">
+    <value>Cheating</value>
+    <comment>One of the five reasons of CU-42.</comment>
+  </data>
+  <data name="Report.ReasonLeaving" xml:space="preserve">
+    <value>Leaves matches</value>
+    <comment>One of the five reasons of CU-42.</comment>
+  </data>
+  <data name="Report.ReasonName" xml:space="preserve">
+    <value>Inappropriate name</value>
+    <comment>One of the five reasons of CU-42.</comment>
+  </data>
+  <data name="Report.ReasonOther" xml:space="preserve">
+    <value>Something else</value>
+    <comment>One of the five reasons of CU-42.</comment>
+  </data>
+  <data name="Report.SendButton" xml:space="preserve">
+    <value>SEND THE REPORT</value>
+    <comment>Primary action of CU-42.</comment>
+  </data>
+  <data name="Report.Subtitle" xml:space="preserve">
+    <value>REPORT A PLAYER</value>
+    <comment>CU-42 main flow step 1.</comment>
+  </data>
+  <data name="ReportReview.DismissButton" xml:space="preserve">
+    <value>NO SANCTION</value>
+    <comment>Closes the report without sanction.</comment>
+  </data>
+  <data name="ReportReview.ReasonLabel" xml:space="preserve">
+    <value>REASON</value>
+    <comment>Label of the reported reason.</comment>
+  </data>
+  <data name="ReportReview.SanctionButton" xml:space="preserve">
+    <value>SANCTION</value>
+    <comment>Leads to CU-44.</comment>
+  </data>
+  <data name="ReportReview.Subtitle" xml:space="preserve">
+    <value>REVIEW THE REPORT</value>
+    <comment>CU-43 main flow step 5.</comment>
+  </data>
+  <data name="ResetPassword.CodeInvalid" xml:space="preserve">
+    <value>type the 6 character code from the email</value>
+    <comment>Under the code field.</comment>
+  </data>
+  <data name="ResetPassword.CodeLabel" xml:space="preserve">
+    <value>CODE FROM THE EMAIL</value>
+    <comment>Label of the code field.</comment>
+  </data>
+  <data name="ResetPassword.CodePlaceholder" xml:space="preserve">
+    <value>6 characters</value>
+    <comment>Hint of the code field.</comment>
+  </data>
+  <data name="ResetPassword.ConfirmLabel" xml:space="preserve">
+    <value>CONFIRM PASSWORD</value>
+    <comment>Label of the confirmation.</comment>
+  </data>
+  <data name="ResetPassword.ConfirmPlaceholder" xml:space="preserve">
+    <value>type it again</value>
+    <comment>Hint of the confirmation.</comment>
+  </data>
+  <data name="ResetPassword.DoneBody" xml:space="preserve">
+    <value>Password changed. Sign in with the new one.</value>
+    <comment>Success dialog over GUI_Login.</comment>
+  </data>
+  <data name="ResetPassword.NewLabel" xml:space="preserve">
+    <value>NEW PASSWORD</value>
+    <comment>Label of the new password.</comment>
+  </data>
+  <data name="ResetPassword.NewPlaceholder" xml:space="preserve">
+    <value>at least 8 characters</value>
+    <comment>Hint. CU-02 RN-03.</comment>
+  </data>
+  <data name="ResetPassword.ResendButton" xml:space="preserve">
+    <value>RESEND</value>
+    <comment>Enabled after five minutes (CU-03 RN-06).</comment>
+  </data>
+  <data name="ResetPassword.ResendInFormat" xml:space="preserve">
+    <value>RESEND IN {0}</value>
+    <comment>Disabled button while CU-03 RN-06 forbids a resend. {0} is m:ss.</comment>
+  </data>
+  <data name="ResetPassword.SaveButton" xml:space="preserve">
+    <value>CHANGE PASSWORD</value>
+    <comment>Primary option, as CU-03 step 12 names it.</comment>
+  </data>
+  <data name="ResetPassword.SentFormat" xml:space="preserve">
+    <value>check {0}. look in spam too.</value>
+    <comment>{0} is the masked address.</comment>
+  </data>
+  <data name="ResetPassword.SentTitle" xml:space="preserve">
+    <value>email sent</value>
+    <comment>Centered heading (prototype 9b).</comment>
+  </data>
+  <data name="ResetPassword.SessionsNote" xml:space="preserve">
+    <value>when you save, your other sessions are closed</value>
+    <comment>CU-03 RN-07, under the strength meter.</comment>
+  </data>
+  <data name="ResetPassword.Subtitle" xml:space="preserve">
+    <value>New password</value>
+    <comment>CU-03 main flow step 8.</comment>
+  </data>
+  <data name="SecondFactor.CodeLabel" xml:space="preserve">
+    <value>VERIFICATION CODE</value>
+    <comment>Label of the code field.</comment>
+  </data>
+  <data name="SecondFactor.CodePlaceholder" xml:space="preserve">
+    <value>000000</value>
+    <comment>Example code. Same in both languages.</comment>
+  </data>
+  <data name="SecondFactor.ExpiresFormat" xml:space="preserve">
+    <value>The code expires in {0}</value>
+    <comment>{0} is the time left as m:ss.</comment>
+  </data>
+  <data name="SecondFactor.Hint" xml:space="preserve">
+    <value>We sent a 6-digit code to your email.</value>
+    <comment>Tells where the code went.</comment>
+  </data>
+  <data name="SecondFactor.ResendButton" xml:space="preserve">
+    <value>RESEND CODE</value>
+    <comment>Requests a new code.</comment>
+  </data>
+  <data name="SecondFactor.ResentBody" xml:space="preserve">
+    <value>We sent you a new code.</value>
+    <comment>Body of the message after resending.</comment>
+  </data>
+  <data name="SecondFactor.Subtitle" xml:space="preserve">
+    <value>ACCESS VERIFICATION</value>
+    <comment>Subtitle of GUI_SecondFactor.</comment>
+  </data>
+  <data name="SecondFactor.VerifyButton" xml:space="preserve">
+    <value>VERIFY</value>
+    <comment>Checks the code.</comment>
+  </data>
+  <data name="SelectMode.ClockFormat" xml:space="preserve">
+    <value>{0} minutes</value>
+    <comment>{0} is the clock length in minutes.</comment>
+  </data>
+  <data name="SelectMode.ClockLabel" xml:space="preserve">
+    <value>CLOCK</value>
+    <comment>Heading of the clock list.</comment>
+  </data>
+  <data name="SelectMode.ModeLabel" xml:space="preserve">
+    <value>MODE</value>
+    <comment>Heading of the mode list.</comment>
+  </data>
+  <data name="SelectMode.SearchButton" xml:space="preserve">
+    <value>SEARCH</value>
+    <comment>Starts the search for a match.</comment>
+  </data>
+  <data name="SelectMode.Subtitle" xml:space="preserve">
+    <value>CHOOSE HOW TO PLAY</value>
+    <comment>Subtitle of GUI_SelectMode.</comment>
+  </data>
+  <data name="Settings.AccessibilityEntry" xml:space="preserve">
+    <value>accessibility</value>
+    <comment>Sidebar entry. Disabled: no use case yet.</comment>
+  </data>
+  <data name="Settings.AccountEntry" xml:space="preserve">
+    <value>account</value>
+    <comment>Sidebar entry that shows the account panel.</comment>
+  </data>
+  <data name="Settings.AudioEntry" xml:space="preserve">
+    <value>audio</value>
+    <comment>Sidebar entry. Disabled: no use case yet.</comment>
+  </data>
+  <data name="Settings.BoardEntry" xml:space="preserve">
+    <value>3D board</value>
+    <comment>Sidebar entry. Disabled: no use case yet.</comment>
+  </data>
+  <data name="Settings.ChatNote" xml:space="preserve">
+    <value>chat is not translated</value>
+    <comment>Note at the bottom of the language panel (D-21, CU-28 RN-12).</comment>
+  </data>
+  <data name="Settings.CurrentTag" xml:space="preserve">
+    <value>current</value>
+    <comment>Tag beside the language in use.</comment>
+  </data>
+  <data name="Settings.DeleteHint" xml:space="preserve">
+    <value>elo, skins and coins are gone. there is no way back.</value>
+    <comment>Hint of the dashed box (prototype 9f).</comment>
+  </data>
+  <data name="Settings.DeleteTitle" xml:space="preserve">
+    <value>delete account</value>
+    <comment>Title of the dashed box that opens GUI_DeleteAccount.</comment>
+  </data>
+  <data name="Settings.EmailRow" xml:space="preserve">
+    <value>email</value>
+    <comment>Row title.</comment>
+  </data>
+  <data name="Settings.EmailVerified" xml:space="preserve">
+    <value>verified</value>
+    <comment>Row subtitle when estado_cuenta is ACTIVA.</comment>
+  </data>
+  <data name="Settings.FriendCodeRow" xml:space="preserve">
+    <value>friend code</value>
+    <comment>Row title (CU-30).</comment>
+  </data>
+  <data name="Settings.Heading" xml:space="preserve">
+    <value>settings</value>
+    <comment>Heading of the sidebar (prototypes 9f and 12c).</comment>
+  </data>
+  <data name="Settings.InterfaceLanguageLabel" xml:space="preserve">
+    <value>interface language</value>
+    <comment>Label over the language list (prototype 12c).</comment>
+  </data>
+  <data name="Settings.LanguageEntry" xml:space="preserve">
+    <value>language</value>
+    <comment>Sidebar entry that shows the interface language panel.</comment>
+  </data>
+  <data name="Settings.PasswordChangedFormat" xml:space="preserve">
+    <value>changed {0} months ago</value>
+    <comment>Row subtitle. {0} months since the last change.</comment>
+  </data>
+  <data name="Settings.PasswordRow" xml:space="preserve">
+    <value>password</value>
+    <comment>Row title.</comment>
+  </data>
+  <data name="Settings.SessionsCountFormat" xml:space="preserve">
+    <value>{0} devices</value>
+    <comment>Row subtitle.</comment>
+  </data>
+  <data name="Settings.SessionsRow" xml:space="preserve">
+    <value>active sessions</value>
+    <comment>Row title. Opens GUI_ActiveSessions (CU-10).</comment>
+  </data>
+  <data name="Settings.SignOutBody" xml:space="preserve">
+    <value>Do you want to sign out on this device?</value>
+    <comment>CU-05 main flow step 2.</comment>
+  </data>
+  <data name="Settings.SignOutButton" xml:space="preserve">
+    <value>SIGN OUT</value>
+    <comment>Full width outline button and primary option of its confirm (CU-05).</comment>
+  </data>
+  <data name="Shop.BoxButton" xml:space="preserve">
+    <value>BUY A BOX</value>
+    <comment>CU-39 entry from the shop.</comment>
+  </data>
+  <data name="Shop.BuyButton" xml:space="preserve">
+    <value>BUY IT</value>
+    <comment>Leads to CU-38 step 4.</comment>
+  </data>
+  <data name="Shop.Subtitle" xml:space="preserve">
+    <value>THE SHOP</value>
+    <comment>CU-38 main flow step 1.</comment>
+  </data>
+  <data name="Spectator.ChatPlaceholder" xml:space="preserve">
+    <value>Type a message…</value>
+    <comment>Placeholder of the chat field.</comment>
+  </data>
+  <data name="Spectator.ChatTitle" xml:space="preserve">
+    <value>Spectator chat</value>
+    <comment>Heading of the spectator chat.</comment>
+  </data>
+  <data name="Spectator.DelayFormat" xml:space="preserve">
+    <value>Delay: {0} s</value>
+    <comment>{0} is the spectator delay in seconds (D-19).</comment>
+  </data>
+  <data name="Spectator.LeaveButton" xml:space="preserve">
+    <value>LEAVE</value>
+    <comment>Stops watching.</comment>
+  </data>
+  <data name="Spectator.LiveTag" xml:space="preserve">
+    <value>LIVE</value>
+    <comment>Tag that marks a live match.</comment>
+  </data>
+  <data name="Spectator.MovesTitle" xml:space="preserve">
+    <value>MOVES</value>
+    <comment>Heading of the move list.</comment>
+  </data>
+  <data name="Spectator.Subtitle" xml:space="preserve">
+    <value>WATCHING THE MATCH</value>
+    <comment>Subtitle of GUI_Spectator.</comment>
+  </data>
+  <data name="Spectator.ViewersFormat" xml:space="preserve">
+    <value>{0} spectators</value>
+    <comment>{0} is the viewer count.</comment>
+  </data>
+  <data name="TutorialIndex.DoneTag" xml:space="preserve">
+    <value>Done</value>
+    <comment>State of a finished lesson.</comment>
+  </data>
+  <data name="TutorialIndex.ExitButton" xml:space="preserve">
+    <value>EXIT</value>
+    <comment>Leaves the tutorial.</comment>
+  </data>
+  <data name="TutorialIndex.InProgressTag" xml:space="preserve">
+    <value>In progress</value>
+    <comment>State of the lesson left half done.</comment>
+  </data>
+  <data name="TutorialIndex.PracticeButton" xml:space="preserve">
+    <value>PRACTICE VERSUS AI</value>
+    <comment>Opens GUI_AIDifficulty.</comment>
+  </data>
+  <data name="TutorialIndex.ProgressFormat" xml:space="preserve">
+    <value>{0} of {1} lessons</value>
+    <comment>{0} is how many lessons are done and {1} the total.</comment>
+  </data>
+  <data name="TutorialIndex.Subtitle" xml:space="preserve">
+    <value>HOW TO PLAY</value>
+    <comment>Subtitle of GUI_TutorialIndex.</comment>
+  </data>
+  <data name="VersusScreen.ClockFormat" xml:space="preserve">
+    <value>{0} min</value>
+    <comment>{0} is the clock length in minutes.</comment>
+  </data>
+  <data name="VersusScreen.EloFormat" xml:space="preserve">
+    <value>ELO {0}</value>
+    <comment>{0} is the elo of the player.</comment>
+  </data>
+  <data name="VersusScreen.SettingsFormat" xml:space="preserve">
+    <value>{0} · {1}</value>
+    <comment>{0} is the mode name and {1} the clock.</comment>
+  </data>
+  <data name="VersusScreen.StartButton" xml:space="preserve">
+    <value>START</value>
+    <comment>Opens the match.</comment>
+  </data>
+  <data name="VersusScreen.Subtitle" xml:space="preserve">
+    <value>WE FOUND A RIVAL!</value>
+    <comment>Subtitle of GUI_VersusScreen.</comment>
+  </data>
+  <data name="VersusScreen.VersusLabel" xml:space="preserve">
+    <value>VS</value>
+    <comment>Separator between the two players.</comment>
+  </data>
+  <data name="WaitingRoom.ChatPlaceholder" xml:space="preserve">
+    <value>Type a message…</value>
+    <comment>Placeholder of the room chat.</comment>
+  </data>
+  <data name="WaitingRoom.CodeLabel" xml:space="preserve">
+    <value>ROOM CODE</value>
+    <comment>Caption of the room code.</comment>
+  </data>
+  <data name="WaitingRoom.FreeSlot" xml:space="preserve">
+    <value>Waiting for a player…</value>
+    <comment>Text of an empty seat.</comment>
+  </data>
+  <data name="WaitingRoom.HostNote" xml:space="preserve">
+    <value>You can start when your rival is ready.</value>
+    <comment>Explains why the start button is disabled.</comment>
+  </data>
+  <data name="WaitingRoom.HostTag" xml:space="preserve">
+    <value>Host</value>
+    <comment>Tag of the room host.</comment>
+  </data>
+  <data name="WaitingRoom.LeaveBody" xml:space="preserve">
+    <value>Do you want to leave the room?</value>
+    <comment>Body of the leave confirmation.</comment>
+  </data>
+  <data name="WaitingRoom.LeaveButton" xml:space="preserve">
+    <value>LEAVE THE ROOM</value>
+    <comment>Leaves the room.</comment>
+  </data>
+  <data name="WaitingRoom.PlayersLabel" xml:space="preserve">
+    <value>PLAYERS</value>
+    <comment>Heading of the seat list.</comment>
+  </data>
+  <data name="WaitingRoom.ReadyButton" xml:space="preserve">
+    <value>I AM READY</value>
+    <comment>Guest action.</comment>
+  </data>
+  <data name="WaitingRoom.StartButton" xml:space="preserve">
+    <value>START MATCH</value>
+    <comment>Host action, disabled until all are ready.</comment>
+  </data>
+  <data name="WaitingRoom.Subtitle" xml:space="preserve">
+    <value>WAITING ROOM</value>
+    <comment>Subtitle of GUI_WaitingRoom.</comment>
+  </data>
+  <data name="WaitingRoom.YouTag" xml:space="preserve">
+    <value>You</value>
+    <comment>Tag of the own seat.</comment>
+  </data>
+  <data name="Window.Title" xml:space="preserve">
+    <value>Bastión</value>
+    <comment>Window caption. Product name: not translated.</comment>
+  </data>
+  <data name="Shop.Empty" xml:space="preserve">
+    <value>The shop has no items to show yet.</value>
+    <comment>Shown in place of the item grid until the server sends the catalogue.</comment>
+  </data>
+  <data name="CoinHistory.Empty" xml:space="preserve">
+    <value>You have no coin movements yet.</value>
+    <comment>Shown in place of the movement list.</comment>
+  </data>
+  <data name="ModerationQueue.Empty" xml:space="preserve">
+    <value>There are no reports or appeals waiting.</value>
+    <comment>Shown in place of the queue rows.</comment>
+  </data>
+  <data name="Logs.Empty" xml:space="preserve">
+    <value>No records to show.</value>
+    <comment>Shown in place of the log records.</comment>
+  </data>
+  <data name="PendingVerification.Notice" xml:space="preserve">
+    <value>We sent you an email. Open it to activate your account.</value>
+    <comment>Notice shown when no email address reached the screen.</comment>
+  </data>
+  <data name="ActiveSessions.Empty" xml:space="preserve">
+    <value>No active sessions to show.</value>
+    <comment>Empty-state line when the session list has no rows.</comment>
+  </data>
+  <data name="Friends.Empty" xml:space="preserve">
+    <value>You have not added any friends yet.</value>
+    <comment>Muted line where the first friend row would be, while the list is empty.</comment>
+  </data>
+  <data name="PlayerCard.Empty" xml:space="preserve">
+    <value>You have not played together yet.</value>
+    <comment>Muted line in place of the shared-matches rows on another player's card.</comment>
+  </data>
+  <data name="MatchHistory.Empty" xml:space="preserve">
+    <value>You have not played any matches yet.</value>
+    <comment>Empty-state line shown where the first match row would be.</comment>
   </data>
 </root>

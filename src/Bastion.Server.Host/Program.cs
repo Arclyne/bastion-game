@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using CoreWCF;
 using CoreWCF.Configuration;
 using log4net;
 using log4net.Config;
@@ -9,7 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Bastion.Contracts;
+using Bastion.Contracts.Accounts;
+using Bastion.Contracts.Leaderboard;
 using Bastion.Server.Data;
+using Bastion.Server.Services.Accounts;
+using Bastion.Server.Services.Leaderboard;
 
 namespace Bastion.Server.Host;
 
@@ -18,6 +24,7 @@ public static class Program
     private const string ConnectionStringName = "Bastion";
     private const string NetTcpPortKey = "Server:NetTcpPort";
     private const string LogConfigurationFileName = "log4net.config";
+    private const string RelativeAddressPrefix = "/";
 
     private static readonly ILog _logger = LogManager.GetLogger(typeof(Program));
 
@@ -25,6 +32,10 @@ public static class Program
     {
         ConfigureLogging();
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+        // User secrets load in every environment, not only Development, so a developer machine never needs the
+        // connection string in a file inside the repository.
+        builder.Configuration.AddUserSecrets(typeof(Program).Assembly, optional: true);
         string connectionString = GetConnectionString(builder.Configuration);
         int netTcpPort = GetNetTcpPort(builder.Configuration);
 
@@ -32,7 +43,9 @@ public static class Program
         builder.Logging.AddLog4Net(new Log4NetProviderOptions { ExternalConfigurationSetup = true });
         builder.WebHost.UseNetTcp(netTcpPort);
         builder.Services.AddServiceModelServices();
-        builder.Services.AddDbContext<BastionDbContext>(options => options.UseSqlServer(connectionString));
+        builder.Services.AddDbContextFactory<BastionDbContext>(options => options.UseSqlServer(connectionString));
+        builder.Services.AddBastionRepositories();
+        builder.Services.AddBastionServices();
 
         WebApplication app = builder.Build();
         app.UseServiceModel(RegisterServices);
@@ -74,5 +87,26 @@ public static class Program
     private static void RegisterServices(IServiceBuilder serviceBuilder)
     {
         ArgumentNullException.ThrowIfNull(serviceBuilder);
+
+        serviceBuilder.AddService<AccountService>();
+        serviceBuilder.AddServiceEndpoint<AccountService, IAccountService>(
+            CreateBinding(),
+            ToRelativeAddress(ServiceEndpoints.AccountsPath));
+        serviceBuilder.AddService<LeaderboardService>();
+        serviceBuilder.AddServiceEndpoint<LeaderboardService, ILeaderboardService>(
+            CreateBinding(),
+            ToRelativeAddress(ServiceEndpoints.LeaderboardPath));
+    }
+
+    // SecurityMode.None is required between macOS and Linux; it is compensated by server-side validation, hashed
+    // passwords and session tokens (see the stack decisions in the README).
+    private static NetTcpBinding CreateBinding()
+    {
+        return new NetTcpBinding(SecurityMode.None);
+    }
+
+    private static string ToRelativeAddress(string path)
+    {
+        return RelativeAddressPrefix + path;
     }
 }

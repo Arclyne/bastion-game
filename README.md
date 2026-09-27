@@ -15,7 +15,7 @@ Turn-based multiplayer desktop board game inspired by Quoridor. Final project fo
 | Logging | log4net |
 | Tests | xUnit v3 |
 
-Everything builds and runs on macOS arm64, Linux and Windows.
+Everything builds and runs on macOS arm64 and Windows.
 
 ## Solution layout
 
@@ -59,21 +59,34 @@ file named after the type.
 
 ## Getting started
 
-1. Install the .NET 10 SDK and Docker.
-2. Start SQL Server:
+1. Install the .NET 10 SDK and `sqlcmd`.
+2. Start SQL Server 2022:
+
+   - **Windows:** install SQL Server 2022 Developer, or run the container below with Docker Desktop.
+   - **macOS (Apple silicon):** there is no ARM image, so the x64 image runs under Rosetta. With Homebrew:
+
+     ```bash
+     brew install colima docker sqlcmd
+     colima start --vm-type vz --vz-rosetta --cpu 2 --memory 4
+     ```
 
    ```bash
-   docker run -d --name bastion-sql -e ACCEPT_EULA=Y -e MSSQL_SA_PASSWORD="<admin password>" -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest
+   docker run -d --name bastion-sql --platform linux/amd64 -e ACCEPT_EULA=Y -e MSSQL_PID=Developer -e MSSQL_SA_PASSWORD="<admin password>" -p 1433:1433 -v bastion-sql-data:/var/opt/mssql mcr.microsoft.com/mssql/server:2022-latest
    ```
 
-3. Run the scripts in `database/` in order, with an administrator account. The first one
-   creates the least-privilege login that the server uses:
+3. Run the scripts in `database/` in order, with an administrator account. The first one creates the
+   least-privilege login that the server uses. The files are UTF-8; with the classic ODBC `sqlcmd` on Windows add
+   `-f 65001`.
 
    ```bash
-   sqlcmd -S localhost -U sa -P "<admin password>" -C -f 65001 -v BastionServerPassword="<server password>" -i database/01_create_database.sql
-   sqlcmd -S localhost -U sa -P "<admin password>" -C -f 65001 -i database/02_create_tables.sql
-   sqlcmd -S localhost -U sa -P "<admin password>" -C -f 65001 -i database/03_insert_test_data.sql
+   sqlcmd -S localhost -U sa -P "<admin password>" -C -v BastionServerPassword="<server password>" -i database/01_create_database.sql
+   sqlcmd -S localhost -U sa -P "<admin password>" -C -i database/02_create_tables.sql
+   sqlcmd -S localhost -U sa -P "<admin password>" -C -i database/03_insert_test_data.sql
+   sqlcmd -S localhost -U sa -P "<admin password>" -C -i database/04_insert_leaderboard_demo.sql
    ```
+
+   The fourth script is optional: it adds demonstration players so the leaderboard has rows. The passwords of the
+   test accounts are listed in `03_insert_test_data.sql`.
 
 4. Give the server its connection string through user-secrets (or the `ConnectionStrings__Bastion`
    environment variable). It is never committed:
@@ -90,7 +103,18 @@ file named after the type.
    dotnet run --project src/Bastion.Client
    ```
 
-The server listens on the net.tcp port set in `src/Bastion.Server.Host/appsettings.json`.
+The server listens on the net.tcp port set in `src/Bastion.Server.Host/appsettings.json`. To reach a server on
+another machine, start the client with `BASTION_SERVER_HOST` (and `BASTION_SERVER_PORT` if it is not 8000).
+
+## Security notes
+
+- The net.tcp binding uses `SecurityMode.None` on both sides, because the default Windows authentication does not
+  work from macOS. This is compensated on the server: every rule is validated there, passwords are
+  stored only as PBKDF2-SHA512 hashes with a per-account salt, sign-in answers do not reveal whether an account
+  exists, repeated failures lock the account, and every later call is tied to a session token whose SHA-256 hash is
+  the only thing stored.
+- Only the server reaches the database, through the least-privilege `BastionServerConnection` login.
+- Secrets (connection string, database passwords) live in user-secrets or environment variables.
 
 ## Coding standard
 
