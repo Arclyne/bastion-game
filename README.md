@@ -73,7 +73,11 @@ file named after the type.
    sqlcmd -S localhost -U sa -P "<admin password>" -C -f 65001 -v BastionServerPassword="<server password>" -i database/01_create_database.sql
    sqlcmd -S localhost -U sa -P "<admin password>" -C -f 65001 -i database/02_create_tables.sql
    sqlcmd -S localhost -U sa -P "<admin password>" -C -f 65001 -i database/03_insert_test_data.sql
+   sqlcmd -S localhost -U sa -P "<admin password>" -C -f 65001 -i database/04_insert_leaderboard_demo.sql
    ```
+
+   The fourth script is optional: it adds demonstration players so the leaderboard has rows. The passwords of the
+   test accounts are listed in `03_insert_test_data.sql`.
 
 4. Give the server its connection string through user-secrets (or the `ConnectionStrings__Bastion`
    environment variable). It is never committed:
@@ -90,7 +94,18 @@ file named after the type.
    dotnet run --project src/Bastion.Client
    ```
 
-The server listens on the net.tcp port set in `src/Bastion.Server.Host/appsettings.json`.
+The server listens on the net.tcp port set in `src/Bastion.Server.Host/appsettings.json`. To reach a server on
+another machine, start the client with `BASTION_SERVER_HOST` (and `BASTION_SERVER_PORT` if it is not 8000).
+
+## Security notes
+
+- The net.tcp binding uses `SecurityMode.None` on both sides, because the default Windows authentication does not
+  work between macOS and Linux. This is compensated on the server: every rule is validated there, passwords are
+  stored only as PBKDF2-SHA512 hashes with a per-account salt, sign-in answers do not reveal whether an account
+  exists, repeated failures lock the account, and every later call is tied to a session token whose SHA-256 hash is
+  the only thing stored.
+- Only the server reaches the database, through the least-privilege `BastionServerConnection` login.
+- Secrets (connection string, database passwords) live in user-secrets or environment variables.
 
 ## Coding standard
 
