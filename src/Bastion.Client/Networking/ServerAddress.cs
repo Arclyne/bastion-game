@@ -1,0 +1,32 @@
+using System;
+using System.Globalization;
+using Bastion.Contracts;
+
+namespace Bastion.Client.Networking;
+
+// The server address can be overridden with BASTION_SERVER_HOST and BASTION_SERVER_PORT to play between two machines.
+public static class ServerAddress
+{
+    private const string HostVariable = "BASTION_SERVER_HOST";
+    private const string PortVariable = "BASTION_SERVER_PORT";
+
+    public static Uri Create(string path)
+    {
+        ArgumentNullException.ThrowIfNull(path);
+
+        return ServiceEndpoints.CreateAddress(GetHost(), GetPort(), path);
+    }
+
+    private static string GetHost()
+    {
+        string? host = Environment.GetEnvironmentVariable(HostVariable);
+        return string.IsNullOrWhiteSpace(host) ? ServiceEndpoints.DefaultHost : host;
+    }
+
+    private static int GetPort()
+    {
+        string? text = Environment.GetEnvironmentVariable(PortVariable);
+        bool isValid = int.TryParse(text, NumberStyles.None, CultureInfo.InvariantCulture, out int port) && port > 0;
+        return isValid ? port : ServiceEndpoints.DefaultPort;
+    }
+}
