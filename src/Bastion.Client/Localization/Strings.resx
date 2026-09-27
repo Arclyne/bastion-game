@@ -1481,7 +1481,7 @@
     <comment>CU-02 main flow step 2, primary option.</comment>
   </data>
   <data name="Register.CreateButtonDetail" xml:space="preserve">
-    <value>we will send you an email to activate it</value>
+    <value>you can sign in as soon as it is created</value>
     <comment>Second line of the primary button. Announces the verification token of main flow step 20.</comment>
   </data>
   <data name="Register.Creating" xml:space="preserve">

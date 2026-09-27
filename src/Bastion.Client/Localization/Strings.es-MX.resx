@@ -1114,7 +1114,7 @@
     <value>CREAR CUENTA</value>
   </data>
   <data name="Register.CreateButtonDetail" xml:space="preserve">
-    <value>te enviaremos un correo para activarla</value>
+    <value>podrás iniciar sesión en cuanto la crees</value>
   </data>
   <data name="Register.Creating" xml:space="preserve">
     <value>CREANDO...</value>
