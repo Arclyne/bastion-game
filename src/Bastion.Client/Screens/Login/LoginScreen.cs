@@ -124,7 +124,8 @@ public sealed class LoginScreen : FormScreen
     private void HandleResult(LoginResult result)
     {
         string message = LoginController.GetMessage(result);
-        if (result.Code == LoginResultCode.Success)
+        ScreenId? destination = LoginController.GetDestination(result);
+        if (destination == ScreenId.MainMenu)
         {
             Navigator.Restart(ScreenId.MainMenu);
             Popup.ShowNotice(Navigator, message);
@@ -132,6 +133,12 @@ public sealed class LoginScreen : FormScreen
         }
 
         _passwordField.SetText(string.Empty);
+        if (destination is ScreenId screen)
+        {
+            Navigator.GoTo(screen, result.Email);
+            return;
+        }
+
         if (result.Code == LoginResultCode.ServiceUnavailable)
         {
             Popup.ShowError(Navigator, message);
