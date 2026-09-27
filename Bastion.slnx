@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Bastion.Client/Bastion.Client.csproj" />
+    <Project Path="src/Bastion.Contracts/Bastion.Contracts.csproj" />
+    <Project Path="src/Bastion.Domain/Bastion.Domain.csproj" />
+    <Project Path="src/Bastion.Server.Data/Bastion.Server.Data.csproj" />
+    <Project Path="src/Bastion.Server.Host/Bastion.Server.Host.csproj" />
+    <Project Path="src/Bastion.Server.Services/Bastion.Server.Services.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Bastion.Domain.Tests/Bastion.Domain.Tests.csproj" />
+    <Project Path="tests/Bastion.Server.Services.Tests/Bastion.Server.Services.Tests.csproj" />
+  </Folder>
+</Solution>

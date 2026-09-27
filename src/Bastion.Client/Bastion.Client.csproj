@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <RollForward>Major</RollForward>
+    <RootNamespace>Bastion.Client</RootNamespace>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <SatelliteResourceLanguages>es-MX</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" />
+    <PackageReference Include="System.ServiceModel.NetTcp" />
+    <PackageReference Include="log4net" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+
+  <!-- The client only knows the contracts: it never references the server or the data layer. -->
+  <ItemGroup>
+    <ProjectReference Include="..\Bastion.Contracts\Bastion.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="log4net.config" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
