@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Bastion.Client.Localization;
+using Bastion.Client.Screens;
 using Bastion.Client.Screens.Login;
 using Bastion.Client.Session;
 using Bastion.Client.Tests.Fakes;
@@ -68,6 +69,36 @@ public sealed class TestLoginController
         string message = LoginController.GetMessage(result);
 
         Assert.Equal(TextCatalog.CommonServerUnreachable, message);
+    }
+
+    [Fact]
+    public void GetDestination_PendingAccount_OpensPendingVerification()
+    {
+        var result = new LoginResult { Code = LoginResultCode.AccountPending };
+
+        ScreenId? destination = LoginController.GetDestination(result);
+
+        Assert.Equal(ScreenId.PendingVerification, destination);
+    }
+
+    [Fact]
+    public void GetDestination_BannedAccount_OpensBannedAccount()
+    {
+        var result = new LoginResult { Code = LoginResultCode.AccountBanned };
+
+        ScreenId? destination = LoginController.GetDestination(result);
+
+        Assert.Equal(ScreenId.BannedAccount, destination);
+    }
+
+    [Fact]
+    public void GetDestination_InvalidCredentials_StaysOnTheForm()
+    {
+        var result = new LoginResult { Code = LoginResultCode.InvalidCredentials };
+
+        ScreenId? destination = LoginController.GetDestination(result);
+
+        Assert.Null(destination);
     }
 
     [Fact]
