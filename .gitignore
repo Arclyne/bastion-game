@@ -19,7 +19,7 @@ TestResults/
 *.env
 .env*
 appsettings.Development.json
-logs/
+*.log
 
 # OS files
 .DS_Store
