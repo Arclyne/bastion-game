@@ -32,6 +32,10 @@ public static class Program
     {
         ConfigureLogging();
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+        // User secrets load in every environment, not only Development, so a developer machine never needs the
+        // connection string in a file inside the repository.
+        builder.Configuration.AddUserSecrets(typeof(Program).Assembly, optional: true);
         string connectionString = GetConnectionString(builder.Configuration);
         int netTcpPort = GetNetTcpPort(builder.Configuration);
 
