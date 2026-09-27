@@ -36,7 +36,7 @@ public sealed class TestScreenNavigation
     {
         HashSet<ScreenId> reached = Crawl();
 
-        var unreachableScreens = ScreenRegistry.RegisteredScreens
+        IEnumerable<ScreenId> unreachableScreens = ScreenRegistry.RegisteredScreens
             .Where(screen => !reached.Contains(screen) && !_notYetReachable.Contains(screen));
         string unreachable = string.Join(", ", unreachableScreens);
 

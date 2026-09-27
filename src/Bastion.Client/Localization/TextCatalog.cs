@@ -1045,6 +1045,8 @@ public static class TextCatalog
 
     public static string MatchHistoryEmpty => GetText("MatchHistory.Empty");
 
+    public static string DeleteAccountLossSummary => GetText("DeleteAccount.LossSummary");
+
     // A missing key shows the key itself so the gap is visible on screen and in the catalog tests.
     public static string GetText(string key)
     {

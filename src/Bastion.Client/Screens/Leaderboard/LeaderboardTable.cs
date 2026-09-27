@@ -18,7 +18,7 @@ public sealed class LeaderboardTable : Control
     private const int StripeEvery = 2;
 
     // Left edge of each column as a fraction of the table width: position, player, elo, matches, wins.
-    private static readonly float[] _columnStarts = [0f, 0.1f, 0.55f, 0.7f, 0.85f];
+    private static readonly float[] _columnStarts = [0f, 0.08f, 0.46f, 0.62f, 0.8f];
 
     public IReadOnlyList<string> Headers { get; set; } = [];
 

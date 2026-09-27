@@ -1198,10 +1198,10 @@
     <value>aaaa</value>
   </data>
   <data name="RegistrationSuccess.Detail" xml:space="preserve">
-    <value>puedes cerrar el juego mientras lo revisas</value>
+    <value>con tu nombre de jugador o tu correo</value>
   </data>
   <data name="RegistrationSuccess.EmailLabel" xml:space="preserve">
-    <value>ENVIADO A</value>
+    <value>CORREO DE LA CUENTA</value>
   </data>
   <data name="RegistrationSuccess.Notice" xml:space="preserve">
     <value>Tu cuenta está lista. Inicia sesión con tu nombre de jugador o tu correo.</value>
@@ -1276,7 +1276,7 @@
     <value>MOTIVO</value>
   </data>
   <data name="ReportReview.SanctionButton" xml:space="preserve">
-    <value>SANCIÓNAR</value>
+    <value>SANCIONAR</value>
   </data>
   <data name="ReportReview.Subtitle" xml:space="preserve">
     <value>REVISA EL REPORTE</value>
@@ -1559,5 +1559,8 @@
   </data>
   <data name="MatchHistory.Empty" xml:space="preserve">
     <value>Todavía no has jugado ninguna partida.</value>
+  </data>
+  <data name="DeleteAccount.LossSummary" xml:space="preserve">
+    <value>Se borran tu elo, tus partidas, tus skins y monedas, tus amigos y tu lugar en el ranking. Tu nombre queda libre para otros.</value>
   </data>
 </root>

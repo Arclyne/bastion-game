@@ -245,7 +245,6 @@ public sealed class MainMenuScreen : FormScreen
         return new Button
         {
             Style = ButtonStyle.Secondary,
-            HasArrow = true,
             Bounds = new Rectangle(x, top, width, ActionHeight)
         };
     }

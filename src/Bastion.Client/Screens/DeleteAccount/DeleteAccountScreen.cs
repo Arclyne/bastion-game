@@ -17,12 +17,6 @@ public sealed class DeleteAccountScreen : FormScreen
     private const int CardHeight =
         Theme.CardPadding + Theme.PanelBackHeight + Theme.PanelGap + Theme.PanelTitleHeight + Theme.PanelGap
         + ContentHeight + BlockGap + Theme.PanelButtonHeight + Theme.CardPadding;
-    private const string CountFormat = "N0";
-
-    // The profile totals come from the server, which this screen does not
-    // query yet, so every amount shows as zero.
-    private const int UnknownAmount = 0;
-
     private readonly PanelBox _lossBox;
     private readonly TextBlock _lossText;
     private readonly TextField _passwordField;
@@ -113,16 +107,10 @@ public sealed class DeleteAccountScreen : FormScreen
 
     protected override void ApplyTexts()
     {
-        string amount = UnknownAmount.ToString(CountFormat, CultureInfo.CurrentCulture);
-
+        // The totals of the account arrive with the profile service (CU-15); until then the notice names what is lost
+        // without amounts.
         _lossBox.Title = TextCatalog.DeleteAccountLossTitle;
-        _lossText.Text = string.Format(
-            CultureInfo.CurrentCulture,
-            TextCatalog.DeleteAccountLossFormat,
-            amount,
-            amount,
-            amount,
-            amount);
+        _lossText.Text = TextCatalog.DeleteAccountLossSummary;
         _passwordField.Label = TextCatalog.DeleteAccountPasswordLabel;
         _passwordField.Placeholder = TextCatalog.DeleteAccountPasswordPlaceholder;
         _wordField.Label = string.Format(

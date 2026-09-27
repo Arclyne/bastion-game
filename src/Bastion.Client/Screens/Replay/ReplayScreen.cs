@@ -14,7 +14,7 @@ public sealed class ReplayScreen : FormScreen
     private const int NotationHeight = 70;
     private const int MoveLineHeight = 20;
     private const int TimelineHeight = 8;
-    private const int StepButtonWidth = 96;
+    private const int StepButtonWidth = 150;
     private const int StepButtonGap = 12;
 
     private const int NotationTop = ResultHeight + SectionGap;

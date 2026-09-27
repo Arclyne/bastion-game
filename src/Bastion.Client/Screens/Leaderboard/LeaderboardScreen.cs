@@ -60,6 +60,7 @@ public sealed class LeaderboardScreen : FormScreen
         _pageLine = new TextLine
         {
             Style = TextLineStyle.Muted,
+            IsCentered = true,
             Bounds = new Rectangle(
                 ContentX + PageButtonWidth,
                 footerTop,
