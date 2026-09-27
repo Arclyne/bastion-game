@@ -12,8 +12,1552 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Game.Title" xml:space="preserve">
+  <data name="AIDifficulty.BoardClassicChip" xml:space="preserve">
+    <value>9×9</value>
+  </data>
+  <data name="AIDifficulty.BoardLabel" xml:space="preserve">
+    <value>TABLERO</value>
+  </data>
+  <data name="AIDifficulty.BoardRapidChip" xml:space="preserve">
+    <value>7×7</value>
+  </data>
+  <data name="AIDifficulty.ClockChipFormat" xml:space="preserve">
+    <value>{0} min</value>
+  </data>
+  <data name="AIDifficulty.ClockLabel" xml:space="preserve">
+    <value>RELOJ</value>
+  </data>
+  <data name="AIDifficulty.HintToggle" xml:space="preserve">
+    <value>Sugerencias</value>
+  </data>
+  <data name="AIDifficulty.LevelLabel" xml:space="preserve">
+    <value>NIVEL</value>
+  </data>
+  <data name="AIDifficulty.NoClockChip" xml:space="preserve">
+    <value>Sin reloj</value>
+  </data>
+  <data name="AIDifficulty.PlayButton" xml:space="preserve">
+    <value>JUGAR</value>
+  </data>
+  <data name="AIDifficulty.StrengthFormat" xml:space="preserve">
+    <value>aprox. {0} de Elo</value>
+  </data>
+  <data name="AIDifficulty.Subtitle" xml:space="preserve">
+    <value>CONTRA LA IA</value>
+  </data>
+  <data name="AIDifficulty.UndoToggle" xml:space="preserve">
+    <value>Deshacer jugadas</value>
+  </data>
+  <data name="AIMatchEnd.DefeatTitle" xml:space="preserve">
+    <value>PERDISTE</value>
+  </data>
+  <data name="AIMatchEnd.ExperienceCaption" xml:space="preserve">
+    <value>EXPERIENCIA</value>
+  </data>
+  <data name="AIMatchEnd.MistakeFormat" xml:space="preserve">
+    <value>Jugada {0}</value>
+  </data>
+  <data name="AIMatchEnd.MistakeOne" xml:space="preserve">
+    <value>Dejaste un camino muy largo.</value>
+  </data>
+  <data name="AIMatchEnd.MistakeThree" xml:space="preserve">
+    <value>Podías saltar al rival.</value>
+  </data>
+  <data name="AIMatchEnd.MistakeTwo" xml:space="preserve">
+    <value>Gastaste un muro muy pronto.</value>
+  </data>
+  <data name="AIMatchEnd.MovesCaption" xml:space="preserve">
+    <value>JUGADAS</value>
+  </data>
+  <data name="AIMatchEnd.ReviewLabel" xml:space="preserve">
+    <value>REPASO: TRES ERRORES</value>
+  </data>
+  <data name="AIMatchEnd.Subtitle" xml:space="preserve">
+    <value>PARTIDA TERMINADA</value>
+  </data>
+  <data name="AIMatchEnd.VictoryTitle" xml:space="preserve">
+    <value>¡GANASTE!</value>
+  </data>
+  <data name="ActiveSessions.ChangePasswordBody" xml:space="preserve">
+    <value>Si alguien las abrió sin permiso, las volverá a abrir con la misma contraseña. ¿La cambias ahora?</value>
+  </data>
+  <data name="ActiveSessions.CloseAllBody" xml:space="preserve">
+    <value>¿Cerrar todas las demás sesiones?</value>
+  </data>
+  <data name="ActiveSessions.CloseAllButton" xml:space="preserve">
+    <value>CERRAR TODAS LAS DEMÁS</value>
+  </data>
+  <data name="ActiveSessions.CloseBody" xml:space="preserve">
+    <value>¿Cerrar la sesión de {0}, usada por última vez {1}?</value>
+  </data>
+  <data name="ActiveSessions.CloseButton" xml:space="preserve">
+    <value>CERRAR</value>
+  </data>
+  <data name="ActiveSessions.CurrentBadge" xml:space="preserve">
+    <value>ESTE DISPOSITIVO</value>
+  </data>
+  <data name="ActiveSessions.Subtitle" xml:space="preserve">
+    <value>Sesiones activas</value>
+  </data>
+  <data name="AddFriend.SearchButton" xml:space="preserve">
+    <value>BUSCAR</value>
+  </data>
+  <data name="AddFriend.SearchLabel" xml:space="preserve">
+    <value>NOMBRE DE JUGADOR O CÓDIGO DE AMIGO</value>
+  </data>
+  <data name="AddFriend.SearchPlaceholder" xml:space="preserve">
+    <value>a quién buscas</value>
+  </data>
+  <data name="AddFriend.Subtitle" xml:space="preserve">
+    <value>AGREGA UN AMIGO</value>
+  </data>
+  <data name="AddFriend.SuggestionReason" xml:space="preserve">
+    <value>jugaron juntos hace poco</value>
+  </data>
+  <data name="AdminPanel.GrantButton" xml:space="preserve">
+    <value>OTORGAR EL ROL</value>
+  </data>
+  <data name="AdminPanel.GrantConfirmBody" xml:space="preserve">
+    <value>Este jugador podrá revisar reportes y aplicar sanciones.</value>
+  </data>
+  <data name="AdminPanel.LogsButton" xml:space="preserve">
+    <value>BITÁCORAS</value>
+  </data>
+  <data name="AdminPanel.NicknameLabel" xml:space="preserve">
+    <value>NOMBRE DE JUGADOR</value>
+  </data>
+  <data name="AdminPanel.QueueButton" xml:space="preserve">
+    <value>COLA DE REPORTES</value>
+  </data>
+  <data name="AdminPanel.RegisteredLabel" xml:space="preserve">
+    <value>MIEMBRO DESDE</value>
+  </data>
+  <data name="AdminPanel.StateLabel" xml:space="preserve">
+    <value>ESTADO DE LA CUENTA</value>
+  </data>
+  <data name="AdminPanel.Subtitle" xml:space="preserve">
+    <value>CANDIDATO A MODERADOR</value>
+  </data>
+  <data name="AdminPanel.TypeLabel" xml:space="preserve">
+    <value>TIPO DE CUENTA</value>
+  </data>
+  <data name="AiLevel.APPRENTICE" xml:space="preserve">
+    <value>Aprendiz</value>
+  </data>
+  <data name="AiLevel.ARCHITECT" xml:space="preserve">
+    <value>Arquitecto</value>
+  </data>
+  <data name="AiLevel.BASTION" xml:space="preserve">
     <value>Bastión</value>
-    <comment>Window title.</comment>
+  </data>
+  <data name="AiLevel.BUILDER" xml:space="preserve">
+    <value>Constructor</value>
+  </data>
+  <data name="Appeal.SendButton" xml:space="preserve">
+    <value>ENVIAR LA APELACIÓN</value>
+  </data>
+  <data name="Appeal.StillActiveNotice" xml:space="preserve">
+    <value>Tu sanción sigue vigente mientras un moderador revisa la apelación.</value>
+  </data>
+  <data name="Appeal.Subtitle" xml:space="preserve">
+    <value>APELA TU SANCIÓN</value>
+  </data>
+  <data name="Appeal.TextLabel" xml:space="preserve">
+    <value>POR QUÉ CREES QUE ESTÁ MAL</value>
+  </data>
+  <data name="Appeal.TextPlaceholder" xml:space="preserve">
+    <value>explica qué pasó</value>
+  </data>
+  <data name="ApplySanction.ApplyButton" xml:space="preserve">
+    <value>APLICAR</value>
+  </data>
+  <data name="ApplySanction.ConfirmBody" xml:space="preserve">
+    <value>El jugador no podrá usar el chat durante un día.</value>
+  </data>
+  <data name="ApplySanction.DurationDay" xml:space="preserve">
+    <value>UN DÍA</value>
+  </data>
+  <data name="ApplySanction.DurationLabel" xml:space="preserve">
+    <value>CUÁNTO TIEMPO</value>
+  </data>
+  <data name="ApplySanction.DurationWeek" xml:space="preserve">
+    <value>UNA SEMANA</value>
+  </data>
+  <data name="ApplySanction.PlayerLabel" xml:space="preserve">
+    <value>JUGADOR</value>
+  </data>
+  <data name="ApplySanction.ScopeAccount" xml:space="preserve">
+    <value>CUENTA</value>
+  </data>
+  <data name="ApplySanction.ScopeChat" xml:space="preserve">
+    <value>CHAT</value>
+  </data>
+  <data name="ApplySanction.ScopeLabel" xml:space="preserve">
+    <value>ALCANCE</value>
+  </data>
+  <data name="ApplySanction.Subtitle" xml:space="preserve">
+    <value>APLICA UNA SANCIÓN</value>
+  </data>
+  <data name="ApplySanction.TypeLabel" xml:space="preserve">
+    <value>TIPO</value>
+  </data>
+  <data name="ApplySanction.TypePermanent" xml:space="preserve">
+    <value>PERMANENTE</value>
+  </data>
+  <data name="ApplySanction.TypeTemporary" xml:space="preserve">
+    <value>TEMPORAL</value>
+  </data>
+  <data name="BannedAccount.AppealButton" xml:space="preserve">
+    <value>APELAR</value>
+  </data>
+  <data name="BannedAccount.EndLabel" xml:space="preserve">
+    <value>TERMINA EL</value>
+  </data>
+  <data name="BannedAccount.ExitButton" xml:space="preserve">
+    <value>SALIR</value>
+  </data>
+  <data name="BannedAccount.Notice" xml:space="preserve">
+    <value>Tu cuenta no puede entrar al juego por ahora.</value>
+  </data>
+  <data name="BannedAccount.ReasonLabel" xml:space="preserve">
+    <value>MOTIVO</value>
+  </data>
+  <data name="BannedAccount.Subtitle" xml:space="preserve">
+    <value>CUENTA SUSPENDIDA</value>
+  </data>
+  <data name="BannedAccount.TypeLabel" xml:space="preserve">
+    <value>TIPO</value>
+  </data>
+  <data name="BoxPurchaseConfirm.Button" xml:space="preserve">
+    <value>ABRIRLA</value>
+  </data>
+  <data name="BoxPurchaseConfirm.GuaranteeNotice" xml:space="preserve">
+    <value>Llevas 7 cajas sin objeto raro. La décima lo garantiza.</value>
+  </data>
+  <data name="BoxPurchaseConfirm.Subtitle" xml:space="preserve">
+    <value>CONFIRMA LA CAJA</value>
+  </data>
+  <data name="ChangeEmail.DoneBody" xml:space="preserve">
+    <value>Enviamos un enlace al correo nuevo. Queda pendiente hasta que lo confirmes.</value>
+  </data>
+  <data name="ChangeEmail.NewLabel" xml:space="preserve">
+    <value>CORREO NUEVO</value>
+  </data>
+  <data name="ChangeEmail.NewPlaceholder" xml:space="preserve">
+    <value>tu@correo.com</value>
+  </data>
+  <data name="ChangeEmail.Notice" xml:space="preserve">
+    <value>Tu cuenta vuelve a estar pendiente hasta que abras el enlace que enviemos al correo nuevo.</value>
+  </data>
+  <data name="ChangeEmail.PasswordLabel" xml:space="preserve">
+    <value>CONTRASEÑA ACTUAL</value>
+  </data>
+  <data name="ChangeEmail.PasswordPlaceholder" xml:space="preserve">
+    <value>la que usas ahora</value>
+  </data>
+  <data name="ChangeEmail.Subtitle" xml:space="preserve">
+    <value>Cambiar tu correo</value>
+  </data>
+  <data name="ChangeNickname.ConfirmButton" xml:space="preserve">
+    <value>CAMBIAR</value>
+  </data>
+  <data name="ChangeNickname.ConfirmDetail" xml:space="preserve">
+    <value>es tu único cambio disponible. tus partidas y tu elo se mantienen; el nombre antiguo queda libre.</value>
+  </data>
+  <data name="ChangeNickname.ConfirmFormat" xml:space="preserve">
+    <value>{0} -&gt; {1}</value>
+  </data>
+  <data name="ChangeNickname.ConfirmTitle" xml:space="preserve">
+    <value>¿cambiar tu nombre?</value>
+  </data>
+  <data name="ChangeNickname.CurrentLabel" xml:space="preserve">
+    <value>TU NOMBRE AHORA</value>
+  </data>
+  <data name="ChangeNickname.DoneBody" xml:space="preserve">
+    <value>Nombre cambiado.</value>
+  </data>
+  <data name="ChangeNickname.NewLabel" xml:space="preserve">
+    <value>NOMBRE NUEVO</value>
+  </data>
+  <data name="ChangeNickname.NewPlaceholder" xml:space="preserve">
+    <value>de 3 a 30 caracteres</value>
+  </data>
+  <data name="ChangeNickname.Notice" xml:space="preserve">
+    <value>Solo puedes hacerlo una vez, y no se puede deshacer. Tus amigos verán el nombre nuevo.</value>
+  </data>
+  <data name="ChangeNickname.Subtitle" xml:space="preserve">
+    <value>Cambiar tu nombre</value>
+  </data>
+  <data name="ChangePassword.ConfirmLabel" xml:space="preserve">
+    <value>CONFIRMAR CONTRASEÑA</value>
+  </data>
+  <data name="ChangePassword.ConfirmPlaceholder" xml:space="preserve">
+    <value>escríbela otra vez</value>
+  </data>
+  <data name="ChangePassword.CurrentLabel" xml:space="preserve">
+    <value>CONTRASEÑA ACTUAL</value>
+  </data>
+  <data name="ChangePassword.CurrentPlaceholder" xml:space="preserve">
+    <value>la que usas ahora</value>
+  </data>
+  <data name="ChangePassword.DoneBody" xml:space="preserve">
+    <value>Contraseña cambiada. Se cerraron tus demás sesiones.</value>
+  </data>
+  <data name="ChangePassword.NewLabel" xml:space="preserve">
+    <value>CONTRASEÑA NUEVA</value>
+  </data>
+  <data name="ChangePassword.NewPlaceholder" xml:space="preserve">
+    <value>mínimo 8 caracteres</value>
+  </data>
+  <data name="ChangePassword.Subtitle" xml:space="preserve">
+    <value>Cambiar tu contraseña</value>
+  </data>
+  <data name="CoinHistory.BalanceCaption" xml:space="preserve">
+    <value>SALDO</value>
+  </data>
+  <data name="CoinHistory.Subtitle" xml:space="preserve">
+    <value>TUS MONEDAS</value>
+  </data>
+  <data name="Common.AvatarPlaceholder" xml:space="preserve">
+    <value>foto</value>
+  </data>
+  <data name="Common.BackButton" xml:space="preserve">
+    <value>VOLVER</value>
+  </data>
+  <data name="Common.BackLink" xml:space="preserve">
+    <value>&lt; volver</value>
+  </data>
+  <data name="Common.CancelButton" xml:space="preserve">
+    <value>CANCELAR</value>
+  </data>
+  <data name="Common.ChangeButton" xml:space="preserve">
+    <value>CAMBIAR</value>
+  </data>
+  <data name="Common.ContinueButton" xml:space="preserve">
+    <value>CONTINUAR</value>
+  </data>
+  <data name="Common.CopyButton" xml:space="preserve">
+    <value>COPIAR</value>
+  </data>
+  <data name="Common.EditButton" xml:space="preserve">
+    <value>EDITAR</value>
+  </data>
+  <data name="Common.PasswordPolicyWarning" xml:space="preserve">
+    <value>mínimo 8 caracteres y tres de: minúsculas, mayúsculas, dígitos, signos</value>
+  </data>
+  <data name="Common.SaveButton" xml:space="preserve">
+    <value>GUARDAR</value>
+  </data>
+  <data name="Common.ScreenUnavailable" xml:space="preserve">
+    <value>Esta sección todavía no está disponible.</value>
+  </data>
+  <data name="Common.ServerUnreachable" xml:space="preserve">
+    <value>No pudimos comunicarnos con el servidor. Intenta de nuevo en un momento.</value>
+  </data>
+  <data name="Common.ViewButton" xml:space="preserve">
+    <value>VER</value>
+  </data>
+  <data name="CosmeticItem.PAWN_CLASSIC" xml:space="preserve">
+    <value>Peón clásico</value>
+  </data>
+  <data name="CosmeticItem.PAWN_STONE" xml:space="preserve">
+    <value>Peón de piedra</value>
+  </data>
+  <data name="CosmeticItem.TITLE_BUILDER" xml:space="preserve">
+    <value>Constructor</value>
+  </data>
+  <data name="CosmeticItem.TITLE_ROOKIE" xml:space="preserve">
+    <value>Novato</value>
+  </data>
+  <data name="CosmeticItem.TITLE_STRATEGIST" xml:space="preserve">
+    <value>Estratega</value>
+  </data>
+  <data name="Customize.EquipButton" xml:space="preserve">
+    <value>EQUIPARLO</value>
+  </data>
+  <data name="Customize.PreviewPlaceholder" xml:space="preserve">
+    <value>VISTA PREVIA</value>
+  </data>
+  <data name="Customize.SlotBoard" xml:space="preserve">
+    <value>TABLERO</value>
+  </data>
+  <data name="Customize.SlotEmotes" xml:space="preserve">
+    <value>EMOTES</value>
+  </data>
+  <data name="Customize.SlotFrame" xml:space="preserve">
+    <value>MARCO</value>
+  </data>
+  <data name="Customize.SlotPawn" xml:space="preserve">
+    <value>PEÓN</value>
+  </data>
+  <data name="Customize.SlotTitle" xml:space="preserve">
+    <value>TÍTULO</value>
+  </data>
+  <data name="Customize.SlotWalls" xml:space="preserve">
+    <value>MUROS</value>
+  </data>
+  <data name="Customize.Subtitle" xml:space="preserve">
+    <value>PERSONALIZA</value>
+  </data>
+  <data name="DeleteAccount.DeleteButton" xml:space="preserve">
+    <value>BORRAR MI CUENTA</value>
+  </data>
+  <data name="DeleteAccount.DoneBody" xml:space="preserve">
+    <value>Tu cuenta se eliminó.</value>
+  </data>
+  <data name="DeleteAccount.LossFormat" xml:space="preserve">
+    <value>elo {0}, {1} partidas, {2} skins y {3} monedas, tus amigos y tu lugar en el ranking. tu nombre queda libre para otros.</value>
+  </data>
+  <data name="DeleteAccount.LossTitle" xml:space="preserve">
+    <value>se borra</value>
+  </data>
+  <data name="DeleteAccount.Notice" xml:space="preserve">
+    <value>esto es definitivo y no se puede deshacer.</value>
+  </data>
+  <data name="DeleteAccount.PasswordLabel" xml:space="preserve">
+    <value>CONTRASEÑA ACTUAL</value>
+  </data>
+  <data name="DeleteAccount.PasswordPlaceholder" xml:space="preserve">
+    <value>la que usas ahora</value>
+  </data>
+  <data name="DeleteAccount.Subtitle" xml:space="preserve">
+    <value>Borrar tu cuenta</value>
+  </data>
+  <data name="DeleteAccount.Word" xml:space="preserve">
+    <value>BORRAR</value>
+  </data>
+  <data name="DeleteAccount.WordLabelFormat" xml:space="preserve">
+    <value>escribe {0} para confirmar</value>
+  </data>
+  <data name="DeleteAccount.WrongPassword" xml:space="preserve">
+    <value>esa no es tu contraseña</value>
+  </data>
+  <data name="Dialog.AcceptButton" xml:space="preserve">
+    <value>ENTENDIDO</value>
+  </data>
+  <data name="Dialog.CancelButton" xml:space="preserve">
+    <value>CANCELAR</value>
+  </data>
+  <data name="Dialog.ConfirmButton" xml:space="preserve">
+    <value>CONFIRMAR</value>
+  </data>
+  <data name="Dialog.ConfirmTitle" xml:space="preserve">
+    <value>¿SEGURO?</value>
+  </data>
+  <data name="Dialog.ErrorTitle" xml:space="preserve">
+    <value>ALGO SALIÓ MAL</value>
+  </data>
+  <data name="Dialog.RetryButton" xml:space="preserve">
+    <value>REINTENTAR</value>
+  </data>
+  <data name="Dialog.SignInButton" xml:space="preserve">
+    <value>INICIAR SESIÓN</value>
+  </data>
+  <data name="Dialog.SuccessTitle" xml:space="preserve">
+    <value>LISTO</value>
+  </data>
+  <data name="Dialog.WarningTitle" xml:space="preserve">
+    <value>REVISA ESTO</value>
+  </data>
+  <data name="EditProfile.IconsButton" xml:space="preserve">
+    <value>ICONOS</value>
+  </data>
+  <data name="EditProfile.IconsHint" xml:space="preserve">
+    <value>32 iconos (animales, objetos) o tu jpg/png de máx. 2 MB</value>
+  </data>
+  <data name="EditProfile.LanguageLabel" xml:space="preserve">
+    <value>idioma de la cuenta</value>
+  </data>
+  <data name="EditProfile.LinkInvalid" xml:space="preserve">
+    <value>debe empezar por https://</value>
+  </data>
+  <data name="EditProfile.LinkPlaceholder" xml:space="preserve">
+    <value>pega una url...</value>
+  </data>
+  <data name="EditProfile.LinkShortener" xml:space="preserve">
+    <value>no admitimos acortadores: pega la dirección completa</value>
+  </data>
+  <data name="EditProfile.LinksHint" xml:space="preserve">
+    <value>se revisan antes de publicarse; nada de enlaces de pago ni invitaciones externas</value>
+  </data>
+  <data name="EditProfile.LinksLabel" xml:space="preserve">
+    <value>enlaces a tus redes · máx. 4</value>
+  </data>
+  <data name="EditProfile.MoreIconsChip" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="EditProfile.NicknameHint" xml:space="preserve">
+    <value>solo puedes cambiarlo una vez. después queda fijo.</value>
+  </data>
+  <data name="EditProfile.NicknameLabel" xml:space="preserve">
+    <value>nombre</value>
+  </data>
+  <data name="EditProfile.PreviewFormat" xml:space="preserve">
+    <value>{0} · {1}</value>
+  </data>
+  <data name="EditProfile.PreviewHint" xml:space="preserve">
+    <value>así te ven los demás</value>
+  </data>
+  <data name="EditProfile.RemoveLinkButton" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="EditProfile.SavedBody" xml:space="preserve">
+    <value>Perfil guardado.</value>
+  </data>
+  <data name="EditProfile.SpectatorsText" xml:space="preserve">
+    <value>permitir que otros vean mis partidas</value>
+  </data>
+  <data name="EditProfile.Subtitle" xml:space="preserve">
+    <value>Editar perfil</value>
+  </data>
+  <data name="EditProfile.TitleLabel" xml:space="preserve">
+    <value>título equipado</value>
+  </data>
+  <data name="EditProfile.UploadButton" xml:space="preserve">
+    <value>SUBIR IMAGEN</value>
+  </data>
+  <data name="EndReason.ABANDONMENT" xml:space="preserve">
+    <value>Abandono</value>
+  </data>
+  <data name="EndReason.DRAW" xml:space="preserve">
+    <value>Tablas</value>
+  </data>
+  <data name="EndReason.GOAL" xml:space="preserve">
+    <value>Llegó a la meta</value>
+  </data>
+  <data name="EndReason.RESIGNATION" xml:space="preserve">
+    <value>Rendición</value>
+  </data>
+  <data name="EndReason.TIMEOUT" xml:space="preserve">
+    <value>Se acabó el tiempo</value>
+  </data>
+  <data name="FirstTime.IconLabel" xml:space="preserve">
+    <value>ELIGE TU ICONO</value>
+  </data>
+  <data name="FirstTime.NicknameLabel" xml:space="preserve">
+    <value>NOMBRE DE JUGADOR</value>
+  </data>
+  <data name="FirstTime.Notice" xml:space="preserve">
+    <value>Solo podrás cambiar tu peón y tu icono una vez.</value>
+  </data>
+  <data name="FirstTime.PawnLabel" xml:space="preserve">
+    <value>ELIGE TU PEÓN</value>
+  </data>
+  <data name="FirstTime.SkipButton" xml:space="preserve">
+    <value>OMITIR</value>
+  </data>
+  <data name="FirstTime.StartButton" xml:space="preserve">
+    <value>EMPEZAR</value>
+  </data>
+  <data name="FirstTime.Subtitle" xml:space="preserve">
+    <value>TU PRIMERA VEZ</value>
+  </data>
+  <data name="ForgotPassword.BackLink" xml:space="preserve">
+    <value>&lt; volver a entrar</value>
+  </data>
+  <data name="ForgotPassword.EmailLabel" xml:space="preserve">
+    <value>correo</value>
+  </data>
+  <data name="ForgotPassword.EmailPlaceholder" xml:space="preserve">
+    <value>tu@correo.com</value>
+  </data>
+  <data name="ForgotPassword.GuestHint" xml:space="preserve">
+    <value>las cuentas de invitado no tienen correo. no se pueden recuperar.</value>
+  </data>
+  <data name="ForgotPassword.GuestTitle" xml:space="preserve">
+    <value>¿entraste como invitado?</value>
+  </data>
+  <data name="ForgotPassword.Notice" xml:space="preserve">
+    <value>Si esa dirección tiene una cuenta te enviaremos un código. Caduca en una hora.</value>
+  </data>
+  <data name="ForgotPassword.SendButton" xml:space="preserve">
+    <value>ENVIAR EL CÓDIGO</value>
+  </data>
+  <data name="ForgotPassword.Subtitle" xml:space="preserve">
+    <value>Recuperar contraseña</value>
+  </data>
+  <data name="Friends.AddButton" xml:space="preserve">
+    <value>AGREGAR UN AMIGO</value>
+  </data>
+  <data name="Friends.OfflineLabel" xml:space="preserve">
+    <value>sin conexión</value>
+  </data>
+  <data name="Friends.OnlineLabel" xml:space="preserve">
+    <value>en línea ahora</value>
+  </data>
+  <data name="Friends.Subtitle" xml:space="preserve">
+    <value>TUS AMIGOS</value>
+  </data>
+  <data name="Game.Title" xml:space="preserve">
+    <value>BASTIÓN</value>
+  </data>
+  <data name="GameMode.CLASSIC" xml:space="preserve">
+    <value>Clásico 9×9</value>
+  </data>
+  <data name="GameMode.FOUR_PLAYERS" xml:space="preserve">
+    <value>Cuatro jugadores</value>
+  </data>
+  <data name="GameMode.QUICK" xml:space="preserve">
+    <value>Rápida 7×7</value>
+  </data>
+  <data name="Icon.BEAR" xml:space="preserve">
+    <value>oso</value>
+  </data>
+  <data name="Icon.CAT" xml:space="preserve">
+    <value>gato</value>
+  </data>
+  <data name="Icon.FOX" xml:space="preserve">
+    <value>zorro</value>
+  </data>
+  <data name="Icon.LIGHTHOUSE" xml:space="preserve">
+    <value>faro</value>
+  </data>
+  <data name="Icon.OWL" xml:space="preserve">
+    <value>búho</value>
+  </data>
+  <data name="Icon.PAWN" xml:space="preserve">
+    <value>peón</value>
+  </data>
+  <data name="Icon.WALL" xml:space="preserve">
+    <value>muro</value>
+  </data>
+  <data name="Language.English" xml:space="preserve">
+    <value>ENGLISH</value>
+  </data>
+  <data name="Language.SpanishMexico" xml:space="preserve">
+    <value>ESPAÑOL (MX)</value>
+  </data>
+  <data name="Leaderboard.EloHeader" xml:space="preserve">
+    <value>ELO</value>
+  </data>
+  <data name="Leaderboard.Empty" xml:space="preserve">
+    <value>Todavía nadie clasifica en este modo.</value>
+  </data>
+  <data name="Leaderboard.Loading" xml:space="preserve">
+    <value>cargando el ranking...</value>
+  </data>
+  <data name="Leaderboard.MatchesHeader" xml:space="preserve">
+    <value>PARTIDAS</value>
+  </data>
+  <data name="Leaderboard.ModeLabel" xml:space="preserve">
+    <value>MODO DE JUEGO</value>
+  </data>
+  <data name="Leaderboard.NextButton" xml:space="preserve">
+    <value>SIGUIENTE &gt;</value>
+  </data>
+  <data name="Leaderboard.NotRankedFormat" xml:space="preserve">
+    <value>juega {0} partidas clasificatorias más para aparecer</value>
+  </data>
+  <data name="Leaderboard.PageFormat" xml:space="preserve">
+    <value>página {0}</value>
+  </data>
+  <data name="Leaderboard.PlayerHeader" xml:space="preserve">
+    <value>JUGADOR</value>
+  </data>
+  <data name="Leaderboard.PositionHeader" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="Leaderboard.PreviousButton" xml:space="preserve">
+    <value>&lt; ANTERIOR</value>
+  </data>
+  <data name="Leaderboard.Subtitle" xml:space="preserve">
+    <value>EL RANKING</value>
+  </data>
+  <data name="Leaderboard.WinsHeader" xml:space="preserve">
+    <value>VICTORIAS</value>
+  </data>
+  <data name="Leaderboard.YouLabel" xml:space="preserve">
+    <value>Tú</value>
+  </data>
+  <data name="Lesson.BOARD_AND_GOAL" xml:space="preserve">
+    <value>El tablero y la meta</value>
+  </data>
+  <data name="Lesson.CLOCK" xml:space="preserve">
+    <value>El reloj</value>
+  </data>
+  <data name="Lesson.FOUR_PLAYERS" xml:space="preserve">
+    <value>Partida de cuatro</value>
+  </data>
+  <data name="Lesson.JUMP_OPPONENT" xml:space="preserve">
+    <value>Saltar al rival</value>
+  </data>
+  <data name="Lesson.MOVE_PAWN" xml:space="preserve">
+    <value>Mover el peón</value>
+  </data>
+  <data name="Lesson.PLACE_WALLS" xml:space="preserve">
+    <value>Colocar muros</value>
+  </data>
+  <data name="Lesson.WALLS_NO_TRAP" xml:space="preserve">
+    <value>Muros sin encierro</value>
+  </data>
+  <data name="LinkAccount.Notice" xml:space="preserve">
+    <value>Se conserva tu progreso: elo, monedas, objetos y partidas.</value>
+  </data>
+  <data name="LinkAccount.Subtitle" xml:space="preserve">
+    <value>VINCULA TU CUENTA</value>
+  </data>
+  <data name="LinkType.DISCORD" xml:space="preserve">
+    <value>discord</value>
+  </data>
+  <data name="LinkType.OTHER" xml:space="preserve">
+    <value>otro</value>
+  </data>
+  <data name="LinkType.TWITCH" xml:space="preserve">
+    <value>twitch</value>
+  </data>
+  <data name="LinkType.YOUTUBE" xml:space="preserve">
+    <value>youtube</value>
+  </data>
+  <data name="Login.AccountBanned" xml:space="preserve">
+    <value>tu cuenta está baneada</value>
+  </data>
+  <data name="Login.AccountLocked" xml:space="preserve">
+    <value>tu cuenta está bloqueada {0} minutos más</value>
+  </data>
+  <data name="Login.AccountPending" xml:space="preserve">
+    <value>tu cuenta todavía no está verificada</value>
+  </data>
+  <data name="Login.AccountSuspended" xml:space="preserve">
+    <value>tu cuenta está suspendida</value>
+  </data>
+  <data name="Login.CreateAccountButton" xml:space="preserve">
+    <value>CREAR CUENTA</value>
+  </data>
+  <data name="Login.CredentialsRejected" xml:space="preserve">
+    <value>el nombre de jugador o la contraseña no son correctos</value>
+  </data>
+  <data name="Login.ForgotLink" xml:space="preserve">
+    <value>OLVIDÉ MI CONTRASEÑA</value>
+  </data>
+  <data name="Login.GuestButton" xml:space="preserve">
+    <value>JUGAR COMO INVITADO</value>
+  </data>
+  <data name="Login.IdentifierLabel" xml:space="preserve">
+    <value>NOMBRE DE JUGADOR O CORREO</value>
+  </data>
+  <data name="Login.IdentifierPlaceholder" xml:space="preserve">
+    <value>cómo te conocemos</value>
+  </data>
+  <data name="Login.IdentifierRequired" xml:space="preserve">
+    <value>escribe tu nombre de jugador o correo</value>
+  </data>
+  <data name="Login.PasswordLabel" xml:space="preserve">
+    <value>CONTRASEÑA</value>
+  </data>
+  <data name="Login.PasswordPlaceholder" xml:space="preserve">
+    <value>tu contraseña</value>
+  </data>
+  <data name="Login.PasswordRequired" xml:space="preserve">
+    <value>escribe tu contraseña</value>
+  </data>
+  <data name="Login.SignInButton" xml:space="preserve">
+    <value>INICIAR SESIÓN</value>
+  </data>
+  <data name="Login.SignInDetail" xml:space="preserve">
+    <value>con tu nombre de jugador o tu correo</value>
+  </data>
+  <data name="Login.SigningIn" xml:space="preserve">
+    <value>INICIANDO SESIÓN...</value>
+  </data>
+  <data name="Login.Subtitle" xml:space="preserve">
+    <value>ACCEDE A TU CUENTA</value>
+  </data>
+  <data name="Login.Success" xml:space="preserve">
+    <value>Qué bueno verte, {0}.</value>
+  </data>
+  <data name="Logs.AccessOption" xml:space="preserve">
+    <value>ACCESO</value>
+  </data>
+  <data name="Logs.DatePlaceholder" xml:space="preserve">
+    <value>dd/mm/aaaa</value>
+  </data>
+  <data name="Logs.FromLabel" xml:space="preserve">
+    <value>DESDE</value>
+  </data>
+  <data name="Logs.ModerationOption" xml:space="preserve">
+    <value>MODERACIÓN</value>
+  </data>
+  <data name="Logs.SearchButton" xml:space="preserve">
+    <value>BUSCAR</value>
+  </data>
+  <data name="Logs.Subtitle" xml:space="preserve">
+    <value>LAS BITÁCORAS</value>
+  </data>
+  <data name="Logs.ToLabel" xml:space="preserve">
+    <value>HASTA</value>
+  </data>
+  <data name="Logs.WhichLabel" xml:space="preserve">
+    <value>CUÁL BITÁCORA</value>
+  </data>
+  <data name="MainMenu.CoinsCaption" xml:space="preserve">
+    <value>MONEDAS</value>
+  </data>
+  <data name="MainMenu.CustomizeButton" xml:space="preserve">
+    <value>PERSONALIZAR</value>
+  </data>
+  <data name="MainMenu.EloCaption" xml:space="preserve">
+    <value>ELO</value>
+  </data>
+  <data name="MainMenu.FindMatchButton" xml:space="preserve">
+    <value>BUSCAR PARTIDA</value>
+  </data>
+  <data name="MainMenu.FindMatchDetail" xml:space="preserve">
+    <value>contra alguien de tu nivel</value>
+  </data>
+  <data name="MainMenu.FriendsButton" xml:space="preserve">
+    <value>AMIGOS</value>
+  </data>
+  <data name="MainMenu.HistoryButton" xml:space="preserve">
+    <value>HISTORIAL</value>
+  </data>
+  <data name="MainMenu.HowToPlayButton" xml:space="preserve">
+    <value>CÓMO JUGAR</value>
+  </data>
+  <data name="MainMenu.LevelFormat" xml:space="preserve">
+    <value>nivel {0}</value>
+  </data>
+  <data name="MainMenu.ModerationButton" xml:space="preserve">
+    <value>MODERACIÓN</value>
+  </data>
+  <data name="MainMenu.PrivateButton" xml:space="preserve">
+    <value>PARTIDA PRIVADA</value>
+  </data>
+  <data name="MainMenu.PrivateDetail" xml:space="preserve">
+    <value>con un código</value>
+  </data>
+  <data name="MainMenu.RankingButton" xml:space="preserve">
+    <value>RANKING</value>
+  </data>
+  <data name="MainMenu.SettingsButton" xml:space="preserve">
+    <value>AJUSTES</value>
+  </data>
+  <data name="MainMenu.ShopButton" xml:space="preserve">
+    <value>TIENDA</value>
+  </data>
+  <data name="MainMenu.StreakCaption" xml:space="preserve">
+    <value>RACHA</value>
+  </data>
+  <data name="MainMenu.Subtitle" xml:space="preserve">
+    <value>MENÚ PRINCIPAL</value>
+  </data>
+  <data name="MainMenu.VersusAiButton" xml:space="preserve">
+    <value>CONTRA LA IA</value>
+  </data>
+  <data name="MainMenu.VersusAiDetail" xml:space="preserve">
+    <value>practica a tu ritmo</value>
+  </data>
+  <data name="MainScreen.IndexButton" xml:space="preserve">
+    <value>TODAS LAS PANTALLAS</value>
+  </data>
+  <data name="MainScreen.Intro" xml:space="preserve">
+    <value>Mueve tu peón hasta el otro lado y pon muros para frenar a tu rival.</value>
+  </data>
+  <data name="MainScreen.Subtitle" xml:space="preserve">
+    <value>MUROS Y CAMINOS</value>
+  </data>
+  <data name="Match.BoardPlaceholder" xml:space="preserve">
+    <value>ÁREA DE JUEGO</value>
+  </data>
+  <data name="Match.ChatPlaceholder" xml:space="preserve">
+    <value>Escribe un mensaje…</value>
+  </data>
+  <data name="Match.ChatSampleOne" xml:space="preserve">
+    <value>¡Buena jugada!</value>
+  </data>
+  <data name="Match.ChatTitle" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="Match.DrawBody" xml:space="preserve">
+    <value>¿Quieres ofrecerle tablas a tu rival?</value>
+  </data>
+  <data name="Match.DrawButton" xml:space="preserve">
+    <value>OFRECER TABLAS</value>
+  </data>
+  <data name="Match.DrawConfirmButton" xml:space="preserve">
+    <value>OFRECER</value>
+  </data>
+  <data name="Match.MoveChip" xml:space="preserve">
+    <value>MOVER</value>
+  </data>
+  <data name="Match.ResignBody" xml:space="preserve">
+    <value>¿Seguro que quieres rendirte? Perderás la partida.</value>
+  </data>
+  <data name="Match.ResignButton" xml:space="preserve">
+    <value>RENDIRSE</value>
+  </data>
+  <data name="Match.ResignConfirmButton" xml:space="preserve">
+    <value>RENDIRME</value>
+  </data>
+  <data name="Match.Subtitle" xml:space="preserve">
+    <value>PARTIDA EN CURSO</value>
+  </data>
+  <data name="Match.TurnFormat" xml:space="preserve">
+    <value>TURNO {0}</value>
+  </data>
+  <data name="Match.WallChip" xml:space="preserve">
+    <value>MURO</value>
+  </data>
+  <data name="MatchEnd.AddOpponentButton" xml:space="preserve">
+    <value>AÑADIR AL RIVAL</value>
+  </data>
+  <data name="MatchEnd.BackMenuButton" xml:space="preserve">
+    <value>VOLVER AL MENÚ</value>
+  </data>
+  <data name="MatchEnd.CoinsCaption" xml:space="preserve">
+    <value>MONEDAS</value>
+  </data>
+  <data name="MatchEnd.DefeatTitle" xml:space="preserve">
+    <value>DERROTA</value>
+  </data>
+  <data name="MatchEnd.EloCaption" xml:space="preserve">
+    <value>ELO</value>
+  </data>
+  <data name="MatchEnd.ExperienceCaption" xml:space="preserve">
+    <value>EXPERIENCIA</value>
+  </data>
+  <data name="MatchEnd.FindAnotherButton" xml:space="preserve">
+    <value>BUSCAR OTRA</value>
+  </data>
+  <data name="MatchEnd.VictoryTitle" xml:space="preserve">
+    <value>¡VICTORIA!</value>
+  </data>
+  <data name="MatchEnd.WatchReplayButton" xml:space="preserve">
+    <value>VER REPETICIÓN</value>
+  </data>
+  <data name="MatchHistory.Loss" xml:space="preserve">
+    <value>Perdiste</value>
+  </data>
+  <data name="MatchHistory.Subtitle" xml:space="preserve">
+    <value>TUS PARTIDAS</value>
+  </data>
+  <data name="MatchHistory.Win" xml:space="preserve">
+    <value>Ganaste</value>
+  </data>
+  <data name="Matchmaking.BrowseNote" xml:space="preserve">
+    <value>Puedes seguir usando el juego mientras esperas.</value>
+  </data>
+  <data name="Matchmaking.ElapsedFormat" xml:space="preserve">
+    <value>Llevas {0} buscando</value>
+  </data>
+  <data name="Matchmaking.Subtitle" xml:space="preserve">
+    <value>BUSCANDO PARTIDA</value>
+  </data>
+  <data name="Matchmaking.Title" xml:space="preserve">
+    <value>Buscando a tu rival…</value>
+  </data>
+  <data name="ModerationQueue.ReviewButton" xml:space="preserve">
+    <value>REVISARLO</value>
+  </data>
+  <data name="ModerationQueue.Subtitle" xml:space="preserve">
+    <value>PENDIENTES DE REVISAR</value>
+  </data>
+  <data name="OpponentDisconnected.BackButton" xml:space="preserve">
+    <value>VOLVER A LA PARTIDA</value>
+  </data>
+  <data name="OpponentDisconnected.ClaimButton" xml:space="preserve">
+    <value>RECLAMAR VICTORIA</value>
+  </data>
+  <data name="OpponentDisconnected.ElapsedFormat" xml:space="preserve">
+    <value>Lleva {0} sin conexión</value>
+  </data>
+  <data name="OpponentDisconnected.Hint" xml:space="preserve">
+    <value>Si no vuelve, podrás reclamar la victoria a los 60 segundos.</value>
+  </data>
+  <data name="OpponentDisconnected.Title" xml:space="preserve">
+    <value>TU RIVAL SE DESCONECTÓ</value>
+  </data>
+  <data name="PendingVerification.AcceptButton" xml:space="preserve">
+    <value>ACEPTAR</value>
+  </data>
+  <data name="PendingVerification.NoticeFormat" xml:space="preserve">
+    <value>Te enviamos un correo a {0}. Ábrelo para activar tu cuenta.</value>
+  </data>
+  <data name="PendingVerification.ResendButton" xml:space="preserve">
+    <value>REENVIAR CORREO DE VERIFICACIÓN</value>
+  </data>
+  <data name="PendingVerification.ResentBody" xml:space="preserve">
+    <value>Listo, te enviamos otro correo.</value>
+  </data>
+  <data name="PendingVerification.Subtitle" xml:space="preserve">
+    <value>VERIFICA TU CORREO</value>
+  </data>
+  <data name="PlayerCard.AddFriendButton" xml:space="preserve">
+    <value>AGREGAR COMO AMIGO</value>
+  </data>
+  <data name="PlayerCard.HeadToHeadCaption" xml:space="preserve">
+    <value>ENTRE USTEDES DOS</value>
+  </data>
+  <data name="PlayerCard.ReportButton" xml:space="preserve">
+    <value>REPORTAR</value>
+  </data>
+  <data name="PlayerCard.Subtitle" xml:space="preserve">
+    <value>OTRO JUGADOR</value>
+  </data>
+  <data name="PlayerCard.WatchButton" xml:space="preserve">
+    <value>VER PARTIDA</value>
+  </data>
+  <data name="PrivateMatch.CodeLabel" xml:space="preserve">
+    <value>CÓDIGO DE LA SALA</value>
+  </data>
+  <data name="PrivateMatch.CodePlaceholder" xml:space="preserve">
+    <value>K4M93X</value>
+  </data>
+  <data name="PrivateMatch.CodeRequired" xml:space="preserve">
+    <value>escribe el código de seis caracteres</value>
+  </data>
+  <data name="PrivateMatch.CreateButton" xml:space="preserve">
+    <value>CREAR SALA</value>
+  </data>
+  <data name="PrivateMatch.CreateHint" xml:space="preserve">
+    <value>Crea una sala y pásale el código a tus amigos.</value>
+  </data>
+  <data name="PrivateMatch.CreateTitle" xml:space="preserve">
+    <value>CREAR SALA</value>
+  </data>
+  <data name="PrivateMatch.JoinButton" xml:space="preserve">
+    <value>ENTRAR</value>
+  </data>
+  <data name="PrivateMatch.JoinTitle" xml:space="preserve">
+    <value>UNIRSE CON CÓDIGO</value>
+  </data>
+  <data name="PrivateMatch.Subtitle" xml:space="preserve">
+    <value>PARTIDA PRIVADA</value>
+  </data>
+  <data name="Profile.AddLinkChip" xml:space="preserve">
+    <value>añadir +</value>
+  </data>
+  <data name="Profile.AvatarPlaceholder" xml:space="preserve">
+    <value>ICONO</value>
+  </data>
+  <data name="Profile.AverageLengthFormat" xml:space="preserve">
+    <value>longitud media {0} jugadas</value>
+  </data>
+  <data name="Profile.ByModeTitle" xml:space="preserve">
+    <value>por modo</value>
+  </data>
+  <data name="Profile.HeaderFormat" xml:space="preserve">
+    <value>{0} · nivel {1} · desde {2}</value>
+  </data>
+  <data name="Profile.LinksTitle" xml:space="preserve">
+    <value>enlaces</value>
+  </data>
+  <data name="Profile.MatchesTile" xml:space="preserve">
+    <value>partidas</value>
+  </data>
+  <data name="Profile.ModeStatFormat" xml:space="preserve">
+    <value>{0} · {1}</value>
+  </data>
+  <data name="Profile.NoTitle" xml:space="preserve">
+    <value>sin título</value>
+  </data>
+  <data name="Profile.SeeAllLink" xml:space="preserve">
+    <value>ver todos &gt;</value>
+  </data>
+  <data name="Profile.StreakTile" xml:space="preserve">
+    <value>mejor racha</value>
+  </data>
+  <data name="Profile.Subtitle" xml:space="preserve">
+    <value>Tu perfil</value>
+  </data>
+  <data name="Profile.TitlesTitle" xml:space="preserve">
+    <value>títulos</value>
+  </data>
+  <data name="Profile.TopEloTile" xml:space="preserve">
+    <value>elo máximo</value>
+  </data>
+  <data name="Profile.WinsTile" xml:space="preserve">
+    <value>victorias</value>
+  </data>
+  <data name="PurchaseConfirm.BalanceLabel" xml:space="preserve">
+    <value>TIENES</value>
+  </data>
+  <data name="PurchaseConfirm.Button" xml:space="preserve">
+    <value>COMPRAR</value>
+  </data>
+  <data name="PurchaseConfirm.ItemLabel" xml:space="preserve">
+    <value>LO QUE VAS A COMPRAR</value>
+  </data>
+  <data name="PurchaseConfirm.PriceLabel" xml:space="preserve">
+    <value>PRECIO</value>
+  </data>
+  <data name="PurchaseConfirm.RemainingLabel" xml:space="preserve">
+    <value>TE QUEDARÁN</value>
+  </data>
+  <data name="PurchaseConfirm.Subtitle" xml:space="preserve">
+    <value>CONFIRMA TU COMPRA</value>
+  </data>
+  <data name="Register.BirthDateFuture" xml:space="preserve">
+    <value>esa fecha todavía no llega</value>
+  </data>
+  <data name="Register.BirthDateInvalid" xml:space="preserve">
+    <value>esa fecha no existe</value>
+  </data>
+  <data name="Register.BirthDateLabel" xml:space="preserve">
+    <value>FECHA DE NACIMIENTO</value>
+  </data>
+  <data name="Register.CancelButton" xml:space="preserve">
+    <value>CANCELAR</value>
+  </data>
+  <data name="Register.CheckTheForm" xml:space="preserve">
+    <value>Revisa los campos marcados antes de crear la cuenta.</value>
+  </data>
+  <data name="Register.ConfirmationLabel" xml:space="preserve">
+    <value>CONFIRMAR CONTRASEÑA</value>
+  </data>
+  <data name="Register.ConfirmationMismatch" xml:space="preserve">
+    <value>las contraseñas no coinciden</value>
+  </data>
+  <data name="Register.ConfirmationPlaceholder" xml:space="preserve">
+    <value>escríbela otra vez</value>
+  </data>
+  <data name="Register.CreateButton" xml:space="preserve">
+    <value>CREAR CUENTA</value>
+  </data>
+  <data name="Register.CreateButtonDetail" xml:space="preserve">
+    <value>te enviaremos un correo para activarla</value>
+  </data>
+  <data name="Register.Creating" xml:space="preserve">
+    <value>CREANDO...</value>
+  </data>
+  <data name="Register.DayPlaceholder" xml:space="preserve">
+    <value>dd</value>
+  </data>
+  <data name="Register.DiscardBody" xml:space="preserve">
+    <value>Si sales ahora pierdes lo que escribiste en el formulario.</value>
+  </data>
+  <data name="Register.DiscardButton" xml:space="preserve">
+    <value>DESCARTAR</value>
+  </data>
+  <data name="Register.EmailInvalid" xml:space="preserve">
+    <value>eso no parece un correo electrónico</value>
+  </data>
+  <data name="Register.EmailLabel" xml:space="preserve">
+    <value>CORREO ELECTRÓNICO</value>
+  </data>
+  <data name="Register.EmailPlaceholder" xml:space="preserve">
+    <value>tu@correo.com</value>
+  </data>
+  <data name="Register.EmailTaken" xml:space="preserve">
+    <value>ya hay una cuenta con ese correo</value>
+  </data>
+  <data name="Register.KeepEditingButton" xml:space="preserve">
+    <value>SEGUIR EDITANDO</value>
+  </data>
+  <data name="Register.MonthPlaceholder" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="Register.NicknameInvalid" xml:space="preserve">
+    <value>solo letras, números y guion bajo</value>
+  </data>
+  <data name="Register.NicknameLabel" xml:space="preserve">
+    <value>NOMBRE DE JUGADOR</value>
+  </data>
+  <data name="Register.NicknameLength" xml:space="preserve">
+    <value>usa de 3 a 30 caracteres</value>
+  </data>
+  <data name="Register.NicknamePlaceholder" xml:space="preserve">
+    <value>de 3 a 30 caracteres</value>
+  </data>
+  <data name="Register.NicknameTaken" xml:space="preserve">
+    <value>ese nombre de jugador ya está ocupado</value>
+  </data>
+  <data name="Register.PasswordLabel" xml:space="preserve">
+    <value>CONTRASEÑA</value>
+  </data>
+  <data name="Register.PasswordPlaceholder" xml:space="preserve">
+    <value>mínimo 8 caracteres</value>
+  </data>
+  <data name="Register.PasswordPolicy" xml:space="preserve">
+    <value>combina mayúsculas, minúsculas, números o símbolos: al menos tres de los cuatro</value>
+  </data>
+  <data name="Register.PasswordTooShort" xml:space="preserve">
+    <value>usa mínimo 8 caracteres</value>
+  </data>
+  <data name="Register.Rejected" xml:space="preserve">
+    <value>No se pudo crear la cuenta. Intenta de nuevo.</value>
+  </data>
+  <data name="Register.ServerUnreachable" xml:space="preserve">
+    <value>No pudimos comunicarnos con el servidor. Intenta de nuevo en un momento.</value>
+  </data>
+  <data name="Register.Subtitle" xml:space="preserve">
+    <value>CREA TU CUENTA</value>
+  </data>
+  <data name="Register.TermsLinkText" xml:space="preserve">
+    <value>términos de uso</value>
+  </data>
+  <data name="Register.TermsRequired" xml:space="preserve">
+    <value>tienes que aceptar los términos para continuar</value>
+  </data>
+  <data name="Register.TermsText" xml:space="preserve">
+    <value>acepto los términos de uso</value>
+  </data>
+  <data name="Register.Underage" xml:space="preserve">
+    <value>debes tener al menos 8 años</value>
+  </data>
+  <data name="Register.YearPlaceholder" xml:space="preserve">
+    <value>aaaa</value>
+  </data>
+  <data name="RegistrationSuccess.Detail" xml:space="preserve">
+    <value>puedes cerrar el juego mientras lo revisas</value>
+  </data>
+  <data name="RegistrationSuccess.EmailLabel" xml:space="preserve">
+    <value>ENVIADO A</value>
+  </data>
+  <data name="RegistrationSuccess.Notice" xml:space="preserve">
+    <value>Tu cuenta está lista. Inicia sesión con tu nombre de jugador o tu correo.</value>
+  </data>
+  <data name="RegistrationSuccess.SignInButton" xml:space="preserve">
+    <value>IR A INICIAR SESIÓN</value>
+  </data>
+  <data name="RegistrationSuccess.Subtitle" xml:space="preserve">
+    <value>CUENTA CREADA</value>
+  </data>
+  <data name="Replay.ExitButton" xml:space="preserve">
+    <value>SALIR</value>
+  </data>
+  <data name="Replay.MoveFormat" xml:space="preserve">
+    <value>Jugada {0} de {1}</value>
+  </data>
+  <data name="Replay.NextButton" xml:space="preserve">
+    <value>SIGUIENTE</value>
+  </data>
+  <data name="Replay.NotationTitle" xml:space="preserve">
+    <value>NOTACIÓN</value>
+  </data>
+  <data name="Replay.PauseButton" xml:space="preserve">
+    <value>PAUSAR</value>
+  </data>
+  <data name="Replay.PlayButton" xml:space="preserve">
+    <value>REPRODUCIR</value>
+  </data>
+  <data name="Replay.PreviousButton" xml:space="preserve">
+    <value>ANTERIOR</value>
+  </data>
+  <data name="Replay.ResultFormat" xml:space="preserve">
+    <value>Ganó {0}</value>
+  </data>
+  <data name="Replay.Title" xml:space="preserve">
+    <value>REPETICIÓN</value>
+  </data>
+  <data name="Report.DescriptionLabel" xml:space="preserve">
+    <value>CUÉNTANOS MÁS</value>
+  </data>
+  <data name="Report.DescriptionPlaceholder" xml:space="preserve">
+    <value>opcional</value>
+  </data>
+  <data name="Report.EvidenceNotice" xml:space="preserve">
+    <value>Adjuntaremos la partida y el chat para que un moderador pueda revisar qué pasó.</value>
+  </data>
+  <data name="Report.ReasonAbuse" xml:space="preserve">
+    <value>Mensajes ofensivos</value>
+  </data>
+  <data name="Report.ReasonCheating" xml:space="preserve">
+    <value>Hace trampa</value>
+  </data>
+  <data name="Report.ReasonLeaving" xml:space="preserve">
+    <value>Abandona partidas</value>
+  </data>
+  <data name="Report.ReasonName" xml:space="preserve">
+    <value>Nombre inapropiado</value>
+  </data>
+  <data name="Report.ReasonOther" xml:space="preserve">
+    <value>Otra cosa</value>
+  </data>
+  <data name="Report.SendButton" xml:space="preserve">
+    <value>ENVIAR EL REPORTE</value>
+  </data>
+  <data name="Report.Subtitle" xml:space="preserve">
+    <value>REPORTA A UN JUGADOR</value>
+  </data>
+  <data name="ReportReview.DismissButton" xml:space="preserve">
+    <value>SIN SANCIÓN</value>
+  </data>
+  <data name="ReportReview.ReasonLabel" xml:space="preserve">
+    <value>MOTIVO</value>
+  </data>
+  <data name="ReportReview.SanctionButton" xml:space="preserve">
+    <value>SANCIÓNAR</value>
+  </data>
+  <data name="ReportReview.Subtitle" xml:space="preserve">
+    <value>REVISA EL REPORTE</value>
+  </data>
+  <data name="ResetPassword.CodeInvalid" xml:space="preserve">
+    <value>escribe el código de 6 caracteres del correo</value>
+  </data>
+  <data name="ResetPassword.CodeLabel" xml:space="preserve">
+    <value>CÓDIGO DEL CORREO</value>
+  </data>
+  <data name="ResetPassword.CodePlaceholder" xml:space="preserve">
+    <value>6 caracteres</value>
+  </data>
+  <data name="ResetPassword.ConfirmLabel" xml:space="preserve">
+    <value>CONFIRMAR CONTRASEÑA</value>
+  </data>
+  <data name="ResetPassword.ConfirmPlaceholder" xml:space="preserve">
+    <value>escríbela otra vez</value>
+  </data>
+  <data name="ResetPassword.DoneBody" xml:space="preserve">
+    <value>Contraseña cambiada. Entra con la nueva.</value>
+  </data>
+  <data name="ResetPassword.NewLabel" xml:space="preserve">
+    <value>CONTRASEÑA NUEVA</value>
+  </data>
+  <data name="ResetPassword.NewPlaceholder" xml:space="preserve">
+    <value>mínimo 8 caracteres</value>
+  </data>
+  <data name="ResetPassword.ResendButton" xml:space="preserve">
+    <value>REENVIAR</value>
+  </data>
+  <data name="ResetPassword.ResendInFormat" xml:space="preserve">
+    <value>REENVIAR EN {0}</value>
+  </data>
+  <data name="ResetPassword.SaveButton" xml:space="preserve">
+    <value>CAMBIAR CONTRASEÑA</value>
+  </data>
+  <data name="ResetPassword.SentFormat" xml:space="preserve">
+    <value>revisa {0}. mira también el spam.</value>
+  </data>
+  <data name="ResetPassword.SentTitle" xml:space="preserve">
+    <value>correo enviado</value>
+  </data>
+  <data name="ResetPassword.SessionsNote" xml:space="preserve">
+    <value>al guardar se cierran las demás sesiones</value>
+  </data>
+  <data name="ResetPassword.Subtitle" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="SecondFactor.CodeLabel" xml:space="preserve">
+    <value>CÓDIGO DE VERIFICACIÓN</value>
+  </data>
+  <data name="SecondFactor.CodePlaceholder" xml:space="preserve">
+    <value>000000</value>
+  </data>
+  <data name="SecondFactor.ExpiresFormat" xml:space="preserve">
+    <value>El código vence en {0}</value>
+  </data>
+  <data name="SecondFactor.Hint" xml:space="preserve">
+    <value>Enviamos un código de 6 dígitos a tu correo.</value>
+  </data>
+  <data name="SecondFactor.ResendButton" xml:space="preserve">
+    <value>REENVIAR CÓDIGO</value>
+  </data>
+  <data name="SecondFactor.ResentBody" xml:space="preserve">
+    <value>Te enviamos un código nuevo.</value>
+  </data>
+  <data name="SecondFactor.Subtitle" xml:space="preserve">
+    <value>VERIFICACIÓN DE ACCESO</value>
+  </data>
+  <data name="SecondFactor.VerifyButton" xml:space="preserve">
+    <value>VERIFICAR</value>
+  </data>
+  <data name="SelectMode.ClockFormat" xml:space="preserve">
+    <value>{0} minutos</value>
+  </data>
+  <data name="SelectMode.ClockLabel" xml:space="preserve">
+    <value>RELOJ</value>
+  </data>
+  <data name="SelectMode.ModeLabel" xml:space="preserve">
+    <value>MODO</value>
+  </data>
+  <data name="SelectMode.SearchButton" xml:space="preserve">
+    <value>BUSCAR</value>
+  </data>
+  <data name="SelectMode.Subtitle" xml:space="preserve">
+    <value>ELIGE CÓMO JUGAR</value>
+  </data>
+  <data name="Settings.AccessibilityEntry" xml:space="preserve">
+    <value>accesibilidad</value>
+  </data>
+  <data name="Settings.AccountEntry" xml:space="preserve">
+    <value>cuenta</value>
+  </data>
+  <data name="Settings.AudioEntry" xml:space="preserve">
+    <value>audio</value>
+  </data>
+  <data name="Settings.BoardEntry" xml:space="preserve">
+    <value>tablero 3D</value>
+  </data>
+  <data name="Settings.ChatNote" xml:space="preserve">
+    <value>el chat no se traduce</value>
+  </data>
+  <data name="Settings.CurrentTag" xml:space="preserve">
+    <value>actual</value>
+  </data>
+  <data name="Settings.DeleteHint" xml:space="preserve">
+    <value>se van elo, skins y monedas. no hay vuelta atrás.</value>
+  </data>
+  <data name="Settings.DeleteTitle" xml:space="preserve">
+    <value>borrar cuenta</value>
+  </data>
+  <data name="Settings.EmailRow" xml:space="preserve">
+    <value>correo</value>
+  </data>
+  <data name="Settings.EmailVerified" xml:space="preserve">
+    <value>verificado</value>
+  </data>
+  <data name="Settings.FriendCodeRow" xml:space="preserve">
+    <value>código de amigo</value>
+  </data>
+  <data name="Settings.Heading" xml:space="preserve">
+    <value>ajustes</value>
+  </data>
+  <data name="Settings.InterfaceLanguageLabel" xml:space="preserve">
+    <value>idioma de la interfaz</value>
+  </data>
+  <data name="Settings.LanguageEntry" xml:space="preserve">
+    <value>idioma</value>
+  </data>
+  <data name="Settings.PasswordChangedFormat" xml:space="preserve">
+    <value>cambiada hace {0} meses</value>
+  </data>
+  <data name="Settings.PasswordRow" xml:space="preserve">
+    <value>contraseña</value>
+  </data>
+  <data name="Settings.SessionsCountFormat" xml:space="preserve">
+    <value>{0} dispositivos</value>
+  </data>
+  <data name="Settings.SessionsRow" xml:space="preserve">
+    <value>sesiones activas</value>
+  </data>
+  <data name="Settings.SignOutBody" xml:space="preserve">
+    <value>¿Quieres cerrar la sesión en este dispositivo?</value>
+  </data>
+  <data name="Settings.SignOutButton" xml:space="preserve">
+    <value>CERRAR SESIÓN</value>
+  </data>
+  <data name="Shop.BoxButton" xml:space="preserve">
+    <value>COMPRAR CAJA</value>
+  </data>
+  <data name="Shop.BuyButton" xml:space="preserve">
+    <value>COMPRARLO</value>
+  </data>
+  <data name="Shop.Subtitle" xml:space="preserve">
+    <value>LA TIENDA</value>
+  </data>
+  <data name="Spectator.ChatPlaceholder" xml:space="preserve">
+    <value>Escribe un mensaje…</value>
+  </data>
+  <data name="Spectator.ChatTitle" xml:space="preserve">
+    <value>Chat de espectadores</value>
+  </data>
+  <data name="Spectator.DelayFormat" xml:space="preserve">
+    <value>Retraso: {0} s</value>
+  </data>
+  <data name="Spectator.LeaveButton" xml:space="preserve">
+    <value>SALIR</value>
+  </data>
+  <data name="Spectator.LiveTag" xml:space="preserve">
+    <value>EN VIVO</value>
+  </data>
+  <data name="Spectator.MovesTitle" xml:space="preserve">
+    <value>JUGADAS</value>
+  </data>
+  <data name="Spectator.Subtitle" xml:space="preserve">
+    <value>VIENDO LA PARTIDA</value>
+  </data>
+  <data name="Spectator.ViewersFormat" xml:space="preserve">
+    <value>{0} espectadores</value>
+  </data>
+  <data name="TutorialIndex.DoneTag" xml:space="preserve">
+    <value>Completada</value>
+  </data>
+  <data name="TutorialIndex.ExitButton" xml:space="preserve">
+    <value>SALIR</value>
+  </data>
+  <data name="TutorialIndex.InProgressTag" xml:space="preserve">
+    <value>En curso</value>
+  </data>
+  <data name="TutorialIndex.PracticeButton" xml:space="preserve">
+    <value>PRACTICAR CONTRA LA IA</value>
+  </data>
+  <data name="TutorialIndex.ProgressFormat" xml:space="preserve">
+    <value>{0} de {1} lecciones</value>
+  </data>
+  <data name="TutorialIndex.Subtitle" xml:space="preserve">
+    <value>CÓMO JUGAR</value>
+  </data>
+  <data name="VersusScreen.ClockFormat" xml:space="preserve">
+    <value>{0} min</value>
+  </data>
+  <data name="VersusScreen.EloFormat" xml:space="preserve">
+    <value>ELO {0}</value>
+  </data>
+  <data name="VersusScreen.SettingsFormat" xml:space="preserve">
+    <value>{0} · {1}</value>
+  </data>
+  <data name="VersusScreen.StartButton" xml:space="preserve">
+    <value>COMENZAR</value>
+  </data>
+  <data name="VersusScreen.Subtitle" xml:space="preserve">
+    <value>¡ENCONTRAMOS RIVAL!</value>
+  </data>
+  <data name="VersusScreen.VersusLabel" xml:space="preserve">
+    <value>VS</value>
+  </data>
+  <data name="WaitingRoom.ChatPlaceholder" xml:space="preserve">
+    <value>Escribe un mensaje…</value>
+  </data>
+  <data name="WaitingRoom.CodeLabel" xml:space="preserve">
+    <value>CÓDIGO DE LA SALA</value>
+  </data>
+  <data name="WaitingRoom.FreeSlot" xml:space="preserve">
+    <value>Esperando jugador…</value>
+  </data>
+  <data name="WaitingRoom.HostNote" xml:space="preserve">
+    <value>Podrás iniciar cuando tu rival esté listo.</value>
+  </data>
+  <data name="WaitingRoom.HostTag" xml:space="preserve">
+    <value>Anfitrión</value>
+  </data>
+  <data name="WaitingRoom.LeaveBody" xml:space="preserve">
+    <value>¿Quieres salir de la sala?</value>
+  </data>
+  <data name="WaitingRoom.LeaveButton" xml:space="preserve">
+    <value>SALIR DE LA SALA</value>
+  </data>
+  <data name="WaitingRoom.PlayersLabel" xml:space="preserve">
+    <value>JUGADORES</value>
+  </data>
+  <data name="WaitingRoom.ReadyButton" xml:space="preserve">
+    <value>ESTOY LISTO</value>
+  </data>
+  <data name="WaitingRoom.StartButton" xml:space="preserve">
+    <value>INICIAR PARTIDA</value>
+  </data>
+  <data name="WaitingRoom.Subtitle" xml:space="preserve">
+    <value>SALA DE ESPERA</value>
+  </data>
+  <data name="WaitingRoom.YouTag" xml:space="preserve">
+    <value>Tú</value>
+  </data>
+  <data name="Window.Title" xml:space="preserve">
+    <value>Bastión</value>
+  </data>
+  <data name="Shop.Empty" xml:space="preserve">
+    <value>La tienda todavía no tiene artículos para mostrar.</value>
+  </data>
+  <data name="CoinHistory.Empty" xml:space="preserve">
+    <value>Todavía no tienes movimientos de monedas.</value>
+  </data>
+  <data name="ModerationQueue.Empty" xml:space="preserve">
+    <value>No hay reportes ni apelaciones pendientes.</value>
+  </data>
+  <data name="Logs.Empty" xml:space="preserve">
+    <value>No hay registros para mostrar.</value>
+  </data>
+  <data name="PendingVerification.Notice" xml:space="preserve">
+    <value>Te enviamos un correo. Ábrelo para activar tu cuenta.</value>
+  </data>
+  <data name="ActiveSessions.Empty" xml:space="preserve">
+    <value>No hay sesiones activas para mostrar.</value>
+  </data>
+  <data name="Friends.Empty" xml:space="preserve">
+    <value>Aún no has agregado amigos.</value>
+  </data>
+  <data name="PlayerCard.Empty" xml:space="preserve">
+    <value>Aún no han jugado juntos.</value>
+  </data>
+  <data name="MatchHistory.Empty" xml:space="preserve">
+    <value>Todavía no has jugado ninguna partida.</value>
   </data>
 </root>
