@@ -1,0 +1,27 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+TestResults/
+
+# MonoGame content build
+*.xnb
+*.mgcontent
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.DotSettings.user
+
+# Local configuration and secrets
+*.env
+.env*
+appsettings.Development.json
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
