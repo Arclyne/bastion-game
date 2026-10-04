@@ -24,6 +24,12 @@ public sealed class BoardFrame
     // Normal of the board plane: the way up, and the axis a wall turns around.
     public Vector3 Up => Vector3.Normalize(Vector3.Cross(_columnStep, _rowStep));
 
+    // The two directions the board runs in. Together with Up they are the basis
+    // the camera orbits in, so it never has to assume which axis is which.
+    public Vector3 ColumnAxis => Vector3.Normalize(_columnStep);
+
+    public Vector3 RowAxis => Vector3.Normalize(_rowStep);
+
     // A wall sits exactly on a groove crossing, which is what the anchors mark.
     public Vector3 GetGroovePosition(BoardSlot groove)
     {
