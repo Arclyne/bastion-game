@@ -88,8 +88,8 @@ public sealed class BoardRenderer
         return Matrix.CreateFromAxisAngle(_assets.Frame.Up, MathHelper.PiOver2) * placement;
     }
 
-    // A null tint keeps the colour of the asset. The pawn and the wall ship white
-    // so the player colour can replace it.
+    // The pawn and the wall ship white so the player colour can replace it; the
+    // board has its own colours and passes no tint.
     private void DrawModel(Model model, Matrix world, Color? tint)
     {
         Matrix[] bones = GetBoneTransforms(model);

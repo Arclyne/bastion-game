@@ -8,13 +8,4 @@ public sealed class MatchView
     public List<PawnMarker> Pawns { get; } = [];
 
     public List<WallMarker> Walls { get; } = [];
-
-    // CU-20 and CU-21 dim the board while it is not your turn.
-    public bool IsDimmed { get; set; }
-
-    public void Clear()
-    {
-        Pawns.Clear();
-        Walls.Clear();
-    }
 }

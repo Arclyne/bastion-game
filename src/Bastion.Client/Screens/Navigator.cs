@@ -31,6 +31,10 @@ public sealed class Navigator : INavigator
     // What is on screen right now, dialog included. The way to change it is GoTo, GoBack or a dialog call.
     public IScreen? Current => _dialog ?? _current;
 
+    // The screen itself, with no dialog on top. The world behind a dialog has to
+    // keep being drawn, or it would blank out while the dialog is up.
+    public IScreen? CurrentScreen => _current;
+
     public ScreenId CurrentId { get; private set; }
 
     public void Start(ScreenId screen)
@@ -52,6 +56,8 @@ public sealed class Navigator : INavigator
 
         Show(screen, argument);
     }
+
+    public bool CanGoBack => _history.Count > 0;
 
     public void GoBack()
     {

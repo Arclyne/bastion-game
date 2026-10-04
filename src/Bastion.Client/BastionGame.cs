@@ -96,7 +96,7 @@ public sealed class BastionGame : Game
         // previous frame carves pieces out of the board.
         _graphics.GraphicsDevice.Clear(Theme.Background);
 
-        if (_board is not null && _navigator.Current is IWorldScreen worldScreen)
+        if (_board is not null && _navigator.CurrentScreen is IWorldScreen worldScreen)
         {
             worldScreen.DrawWorld(_board);
         }

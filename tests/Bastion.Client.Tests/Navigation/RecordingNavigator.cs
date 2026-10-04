@@ -15,6 +15,8 @@ public sealed class RecordingNavigator : INavigator
 
     public bool HasShownMessage { get; private set; }
 
+    public bool CanGoBack => true;
+
     public void GoTo(ScreenId screen, string? argument = null)
     {
         Destinations.Add(screen);

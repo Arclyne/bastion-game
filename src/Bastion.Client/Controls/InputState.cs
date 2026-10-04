@@ -11,6 +11,7 @@ public sealed class InputState
     private const int WheelNotch = 120;
 
     private readonly List<char> _characters = [];
+    private int _wheelCarry;
     private MouseState _previousMouse;
     private MouseState _currentMouse;
     private KeyboardState _previousKeyboard;
@@ -27,7 +28,7 @@ public sealed class InputState
 
     // Positive when the wheel is pushed away from the hand, which is the way the
     // board camera moves closer.
-    public int ScrollNotches => (_currentMouse.ScrollWheelValue - _previousMouse.ScrollWheelValue) / WheelNotch;
+    public int ScrollNotches { get; private set; }
 
     public IReadOnlyList<char> Characters => _characters;
 
@@ -40,6 +41,17 @@ public sealed class InputState
         _currentMouse = Mouse.GetState();
         _previousKeyboard = _currentKeyboard;
         _currentKeyboard = Keyboard.GetState();
+        ReadWheel();
+    }
+
+    // A precision wheel or a trackpad reports steps smaller than one detent, so
+    // what is left over is carried to the next frame instead of being dropped.
+    private void ReadWheel()
+    {
+        int movement = _currentMouse.ScrollWheelValue - _previousMouse.ScrollWheelValue + _wheelCarry;
+
+        ScrollNotches = movement / WheelNotch;
+        _wheelCarry = movement % WheelNotch;
     }
 
     public void ClearText()

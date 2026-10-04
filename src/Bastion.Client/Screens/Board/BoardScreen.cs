@@ -5,9 +5,8 @@ using Bastion.Client.Rendering;
 
 namespace Bastion.Client.Screens.Board;
 
-// The board on its own, with nothing drawn over it. It is the scene the match is
-// built on, kept apart so it can be opened, looked at and grown without the
-// match interface in the way. Start the client with --board to land here.
+// Kept apart from the match interface so the board can be built and looked at
+// on its own.
 public sealed class BoardScreen : IScreen, IWorldScreen
 {
     private readonly INavigator _navigator;
@@ -55,7 +54,9 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     {
         ArgumentNullException.ThrowIfNull(input);
 
-        if (input.IsKeyNewlyPressed(Keys.Escape))
+        // Opened with --board there is nowhere to go back to, and going back would
+        // rebuild the scene and throw away the angle the player turned it to.
+        if (input.IsKeyNewlyPressed(Keys.Escape) && _navigator.CanGoBack)
         {
             _navigator.GoBack();
             return;
