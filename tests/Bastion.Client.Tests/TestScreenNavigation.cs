@@ -23,6 +23,11 @@ public sealed class TestScreenNavigation
     // The versus screen is the transition into a match that is about to start (CU-17): its only way on is the match.
     private static readonly HashSet<ScreenId> _transitions = [ScreenId.VersusScreen];
 
+    // The board scene is opened with --board, to build and look at the board on
+    // its own. It is not part of the flow a player walks through, and it is left
+    // with the escape key rather than with a control.
+    private static readonly HashSet<ScreenId> _constructionScreens = [ScreenId.BoardScene];
+
     private readonly Dictionary<ScreenId, IReadOnlyList<PressOutcome>> _outcomes;
 
     public TestScreenNavigation()
@@ -37,7 +42,7 @@ public sealed class TestScreenNavigation
         HashSet<ScreenId> reached = Crawl();
 
         IEnumerable<ScreenId> unreachableScreens = ScreenRegistry.RegisteredScreens
-            .Where(screen => !reached.Contains(screen) && !_notYetReachable.Contains(screen));
+            .Where(screen => !reached.Contains(screen) && IsExpectedToBeReachable(screen));
         string unreachable = string.Join(", ", unreachableScreens);
 
         Assert.Equal(string.Empty, unreachable);
@@ -47,12 +52,23 @@ public sealed class TestScreenNavigation
     public void Explore_EveryScreen_HasAWayOut()
     {
         var screens = ScreenRegistry.RegisteredScreens
-            .Where(screen => !_homeScreens.Contains(screen) && !_transitions.Contains(screen))
+            .Where(IsExpectedToHaveAWayOut)
             .ToList();
 
         string deadEnds = string.Join(", ", screens.Where(screen => !HasWayOut(_outcomes[screen])));
 
         Assert.Equal(string.Empty, deadEnds);
+    }
+
+    private static bool IsExpectedToBeReachable(ScreenId screen)
+    {
+        return !_notYetReachable.Contains(screen) && !_constructionScreens.Contains(screen);
+    }
+
+    private static bool IsExpectedToHaveAWayOut(ScreenId screen)
+    {
+        return !_homeScreens.Contains(screen) && !_transitions.Contains(screen)
+            && !_constructionScreens.Contains(screen);
     }
 
     private HashSet<ScreenId> Crawl()

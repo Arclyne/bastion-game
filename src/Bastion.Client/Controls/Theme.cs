@@ -57,6 +57,14 @@ public static class Theme
     public static readonly Color Field = new(0xE8, 0xE4, 0xDA);
     public static readonly Color FieldFocused = new(0xDE, 0xD9, 0xCC);
 
+    // Laid over the board while it is not your turn (CU-20, CU-21).
+    public static readonly Color BoardVeil = new(0x13, 0x11, 0x10, 0x8C);
+
+    // Player colours proposed by the model notes, so a pawn is told apart by its
+    // colour and not only by its shape.
+    public static readonly Color FirstPlayer = new(0xD8, 0x5A, 0x30);
+    public static readonly Color SecondPlayer = new(0x1D, 0x9E, 0x75);
+
     public static readonly Color Accent = new(0xEC, 0x4B, 0x22);
     public static readonly Color AccentLight = new(0xEE, 0x61, 0x3D);
 

@@ -1,0 +1,38 @@
+using Microsoft.Xna.Framework;
+
+namespace Bastion.Client.Rendering;
+
+// Both steps are measured from the anchor nodes of the asset, so an exporter
+// that flips an axis or changes the unit cannot break this.
+public sealed class BoardFrame
+{
+    private const float HalfCell = 0.5f;
+
+    private readonly Vector3 _firstGroove;
+    private readonly Vector3 _columnStep;
+    private readonly Vector3 _rowStep;
+
+    public BoardFrame(Vector3 firstGroove, Vector3 columnStep, Vector3 rowStep)
+    {
+        _firstGroove = firstGroove;
+        _columnStep = columnStep;
+        _rowStep = rowStep;
+    }
+
+    public float CellSize => _columnStep.Length();
+
+    // Normal of the board plane: the way up, and the axis a wall turns around.
+    public Vector3 Up => Vector3.Normalize(Vector3.Cross(_columnStep, _rowStep));
+
+    // A wall sits exactly on a groove crossing, which is what the anchors mark.
+    public Vector3 GetGroovePosition(BoardSlot groove)
+    {
+        return _firstGroove + (_columnStep * groove.Column) + (_rowStep * groove.Row);
+    }
+
+    // Extrapolating also covers the last column and row, which have no crossing.
+    public Vector3 GetCellPosition(BoardSlot cell)
+    {
+        return GetGroovePosition(cell) - ((_columnStep + _rowStep) * HalfCell);
+    }
+}

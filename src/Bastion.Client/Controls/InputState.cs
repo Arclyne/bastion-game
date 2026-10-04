@@ -7,6 +7,9 @@ namespace Bastion.Client.Controls;
 
 public sealed class InputState
 {
+    // One wheel detent, the step the mouse reports between two notches.
+    private const int WheelNotch = 120;
+
     private readonly List<char> _characters = [];
     private MouseState _previousMouse;
     private MouseState _currentMouse;
@@ -21,6 +24,10 @@ public sealed class InputState
         _previousMouse.LeftButton == ButtonState.Pressed && _currentMouse.LeftButton == ButtonState.Released;
 
     public bool IsButtonPressed => _currentMouse.LeftButton == ButtonState.Pressed;
+
+    // Positive when the wheel is pushed away from the hand, which is the way the
+    // board camera moves closer.
+    public int ScrollNotches => (_currentMouse.ScrollWheelValue - _previousMouse.ScrollWheelValue) / WheelNotch;
 
     public IReadOnlyList<char> Characters => _characters;
 
