@@ -7,8 +7,6 @@ using Bastion.Client.Validation;
 
 namespace Bastion.Client.Screens.EditProfile;
 
-// The profile data comes from the server, so the screen starts empty: no icon
-// or title chosen, no links and the nickname box blank.
 public sealed class EditProfileScreen : FormScreen
 {
     private const int AvatarSize = 64;
@@ -318,7 +316,6 @@ public sealed class EditProfileScreen : FormScreen
 
     private void OnIconChosen(object? sender, SelectionChangedEventArgs e)
     {
-        // The last chip is the dashed "more icons" one, which selects nothing.
         if (e.SelectedIndex < _iconChips.Items.Count - 1)
         {
             _iconIndex = e.SelectedIndex;
@@ -384,7 +381,6 @@ public sealed class EditProfileScreen : FormScreen
         int fieldWidth = ColumnWidth - LinkTypeWidth - LinkRemoveWidth - (SmallButtonGap * 2);
         IReadOnlyList<string> linkTypes = GetLinkTypeNames();
 
-        // Rows start hidden; ShowNextEmptyLinkRow reveals one more each time the previous one is filled.
         var type = new DropDown
         {
             Options = linkTypes,
@@ -408,7 +404,6 @@ public sealed class EditProfileScreen : FormScreen
         _linkRemoveButtons.Add(remove);
     }
 
-    // Draw order is registration order, so the link type lists go last to open over the rest.
     private void RegisterControls()
     {
         Register(_avatar);
@@ -548,7 +543,6 @@ public sealed class EditProfileScreen : FormScreen
         });
     }
 
-    // Until the server supplies the nickname, the preview shows only the chosen title.
     private void RefreshPreview()
     {
         IReadOnlyList<string> titles = GetTitleNames();

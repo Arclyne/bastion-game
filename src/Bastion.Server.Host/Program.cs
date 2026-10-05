@@ -31,13 +31,9 @@ public static class Program
     public static void Main(string[] args)
     {
         ConfigureLogging();
-        // The content root is the build output, where appsettings.json is copied, so the server starts the same way
-        // from any working directory (for example with dotnet run --project).
         var options = new WebApplicationOptions { Args = args, ContentRootPath = AppContext.BaseDirectory };
         WebApplicationBuilder builder = WebApplication.CreateBuilder(options);
 
-        // User secrets load in every environment, not only Development, so a developer machine never needs the
-        // connection string in a file inside the repository.
         builder.Configuration.AddUserSecrets(typeof(Program).Assembly, optional: true);
         string connectionString = GetConnectionString(builder.Configuration);
         int netTcpPort = GetNetTcpPort(builder.Configuration);
@@ -62,8 +58,6 @@ public static class Program
         XmlConfigurator.Configure(LogManager.GetRepository(typeof(Program).Assembly), configurationFile);
     }
 
-    // The connection string lives in user-secrets or in the ConnectionStrings__Bastion environment variable,
-    // never in the repository.
     private static string GetConnectionString(IConfiguration configuration)
     {
         string? connectionString = configuration.GetConnectionString(ConnectionStringName);
@@ -101,8 +95,6 @@ public static class Program
             ToRelativeAddress(ServiceEndpoints.LeaderboardPath));
     }
 
-    // SecurityMode.None is required between macOS and Linux; it is compensated by server-side validation, hashed
-    // passwords and session tokens (see the stack decisions in the README).
     private static NetTcpBinding CreateBinding()
     {
         return new NetTcpBinding(SecurityMode.None);

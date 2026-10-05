@@ -6,9 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.AdminPanel;
 
-// CU-46 main flow step 3. The candidate file an administrator reads before
-// granting the role: how long the account has existed and what it carries.
-// The candidate comes from the server, so the boxes start empty.
 public sealed class AdminPanelScreen : FormScreen
 {
     private const int CardHeight = 392;
@@ -43,7 +40,6 @@ public sealed class AdminPanelScreen : FormScreen
 
         int historyTop = FirstRowTop + (RowSpacing * HistoryRow);
 
-        // The rows stay hidden until the server sends the candidate history.
         for (int rowIndex = 0; rowIndex < VisibleRows; rowIndex++)
         {
             var row = new DataRow

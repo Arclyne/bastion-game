@@ -3,7 +3,6 @@ using Bastion.Contracts.Accounts;
 
 namespace Bastion.Client.Session;
 
-// What the client keeps after signing in; the server stays the source of truth for everything else.
 public sealed class SessionContext
 {
     public string? SessionToken { get; private set; }

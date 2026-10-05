@@ -5,8 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Versus;
 
-// CU-17 main flow step 6. Shown for a moment before the match opens, so both
-// players see who they are about to face.
 public sealed class VersusScreen : FormScreen
 {
     private const int AvatarSize = 72;
@@ -108,8 +106,6 @@ public sealed class VersusScreen : FormScreen
         return TextCatalog.VersusScreenSubtitle;
     }
 
-    // The two players, their elo and the match settings come from the server
-    // pairing, so their lines stay empty until it answers.
     protected override void ApplyTexts()
     {
         _leftAvatar.Text = TextCatalog.AvatarPlaceholder;

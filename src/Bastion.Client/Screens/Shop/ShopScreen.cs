@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Shop;
 
-// CU-38 main flow step 1. The balance stays visible because every price on the
-// grid is read against it.
 public sealed class ShopScreen : FormScreen
 {
     private const int CardHeight = 400;
@@ -38,7 +36,6 @@ public sealed class ShopScreen : FormScreen
 
         int gridTop = top + BalanceHeight + SectionGap;
 
-        // The tiles stay hidden until the server sends the catalogue.
         for (int itemIndex = 0; itemIndex < TileColumns * TileRows; itemIndex++)
         {
             var item = new AvatarBox
@@ -103,8 +100,6 @@ public sealed class ShopScreen : FormScreen
         Navigator.GoBack();
     }
 
-    // Only the width follows the card. The height cannot, because the two rows
-    // have to keep fitting between the balance and the bottom of the card.
     private int GetTileWidth()
     {
         return (ContentWidth - (TileGap * (TileColumns - 1))) / TileColumns;

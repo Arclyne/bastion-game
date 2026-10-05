@@ -2,8 +2,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// Colors are sampled from the high fidelity login prototype so both access
-// screens read as one product instead of two approximations.
 public static class Theme
 {
     public const int WindowWidth = 1280;
@@ -29,14 +27,8 @@ public static class Theme
     public const int ChipHeight = 36;
     public const int SmallButtonHeight = 40;
 
-    // Validation prints at most one line under a field. The space is reserved
-    // whether or not it is used, so showing a warning never pushes the rest of
-    // the form down, and layouts leave at least WarningSpace under any field
-    // that can be rejected.
     public const int WarningOffset = 5;
 
-    // Measured, not guessed: the small style is 17.25 px tall at Arial 15, so
-    // a warning reaches WarningOffset + 17.25 below its field.
     public const int WarningSpace = 22;
     public const int DialogWidth = 560;
     public const int DialogButtonHeight = 46;
@@ -71,7 +63,6 @@ public static class Theme
     public static readonly Color SecondaryBorder = new(0x37, 0x31, 0x2A);
     public static readonly Color CheckBoxBorder = new(0xB9, 0xB2, 0xA5);
 
-    // The only color not sampled from the prototype, which has no green.
     public static readonly Color Positive = new(0x3F, 0x9E, 0x63);
 
     public static readonly Color Backdrop = new(0x00, 0x00, 0x00);

@@ -5,8 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Title;
 
-// CU-01 trigger: the title screen shown before the sign-in form, with the wordmark, a one-line pitch and the
-// button that opens the form.
 public sealed class TitleScreen : FormScreen
 {
     private const int IntroHeight = 84;

@@ -2,8 +2,6 @@ using System.Globalization;
 
 namespace Bastion.Client.Localization;
 
-// Exactly two languages are supported (D-21). The database enforces the same pair through
-// CK_Account_PreferredLanguage, so adding a third one also changes that check.
 public static class Language
 {
     private const string EnglishCode = "en-US";
@@ -14,12 +12,10 @@ public static class Language
 
     public static readonly CultureInfo English = new CultureInfo(EnglishCode);
 
-    // English is both the neutral resource and the language the game starts in; es-MX is the translation.
     public static CultureInfo Default => English;
 
     public static CultureInfo Current => CultureInfo.CurrentUICulture;
 
-    // Compared by two-letter code because "en" and "en-US" are different cultures and both count as English.
     public static bool IsEnglish => Current.TwoLetterISOLanguageName == EnglishTwoLetterCode;
 
     public static void Apply(CultureInfo culture)

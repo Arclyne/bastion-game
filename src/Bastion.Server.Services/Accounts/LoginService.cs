@@ -91,7 +91,6 @@ public sealed class LoginService : ILoginService
         return new LoginOutcome(new LoginResult { Code = code }, attempt);
     }
 
-    // Only ACTIVE accounts may sign in; each other status has its own message (CU-01 RN-04).
     private static LoginResultCode MapStatus(AccountStatus status)
     {
         switch (status)

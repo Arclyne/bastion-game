@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.PendingVerification;
 
-// CU-01 FA, for an account still pending verification. Login does not branch
-// on the account status yet, so nothing reaches this screen today.
 public sealed class PendingVerificationScreen : FormScreen
 {
     public const string DefaultArgument = "";
@@ -55,8 +53,6 @@ public sealed class PendingVerificationScreen : FormScreen
         _resendButton.Title = TextCatalog.PendingVerificationResendButton;
     }
 
-    // Without an address the notice drops the masked email instead of
-    // printing an empty gap in the sentence.
     private string GetNotice()
     {
         if (string.IsNullOrWhiteSpace(_email))

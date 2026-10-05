@@ -6,10 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.TutorialIndex;
 
-// CU-41 main flow step 1. Seven lessons; opening a lesson itself needs a
-// board, which does not exist yet, so each row is informational until then.
-// Which lessons are done or in progress comes from the server, so the
-// progress line and the state tags stay empty until it answers.
 public sealed class TutorialIndexScreen : FormScreen
 {
     private const int LessonCount = 7;

@@ -8,8 +8,6 @@ using Bastion.Contracts.Accounts;
 
 namespace Bastion.Client.Screens.Register;
 
-// Sign-up logic of CU-02 without any MonoGame type. Every field is checked, not only the first bad one, so the
-// player fixes the whole form in one pass (CU-02 FA-03 to FA-05, FA-07); the server checks everything again.
 public sealed class RegisterController
 {
     private readonly IAccountClient _accounts;
@@ -53,7 +51,6 @@ public sealed class RegisterController
         return _accounts.RegisterAsync(request);
     }
 
-    // What the player can fix is said next to the field that holds it; null means the answer is not about a field.
     public static RegistrationWarnings? GetFieldWarnings(RegistrationResultCode code)
     {
         switch (code)
@@ -88,7 +85,6 @@ public sealed class RegisterController
         return InputRules.IsNickname(nickname) ? null : TextCatalog.RegisterNicknameInvalid;
     }
 
-    // CU-02 RN-03 asks for length and three of the four character groups, and says which one is missing.
     private static string? GetPasswordWarning(string password)
     {
         if (!InputRules.HasPasswordLength(password))

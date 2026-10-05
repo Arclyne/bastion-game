@@ -11,16 +11,12 @@ public sealed class TestScreenNavigation
 {
     private const ScreenId Entry = ScreenId.MainScreen;
 
-    // Screens that end the flow on purpose by sending the player back to a known place.
     private static readonly HashSet<ScreenId> _homeScreens = [ScreenId.MainScreen, ScreenId.Login, ScreenId.MainMenu];
 
-    // Leaving a match means resigning or abandoning it, which ends on one of these screens (CU-23, CU-24).
     private static readonly HashSet<ScreenId> _matchExits = [ScreenId.MatchEnd, ScreenId.AIMatchEnd];
 
-    // Two-factor sign-in (CU-01 FA-09) needs the email service, which does not exist yet.
     private static readonly HashSet<ScreenId> _notYetReachable = [ScreenId.SecondFactor];
 
-    // The versus screen is the transition into a match that is about to start (CU-17): its only way on is the match.
     private static readonly HashSet<ScreenId> _transitions = [ScreenId.VersusScreen];
 
     private readonly Dictionary<ScreenId, IReadOnlyList<PressOutcome>> _outcomes;

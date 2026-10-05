@@ -4,7 +4,6 @@ using Bastion.Client.Screens;
 
 namespace Bastion.Client.Tests.Navigation;
 
-// Records where a screen asks to go instead of going there, so every press can be checked on its own.
 public sealed class RecordingNavigator : INavigator
 {
     public List<ScreenId> Destinations { get; } = [];

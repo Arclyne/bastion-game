@@ -53,8 +53,6 @@ using Bastion.Client.Screens.WaitingRoom;
 
 namespace Bastion.Client.Screens;
 
-// The only place that knows every concrete screen, so screens never depend on each other. A lookup instead of a
-// switch keeps the method far under the cyclomatic complexity limit (CA1502).
 public static class ScreenRegistry
 {
     private static readonly Dictionary<ScreenId, Func<ScreenContext, IScreen>> _factories = new()

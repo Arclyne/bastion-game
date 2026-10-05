@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Spectator;
 
-// CU-34 main flow step 3. A free camera on someone else's match, with the
-// eight second delay D-19 fixes so a spectator can never race the players.
 public sealed class SpectatorScreen : FormScreen
 {
     private const int DelaySeconds = 8;
@@ -113,8 +111,6 @@ public sealed class SpectatorScreen : FormScreen
         return TextCatalog.SpectatorSubtitle;
     }
 
-    // The viewer count, the moves and the chat come from the server, so their
-    // lines stay empty and the move rows hidden until it answers.
     protected override void ApplyTexts()
     {
         _liveTag.Text = TextCatalog.SpectatorLiveTag;

@@ -5,8 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.PrivateMatch;
 
-// CU-18 main flow step 1, and CU-19 main flow step 1: the same screen offers
-// both entry points side by side.
 public sealed class PrivateMatchScreen : FormScreen
 {
     private const int RoomCodeLength = 6;

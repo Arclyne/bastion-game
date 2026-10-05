@@ -63,8 +63,6 @@ public sealed class RegistrationService : IRegistrationService
         }
         catch (DbUpdateException ex)
         {
-            // Two sign-ups with the same nickname or email can pass validation at the same time; the unique
-            // indexes stop the second one.
             _logger.Warn($"Registration hit a unique index. Nickname={account.Nickname}", ex);
             RegistrationResultCode conflict = await FindConflictAsync(account);
             return new RegistrationOutcome(conflict, null);

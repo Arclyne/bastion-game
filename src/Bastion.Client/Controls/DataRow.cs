@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// One line of a list: a match, a coin movement, a leaderboard position, a friend.
-// The badge holds a rank when the list is ordered by one.
 public sealed class DataRow : Control
 {
     private const int HorizontalPadding = 16;
@@ -21,14 +19,10 @@ public sealed class DataRow : Control
 
     public ValueTone Tone { get; set; } = ValueTone.Neutral;
 
-    // The player own row, which CU-35 pins so it is visible out of its page.
     public bool IsHighlighted { get; init; }
 
-    // The first three places, which CU-35 asks to stand out.
     public bool IsPodium { get; init; }
 
-    // A row that stands for something the player can open, such as a person or
-    // a match. Rows nobody subscribes to stay inert.
     public event EventHandler? Clicked;
 
     public override void Update(InputState input)

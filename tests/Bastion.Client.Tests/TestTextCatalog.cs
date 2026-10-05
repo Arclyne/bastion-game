@@ -18,7 +18,6 @@ public sealed class TestTextCatalog
     private const string SolutionFileName = "Bastion.slnx";
     private const string FontRelativePath = "src/Bastion.Client/Content/Regular.spritefont";
 
-    // A property whose key is missing returns the key itself, such as "Login.Subtitle".
     private static readonly Regex _keyPattern = new Regex(@"^[A-Z][A-Za-z]*\.[A-Za-z_]+$");
 
     private static readonly ResourceManager _manager = new ResourceManager(
@@ -121,7 +120,6 @@ public sealed class TestTextCatalog
             .Select(entry => entry.Value as string ?? string.Empty);
     }
 
-    // The fonts only contain the glyphs of their character regions; any other character is drawn as '?'.
     private static IReadOnlyList<(int Start, int End)> ReadFontRegions()
     {
         string fontPath = Path.Combine(FindSolutionDirectory(), FontRelativePath);

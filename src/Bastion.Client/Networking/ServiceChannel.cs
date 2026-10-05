@@ -5,8 +5,6 @@ using log4net;
 
 namespace Bastion.Client.Networking;
 
-// One factory per contract, reused for every call; each call gets its own channel, which is closed on success
-// and aborted on failure so a faulted channel is never reused.
 public sealed class ServiceChannel<TContract> : IDisposable
     where TContract : class
 {

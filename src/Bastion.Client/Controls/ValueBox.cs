@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// A value the player cannot edit. It looks like a field so the pair reads as
-// one unit, but it takes no focus and no typing.
 public sealed class ValueBox : Control
 {
     private const int HorizontalPadding = 16;

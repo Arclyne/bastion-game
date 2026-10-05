@@ -5,8 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Replay;
 
-// CU-37 main flow step 3. The timeline and the notation panel; the board that
-// they walk through belongs to the game renderer, which does not exist yet.
 public sealed class ReplayScreen : FormScreen
 {
     private const int ResultHeight = 20;
@@ -102,8 +100,6 @@ public sealed class ReplayScreen : FormScreen
         return TextCatalog.ReplayTitle;
     }
 
-    // The result, the moves and the notation come from the server, so their
-    // lines stay empty and the timeline at its start until it answers.
     protected override void ApplyTexts()
     {
         _notationPanel.Title = TextCatalog.ReplayNotationTitle;
@@ -114,7 +110,6 @@ public sealed class ReplayScreen : FormScreen
         _exitButton.Title = TextCatalog.ReplayExitButton;
     }
 
-    // Stepping needs the recorded moves, which the server does not send yet.
     private void OnPreviousClicked(object? sender, EventArgs e)
     {
     }

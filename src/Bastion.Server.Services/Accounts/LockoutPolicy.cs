@@ -3,8 +3,6 @@ using Bastion.Server.Data.Entities;
 
 namespace Bastion.Server.Services.Accounts;
 
-// Escalating lockout of CU-01 RN-03: the 3rd consecutive failure locks for 5 minutes, the 6th for 30 and every one
-// from the 9th on for 60. The counter restarts after a successful sign-in or 24 hours without failures.
 public static class LockoutPolicy
 {
     private const int FirstThreshold = 3;

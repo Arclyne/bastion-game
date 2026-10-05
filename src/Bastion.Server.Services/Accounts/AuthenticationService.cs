@@ -13,8 +13,6 @@ namespace Bastion.Server.Services.Accounts;
 /// </summary>
 public sealed class AuthenticationService : IAuthenticationService
 {
-    // A random decoy costs the same derivation as a real account, so the response time does not reveal
-    // whether the identifier exists (CU-01 RN-01, FA-06).
     private static readonly StoredPassword _decoyPassword = new StoredPassword(
         RandomNumberGenerator.GetBytes(PasswordHasher.HashLength),
         RandomNumberGenerator.GetBytes(PasswordHasher.SaltLength));

@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Settings;
 
-// The account and language panels of the settings. The account data (nickname,
-// email, sessions, friend code) comes from the server, so it stays blank until then.
 public sealed class SettingsScreen : FormScreen
 {
     private const int CardHeight = Theme.WindowHeight - (Theme.PanelTop * 2);
@@ -230,8 +228,6 @@ public sealed class SettingsScreen : FormScreen
     {
         bool wantsLanguage = e.SelectedIndex == LanguageIndex;
 
-        // Each panel is its own destination, so the back link and the
-        // history treat them as the two screens the use cases describe.
         Navigator.GoTo(wantsLanguage ? ScreenId.SettingsLanguage : ScreenId.AccountSettings);
     }
 

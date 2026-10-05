@@ -20,7 +20,6 @@ public sealed class LoginResult
     [DataMember]
     public int LockMinutes { get; set; }
 
-    // Only sent for an account pending verification, after the password was checked (CU-01 FA-09).
     [DataMember]
     public string? Email { get; set; }
 }

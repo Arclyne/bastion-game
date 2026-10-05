@@ -5,8 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.SelectMode;
 
-// CU-17 main flow step 1. Mode and clock, preselected to the first option
-// until a real last choice exists to remember (RN-07).
 public sealed class SelectModeScreen : FormScreen
 {
     private const int SectionGap = 20;

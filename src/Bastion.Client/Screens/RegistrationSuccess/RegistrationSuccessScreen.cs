@@ -5,7 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.RegistrationSuccess;
 
-// CU-02 postcondition: the account exists and the player can sign in with it.
 public sealed class RegistrationSuccessScreen : FormScreen
 {
     private const int NoticeHeight = 96;

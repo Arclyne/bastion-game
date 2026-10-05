@@ -3,8 +3,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Messages;
 
-// Asks before doing something that discards work or cannot be undone. Always
-// has two options, and the one that keeps the current state is the secondary.
 public sealed class MessageConfirmScreen : MessageScreen
 {
     public MessageConfirmScreen()

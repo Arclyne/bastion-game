@@ -8,8 +8,6 @@ using Bastion.Contracts.Accounts;
 
 namespace Bastion.Client.Tests.Navigation;
 
-// Presses every control and menu entry of a screen, each on a freshly built copy, and answers yes to every
-// confirmation, to find out where each press leads.
 public static class ScreenExplorer
 {
     private static readonly IReadOnlyDictionary<ScreenId, string[][]> _typing = new Dictionary<ScreenId, string[][]>
@@ -19,7 +17,6 @@ public static class ScreenExplorer
         [ScreenId.Register] = [["nora_north", "nora@example.test", "Nora#North26", "Nora#North26", "15", "3", "2008"]],
     };
 
-    // What the fake server answers to a sign-in; each answer leads to a different screen (CU-01).
     private static readonly LoginResultCode[] _loginAnswers =
     [
         LoginResultCode.Success,
@@ -84,7 +81,6 @@ public static class ScreenExplorer
             ScreenDriver.ClickAt(screen, index);
         }
 
-        // Answers that arrive from the server are handled on the next frame.
         screen.Update(new InputState());
         foreach (ConfirmRequest confirmation in navigator.Confirmations.ToList())
         {

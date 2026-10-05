@@ -3,8 +3,6 @@ using Bastion.Client.Controls;
 
 namespace Bastion.Client.Screens;
 
-// Base of the four message screens. They differ only in tone and in which
-// labels they take from the catalog, so the loop lives here once.
 public abstract class MessageScreen : IScreen
 {
     protected MessageScreen(DialogTone tone)

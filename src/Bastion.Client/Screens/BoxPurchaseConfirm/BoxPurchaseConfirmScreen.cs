@@ -5,8 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.BoxPurchaseConfirm;
 
-// CU-39 main flow step 4. Besides the price it shows how many boxes have come
-// without a rare item and when the guarantee triggers (CU-39 RN-05).
 public sealed class BoxPurchaseConfirmScreen : FormScreen
 {
     private const int CardHeight = 330;
@@ -29,8 +27,6 @@ public sealed class BoxPurchaseConfirmScreen : FormScreen
         _remainingBox = CreateValueBox(
             new Rectangle(ContentX + column + SectionGap, FirstRowTop, column, Theme.FieldHeight));
 
-        // Hidden until the server sends the streak: the notice states how many
-        // boxes the player has opened without a rare item.
         _guaranteeNotice = new NoticeBox
         {
             IsVisible = false,

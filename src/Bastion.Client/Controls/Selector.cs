@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// Picks one option among a few, drawn as adjacent segments.
 public sealed class Selector : Control
 {
     private const int LabelOffset = 22;
@@ -67,8 +66,6 @@ public sealed class Selector : Control
         int width = Bounds.Width / Options.Count;
         int x = Bounds.X + (index * width);
 
-        // The last segment absorbs the integer division remainder so the group
-        // ends exactly where the control ends.
         int actualWidth = index == Options.Count - 1 ? Bounds.Right - x : width;
 
         return new Rectangle(x, Bounds.Y, actualWidth, Bounds.Height);

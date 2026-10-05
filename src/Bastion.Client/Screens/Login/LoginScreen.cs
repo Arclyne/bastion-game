@@ -7,7 +7,6 @@ using Bastion.Contracts.Accounts;
 
 namespace Bastion.Client.Screens.Login;
 
-// CU-01 main flow. The identifier accepts either the nickname or the email, so it is one field and not two.
 public sealed class LoginScreen : FormScreen
 {
     private const int CardHeight = 272;
@@ -15,7 +14,6 @@ public sealed class LoginScreen : FormScreen
     private const int IdentifierRow = 0;
     private const int PasswordRow = 1;
 
-    // The link sits under a field that validation can reject, so it clears the warning line.
     private const int LinkExtraGap = 6;
     private const int LinkGap = Theme.WarningSpace + LinkExtraGap;
     private const int LinkHeight = 24;

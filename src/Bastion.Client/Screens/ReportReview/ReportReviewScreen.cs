@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.ReportReview;
 
-// CU-43 main flow step 5. The reason, the description, the match chat with the
-// reported messages standing out, and the three ways to close the report.
 public sealed class ReportReviewScreen : FormScreen
 {
     private const int CardHeight = 384;
@@ -41,7 +39,6 @@ public sealed class ReportReviewScreen : FormScreen
 
         int messagesTop = _description.Bounds.Bottom + SectionGap;
 
-        // The chat rows stay hidden until the server sends the report.
         for (int messageIndex = 0; messageIndex < VisibleMessages; messageIndex++)
         {
             var message = new DataRow

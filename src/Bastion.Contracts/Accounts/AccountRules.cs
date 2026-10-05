@@ -3,8 +3,6 @@ using System.Text.RegularExpressions;
 
 namespace Bastion.Contracts.Accounts;
 
-// Shape rules shared by the client, which checks them before sending, and the server, which checks them again
-// because nothing coming from a client is trusted (CU-02 RN-01, RN-02, RN-03, RN-05).
 public static class AccountRules
 {
     public const int MinimumNicknameLength = 3;
@@ -21,7 +19,6 @@ public static class AccountRules
         RegexOptions.CultureInvariant,
         _matchTimeout);
 
-    // Stricter than the address grammar on purpose: one at sign, a host with a dot and no spaces.
     private static readonly Regex _emailPattern = new Regex(
         @"^[^@\s]+@[^@\s.]+(?:\.[^@\s.]+)+$",
         RegexOptions.CultureInvariant,
@@ -74,7 +71,6 @@ public static class AccountRules
         return HasPasswordLength(password) && CountPasswordGroups(password) >= RequiredPasswordGroups;
     }
 
-    // Whole years only: a birth date is never off by a fraction of a year for the minimum age (CU-02 RN-05).
     public static bool IsOldEnough(DateTime birthDate, DateTime today)
     {
         return birthDate.Date.AddYears(MinimumAge) <= today.Date;

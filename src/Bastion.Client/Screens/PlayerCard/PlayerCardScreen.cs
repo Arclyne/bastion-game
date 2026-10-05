@@ -6,9 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.PlayerCard;
 
-// CU-16 main flow step 4. Another player seen from outside: the head to head
-// score, the last matches together and what can be done about them. The score
-// and the matches come from the server, so the rows stay hidden until then.
 public sealed class PlayerCardScreen : FormScreen
 {
     private const int CardHeight = 392;

@@ -5,7 +5,6 @@ using Bastion.Server.Services.Common;
 
 namespace Bastion.Server.Host;
 
-// Reads the caller address from the incoming WCF message; the access log and the sessions store it (CU-01).
 public sealed class WcfCallContext : ICallContext
 {
     private const string UnknownAddress = "0.0.0.0";

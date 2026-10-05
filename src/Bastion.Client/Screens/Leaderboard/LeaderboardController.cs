@@ -10,8 +10,6 @@ using Bastion.Contracts.Leaderboard;
 
 namespace Bastion.Client.Screens.Leaderboard;
 
-// Ranking logic of CU-35 without any MonoGame type: which modes can be picked, what to ask the server and how
-// to show its answer in the current culture.
 public sealed class LeaderboardController
 {
     private const string NumberFormat = "N0";
@@ -82,7 +80,6 @@ public sealed class LeaderboardController
             entry.MatchesWon.ToString(NumberFormat, CultureInfo.CurrentCulture));
     }
 
-    // Null when the page has rows to show; otherwise the sentence that replaces the table.
     public static string? GetStatusText(LeaderboardPage page)
     {
         ArgumentNullException.ThrowIfNull(page);

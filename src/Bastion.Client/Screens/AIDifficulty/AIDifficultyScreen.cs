@@ -5,11 +5,8 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.AIDifficulty;
 
-// CU-27 main flow step 1. Four levels, the board size, the clock and the two
-// assist switches, all local to the client until the AI opponent exists.
 public sealed class AIDifficultyScreen : FormScreen
 {
-
     private const int LabelHeight = LabelSpace;
     private const int SectionGap = 18;
     private const int StrengthGap = 6;

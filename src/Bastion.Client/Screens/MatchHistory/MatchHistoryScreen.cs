@@ -6,9 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.MatchHistory;
 
-// CU-36 main flow step 4. One row per match: result, opponent, mode, duration
-// and the elo change, signed and colored. The history comes from the server,
-// so the rows stay hidden behind an empty-state line until it answers.
 public sealed class MatchHistoryScreen : FormScreen
 {
     private const int RowHeight = 62;

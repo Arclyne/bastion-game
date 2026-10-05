@@ -4,8 +4,6 @@ using Bastion.Client.Controls;
 
 namespace Bastion.Client.Screens;
 
-// Modal shared by MessageErrorScreen, MessageWarningScreen, MessageConfirmScreen and
-// MessageSuccessScreen. Only the tone and the labels change between them.
 public sealed class MessageDialog
 {
     private const int Padding = Theme.CardPadding;
@@ -38,8 +36,6 @@ public sealed class MessageDialog
 
     public string Body { get; set; } = string.Empty;
 
-    // Extra line under the body, such as the incident identifier that the
-    // server returns with SERVER_ERROR (CU-02 EX-04).
     public string Detail { get; set; } = string.Empty;
 
     public string PrimaryLabel { get; set; } = string.Empty;
@@ -54,15 +50,11 @@ public sealed class MessageDialog
 
     public event EventHandler? SecondaryChosen;
 
-    // Only success departs from the accent: an orange confirmation button is
-    // right for a destructive primary action, a green one would not be.
     public static Color GetPrimaryColor(DialogTone tone)
     {
         return tone == DialogTone.Success ? Theme.Positive : Theme.Accent;
     }
 
-    // Draw lays the buttons out, because measuring a label needs the fonts.
-    // On the first frame their bounds are empty, which cannot swallow a click.
     public void Update(InputState input)
     {
         ArgumentNullException.ThrowIfNull(input);
@@ -121,8 +113,6 @@ public sealed class MessageDialog
         return Theme.DialogWidth - (Padding * 2);
     }
 
-    // Measured once per frame. Both the card height and the text positions read
-    // from this, so the vertical layout exists in one place only.
     private DialogMetrics Measure(Canvas canvas)
     {
         TextStyle titleStyle = TextStyleFactory.CreateLabel(canvas.Fonts, GetToneColor());
@@ -159,8 +149,6 @@ public sealed class MessageDialog
         return new Rectangle(x, y, Theme.DialogWidth, height);
     }
 
-    // A short rule above the title instead of a full width bar on the top edge:
-    // there the rounded corners cut it and its ends hang outside the card.
     private void DrawToneRule(Canvas canvas, Rectangle card)
     {
         var rule = new Rectangle(card.X + Padding, card.Y + Padding, ToneRuleWidth, Theme.DialogToneBarHeight);

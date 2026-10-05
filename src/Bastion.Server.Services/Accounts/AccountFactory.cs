@@ -15,7 +15,6 @@ namespace Bastion.Server.Services.Accounts;
 /// </summary>
 public sealed class AccountFactory : IAccountFactory
 {
-    // Version of the terms of use the registration form shows (CU-02 RN-12).
     private const string CurrentTermsVersion = "2026.2";
     private const short InitialEloRating = 1000;
 
@@ -56,7 +55,6 @@ public sealed class AccountFactory : IAccountFactory
         DateTime now = _callContext.UtcNow;
         string language = LanguageCode.FromCultureName(request.PreferredLanguage);
 
-        // Activated right away while there is no email service to verify the address (CU-04 comes later).
         return new Account
         {
             AccountType = AccountType.Registered,

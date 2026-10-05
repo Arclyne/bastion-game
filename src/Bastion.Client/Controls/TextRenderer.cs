@@ -92,9 +92,6 @@ public sealed class TextRenderer
         return width - style.Tracking;
     }
 
-    // The longest ending of the text that fits in the width. Editing only
-    // happens at the end of a field, so the end is what has to stay visible
-    // when the value outgrows its box.
     public string FitEnd(string text, float width, TextStyle style)
     {
         ArgumentNullException.ThrowIfNull(style);
@@ -104,9 +101,6 @@ public sealed class TextRenderer
             return text;
         }
 
-        // Dropping a leading character never widens the run, so the first
-        // start that fits is found by halving instead of one character at a
-        // time, which would measure the whole string on every frame.
         int low = 1;
         int high = text.Length;
 
@@ -141,8 +135,6 @@ public sealed class TextRenderer
         return style.Font.LineSpacing * style.Scale;
     }
 
-    // Greedy word wrap. A word longer than the available width gets its own
-    // line and overflows, which is preferable to splitting it mid word.
     public IReadOnlyList<string> SplitIntoLines(string text, int width, TextStyle style)
     {
         ArgumentNullException.ThrowIfNull(style);

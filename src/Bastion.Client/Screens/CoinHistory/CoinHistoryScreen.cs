@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.CoinHistory;
 
-// CU-40 main flow step 4. Balance on top, then the movements with their date,
-// description and signed amount.
 public sealed class CoinHistoryScreen : FormScreen
 {
     private const int CardHeight = 352;
@@ -30,7 +28,6 @@ public sealed class CoinHistoryScreen : FormScreen
             Bounds = new Rectangle(ContentX, Card.Y + Theme.CardPadding, ContentWidth, BalanceHeight)
         };
 
-        // The rows stay hidden until the server sends the movements.
         for (int rowIndex = 0; rowIndex < VisibleRows; rowIndex++)
         {
             var row = new DataRow

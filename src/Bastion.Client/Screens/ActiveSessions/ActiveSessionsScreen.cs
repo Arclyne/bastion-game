@@ -31,7 +31,6 @@ public sealed class ActiveSessionsScreen : FormScreen
             Layout = ScreenLayout.Panel
         })
     {
-        // The rows stay hidden until the server can list the open sessions.
         for (int rowIndex = 0; rowIndex < VisibleRows; rowIndex++)
         {
             int rowTop = PanelContentTop + (rowIndex * (RowHeight + RowGap));

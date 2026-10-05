@@ -2,8 +2,6 @@ using Bastion.Client.Controls;
 
 namespace Bastion.Client.Screens;
 
-// Measured once per frame and consumed by both the height calculation and the
-// drawing, so the vertical layout is not written twice.
 public sealed record DialogMetrics
 {
     public required TextStyle TitleStyle { get; init; }

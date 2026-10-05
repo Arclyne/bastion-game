@@ -107,8 +107,6 @@ public sealed class DeleteAccountScreen : FormScreen
 
     protected override void ApplyTexts()
     {
-        // The totals of the account arrive with the profile service (CU-15); until then the notice names what is lost
-        // without amounts.
         _lossBox.Title = TextCatalog.DeleteAccountLossTitle;
         _lossText.Text = TextCatalog.DeleteAccountLossSummary;
         _passwordField.Label = TextCatalog.DeleteAccountPasswordLabel;
@@ -162,8 +160,6 @@ public sealed class DeleteAccountScreen : FormScreen
         ApplyTexts();
     }
 
-    // Only the server knows the password, so the client just checks that one
-    // was typed.
     private bool ValidatePassword()
     {
         _passwordField.Warning = _passwordField.Text.Length > 0 ? null : TextCatalog.LoginPasswordRequired;

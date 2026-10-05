@@ -123,7 +123,6 @@ public sealed class ChangeNicknameScreen : FormScreen
         Navigator.ShowMessage(DialogTone.Success, TextCatalog.ChangeNicknameDoneBody);
     }
 
-    // Whether the nickname is already taken is answered by the server.
     private bool Validate()
     {
         _newField.Warning = InputRules.HasNicknameLength(_newField.Text.Trim())

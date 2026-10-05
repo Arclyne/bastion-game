@@ -4,7 +4,6 @@ namespace Bastion.Client.Controls;
 
 public sealed class Avatar : Control
 {
-    // From this width on the initials fit in the body size; smaller avatars use the small one.
     private const int LargeAvatarWidth = 64;
 
     public string Text { get; set; } = string.Empty;

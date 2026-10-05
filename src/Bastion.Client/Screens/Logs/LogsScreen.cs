@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Logs;
 
-// CU-48 main flow steps 1 and 4. Which log, the date range and the filters on
-// top; the records and their counts below.
 public sealed class LogsScreen : FormScreen
 {
     private const int SectionGap = 20;
@@ -18,7 +16,6 @@ public sealed class LogsScreen : FormScreen
     private const int FilterGaps = FilterColumns - 1;
     private const int LabelRowsAboveList = 2;
 
-    // The filter row and its label sit above the list, inside the same card.
     private static readonly int _cardHeight =
         ComputeListCardHeight(VisibleRows, RowHeight, RowGap)
         + (LabelSpace * LabelRowsAboveList) + Theme.FieldHeight + SectionGap;
@@ -47,7 +44,6 @@ public sealed class LogsScreen : FormScreen
 
         int rowsTop = FirstRowTop + Theme.FieldHeight + SectionGap + LabelSpace;
 
-        // The rows stay hidden until the server sends the records.
         for (int rowIndex = 0; rowIndex < VisibleRows; rowIndex++)
         {
             var row = new DataRow
@@ -105,7 +101,6 @@ public sealed class LogsScreen : FormScreen
         return [TextCatalog.LogsAccessOption, TextCatalog.LogsModerationOption];
     }
 
-    // The search runs on the server, which does not expose the logs yet.
     private void OnSearchClicked(object? sender, EventArgs e)
     {
     }

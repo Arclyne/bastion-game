@@ -92,8 +92,6 @@ public sealed class ChangeEmailScreen : FormScreen
         Navigator.GoBack();
     }
 
-    // Whether the address is taken and whether the password is right are
-    // answered by the server; the client only rejects what is plainly wrong.
     private bool Validate()
     {
         _newEmailField.Warning = InputRules.IsEmail(_newEmailField.Text.Trim())

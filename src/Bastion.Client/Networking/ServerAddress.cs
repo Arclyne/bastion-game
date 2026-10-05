@@ -4,7 +4,6 @@ using Bastion.Contracts;
 
 namespace Bastion.Client.Networking;
 
-// The server address can be overridden with BASTION_SERVER_HOST and BASTION_SERVER_PORT to play between two machines.
 public static class ServerAddress
 {
     private const string HostVariable = "BASTION_SERVER_HOST";

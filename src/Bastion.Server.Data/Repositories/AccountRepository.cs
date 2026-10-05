@@ -5,7 +5,6 @@ using Bastion.Server.Data.Entities;
 
 namespace Bastion.Server.Data.Repositories;
 
-// Each operation opens its own short-lived context, so the repository can be shared by concurrent calls.
 public sealed class AccountRepository : IAccountRepository
 {
     private readonly IDbContextFactory<BastionDbContext> _contextFactory;

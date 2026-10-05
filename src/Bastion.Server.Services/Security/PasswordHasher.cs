@@ -48,7 +48,6 @@ public sealed class PasswordHasher : IPasswordHasher
             return false;
         }
 
-        // A length or prefix shortcut would leak how much of the hash was right.
         return CryptographicOperations.FixedTimeEquals(Derive(password, stored.Salt), stored.Hash);
     }
 

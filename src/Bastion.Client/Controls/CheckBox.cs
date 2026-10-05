@@ -18,8 +18,6 @@ public sealed class CheckBox : Control
 
     public string Text { get; set; } = string.Empty;
 
-    // Trailing part of Text painted as an accent link. It must be the literal
-    // ending of Text, in every language.
     public string LinkText { get; set; } = string.Empty;
 
     public override void Update(InputState input)

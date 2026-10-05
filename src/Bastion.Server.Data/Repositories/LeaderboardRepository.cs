@@ -7,8 +7,6 @@ using Bastion.Server.Data.Entities;
 
 namespace Bastion.Server.Data.Repositories;
 
-// Ranking order follows CU-35: highest elo first; on a tie, whoever reached that elo earlier (RN-06).
-// The Account navigation is never null in these queries: FK_ModeStatistic_Account requires the account row.
 public sealed class LeaderboardRepository : ILeaderboardRepository
 {
     private readonly IDbContextFactory<BastionDbContext> _contextFactory;

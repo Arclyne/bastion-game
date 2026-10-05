@@ -8,8 +8,6 @@ using Bastion.Client.Screens;
 
 namespace Bastion.Client.Tests.Navigation;
 
-// Presses the controls of a screen the way a person would, without a window. A control raises its event from
-// inside itself, so the driver reaches the backing delegate the compiler writes for the event and invokes it.
 public static class ScreenDriver
 {
     private const string ClickedEvent = "Clicked";
@@ -89,7 +87,6 @@ public static class ScreenDriver
         return GetPressEvent(control) is not null;
     }
 
-    // The one plain event a control declares for being pressed; pickers that carry data use their own helper.
     private static EventInfo? GetPressEvent(Control control)
     {
         return control.GetType()
@@ -97,7 +94,6 @@ public static class ScreenDriver
             .FirstOrDefault(candidate => candidate.EventHandlerType == typeof(EventHandler));
     }
 
-    // A control that declares events answers for itself, so the search does not descend into what it draws.
     private static bool IsRespondingByItself(Control control)
     {
         return control.GetType().GetEvents(OwnPublicEvents).Length > 0;

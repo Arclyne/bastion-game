@@ -5,7 +5,6 @@ using Bastion.Contracts.Accounts;
 
 namespace Bastion.Client.Networking;
 
-// An unreachable server is reported as ServiceUnavailable, never as an answer it did not give.
 public sealed class AccountClient : IAccountClient, IDisposable
 {
     private readonly ServiceChannel<IAccountService> _channel = new ServiceChannel<IAccountService>(

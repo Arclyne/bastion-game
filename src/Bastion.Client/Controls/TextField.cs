@@ -20,7 +20,6 @@ public sealed class TextField : Control
     private const int WarningInset = 2;
     private const float FocusBorderOpacity = 0.55f;
 
-    // The window TextInput event reports backspace as a character instead of a key.
     private const char Backspace = '\b';
 
     private readonly StringBuilder _text = new();
@@ -32,7 +31,6 @@ public sealed class TextField : Control
 
     public bool IsPassword { get; init; }
 
-    // Taken from the schema: nickname is NVARCHAR(30) and email NVARCHAR(254).
     public int MaxLength { get; init; } = DefaultMaxLength;
 
     public bool IsCentered { get; init; }
@@ -90,7 +88,6 @@ public sealed class TextField : Control
                 continue;
             }
 
-            // Line feed, tab and escape belong to the screen, not to the field.
             if (!char.IsControl(character) && _text.Length < MaxLength)
             {
                 _text.Append(character);
@@ -144,8 +141,6 @@ public sealed class TextField : Control
         string visible = IsPassword ? new string(PasswordBullet, _text.Length) : Text;
         bool isEmpty = visible.Length == 0;
 
-        // While focused the placeholder is hidden, otherwise the caret would sit
-        // on top of its first letter.
         string shown = isEmpty ? HidePlaceholderWhenFocused() : visible;
         Color color = isEmpty ? Theme.Placeholder : Theme.TextDark;
         TextStyle style = TextStyleFactory.CreateBody(canvas.Fonts, color);
@@ -156,8 +151,6 @@ public sealed class TextField : Control
             Bounds.Width - (HorizontalPadding * 2),
             Bounds.Height);
 
-        // A value longer than the box scrolls instead of spilling over the
-        // card: the end stays visible, which is where the caret is.
         shown = canvas.Text.FitEnd(shown, area.Width - CaretWidth - CaretGap, style);
 
         float width = canvas.Text.Measure(shown, style);

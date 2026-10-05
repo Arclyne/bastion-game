@@ -5,12 +5,8 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.MatchEnd;
 
-// CU-25 main flow step 3. Reached today either from the opponent
-// disconnected screen (a claimed win, CU-24 FA-06) or from resigning inside
-// the match (CU-23); the outcome travels as the navigation argument.
 public sealed class MatchEndScreen : FormScreen
 {
-
     private const int ReasonHeight = 20;
     private const int SectionGap = 20;
     private const int TileHeight = 76;
@@ -86,8 +82,6 @@ public sealed class MatchEndScreen : FormScreen
         return _isVictory ? TextCatalog.MatchEndVictoryTitle : TextCatalog.MatchEndDefeatTitle;
     }
 
-    // Only the reason follows from how the screen was reached; the rewards
-    // come from the server, so their tiles keep an empty value until then.
     protected override void ApplyTexts()
     {
         _reason.Text = _isVictory ? TextCatalog.EndReasonAbandonment : TextCatalog.EndReasonResignation;

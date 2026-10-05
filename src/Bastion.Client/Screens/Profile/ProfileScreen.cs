@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Profile;
 
-// The player's own profile. The account data (nickname, level, statistics,
-// titles and links) comes from the server, so until then those controls stay empty.
 public sealed class ProfileScreen : FormScreen
 {
     private const int AvatarSize = 96;
@@ -231,7 +229,6 @@ public sealed class ProfileScreen : FormScreen
 
     private void OnLinkChipChosen(object? sender, SelectionChangedEventArgs e)
     {
-        // The dashed "add link" chip is always the last one.
         if (e.SelectedIndex == _linkChips.Items.Count - 1)
         {
             Navigator.GoTo(ScreenId.EditProfile);

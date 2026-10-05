@@ -3,8 +3,6 @@ using System.Resources;
 
 namespace Bastion.Client.Localization;
 
-// Hand-maintained typed accessors: the Visual Studio resource generator does not run under dotnet build
-// on macOS and Linux. Each property reads one Screen.Element key from Strings.resx.
 public static class TextCatalog
 {
     private const string ResourceBaseName = "Bastion.Client.Localization.Strings";
@@ -1047,7 +1045,6 @@ public static class TextCatalog
 
     public static string DeleteAccountLossSummary => GetText("DeleteAccount.LossSummary");
 
-    // A missing key shows the key itself so the gap is visible on screen and in the catalog tests.
     public static string GetText(string key)
     {
         return _manager.GetString(key, CultureInfo.CurrentUICulture) ?? key;

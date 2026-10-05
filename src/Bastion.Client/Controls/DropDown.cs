@@ -4,8 +4,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// Opens upward on purpose: it sits near the bottom edge, where a list growing
-// downward would fall outside the window.
 public sealed class DropDown : Control
 {
     private const int OptionHeight = 36;
@@ -29,7 +27,6 @@ public sealed class DropDown : Control
 
     public bool IsOpen { get; private set; }
 
-    // The list opens upward by default; a picker placed at the top of the window opens it downward instead.
     public bool OpensDownward { get; init; }
 
     public event EventHandler<SelectionChangedEventArgs>? SelectionChanged;
@@ -100,7 +97,6 @@ public sealed class DropDown : Control
             return;
         }
 
-        // A click outside the control and outside the list closes it.
         IsOpen = false;
     }
 
@@ -168,7 +164,6 @@ public sealed class DropDown : Control
         canvas.Text.Draw(Options[index], new Vector2(area.X + OptionTextPadding, MathF.Round(y)), style);
     }
 
-    // Five row triangle, pointing down when closed and up when open.
     private static void DrawArrow(Canvas canvas, Point center, bool isPointingUp)
     {
         for (int row = 0; row < ArrowRows; row++)

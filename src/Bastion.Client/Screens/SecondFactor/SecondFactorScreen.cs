@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.SecondFactor;
 
-// CU-01 FA-13, FA-14. Login does not branch on the second factor setting yet,
-// so nothing reaches this screen today.
 public sealed class SecondFactorScreen : FormScreen
 {
     private const int CodeLength = 6;

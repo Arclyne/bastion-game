@@ -5,12 +5,8 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.WaitingRoom;
 
-// CU-18 main flow step 4 (host) and CU-19 main flow step 3 (guest). One class
-// for both roles: the host waits with the start button disabled until the
-// rest are ready, the guest gets a ready toggle instead.
 public sealed class WaitingRoomScreen : FormScreen
 {
-
     private const int CodeValueWidth = 220;
     private const int CodeLabelHeight = 20;
     private const int CodeLabelGap = 4;
@@ -112,8 +108,6 @@ public sealed class WaitingRoomScreen : FormScreen
         return TextCatalog.WaitingRoomSubtitle;
     }
 
-    // The room code, the nicknames and the chat come from the server, so
-    // until it answers only the texts tied to the player's role are shown.
     protected override void ApplyTexts()
     {
         _codeLabel.Text = TextCatalog.WaitingRoomCodeLabel;
