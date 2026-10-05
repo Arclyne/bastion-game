@@ -12,9 +12,6 @@ public sealed class Board
     // mean something.
     public const int MinimumSize = 2;
 
-    // A wall covers two cells from the crossing it starts on (CU-21 RN-03).
-    private const int WallLength = 2;
-
     private readonly HashSet<Wall> _walls;
     private readonly HashSet<BoardPosition> _pawns;
 
@@ -35,14 +32,30 @@ public sealed class Board
 
     public IReadOnlyCollection<BoardPosition> Pawns => _pawns;
 
+    // One crossing fewer per side than cells, since a wall needs two cells to
+    // lie on.
+    public int CrossingCount => Size - Wall.Length + 1;
+
     public bool IsInside(BoardPosition cell)
     {
         return cell.Column >= 0 && cell.Column < Size && cell.Row >= 0 && cell.Row < Size;
     }
 
+    public bool IsCrossing(BoardPosition crossing)
+    {
+        return crossing.Column >= 0 && crossing.Column < CrossingCount
+            && crossing.Row >= 0 && crossing.Row < CrossingCount;
+    }
+
     public bool HasPawn(BoardPosition cell)
     {
         return _pawns.Contains(cell);
+    }
+
+    // A placed wall is never taken back (CU-21 RN-07).
+    public void Place(Wall wall)
+    {
+        _walls.Add(wall);
     }
 
     // The two cells are taken to be neighbours, which is the only way a pawn
@@ -77,6 +90,6 @@ public sealed class Board
 
     private static bool IsLineCovered(int start, int line)
     {
-        return line >= start && line < start + WallLength;
+        return line >= start && line < start + Wall.Length;
     }
 }
