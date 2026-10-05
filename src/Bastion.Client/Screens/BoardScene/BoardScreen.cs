@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Bastion.Client.Controls;
 using Bastion.Client.Rendering;
@@ -27,6 +28,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     private readonly BoardRenderer? _renderer;
     private readonly MatchView _view = new MatchView();
     private readonly Board _board;
+    private readonly WallPlacementValidator _wallPlacement;
 
     private Wall _heldWall;
     private BoardPosition _movingPawn = _startingPawn;
@@ -38,6 +40,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         _navigator = navigator;
         _renderer = renderer;
         _board = CreateBoard();
+        _wallPlacement = new WallPlacementValidator(_board);
         ShowStartingPosition();
     }
 
@@ -274,8 +277,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     // CU-21 RN-04: a wall that overlaps or crosses another one is not let go of.
     private void PlaceTheWall()
     {
-        if (_view.WallPreview is null
-            || new WallPlacementValidator(_board).Check(_heldWall) != WallPlacementResult.Allowed)
+        if (_view.WallPreview is null || !IsHeldWallAllowed())
         {
             return;
         }
@@ -285,8 +287,17 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         PrepareFor(BoardAction.None);
     }
 
+    // CU-21 step 3: the wall already answers while it is being aimed, so the
+    // player sees that a crossing is turned down before letting the wall go.
     private void ShowHeldWall()
     {
-        _view.WallPreview = new WallMarker(_heldWall.Crossing, _heldWall.Orientation, Theme.Preview);
+        Color tint = IsHeldWallAllowed() ? Theme.Preview : Theme.PreviewBlocked;
+
+        _view.WallPreview = new WallMarker(_heldWall.Crossing, _heldWall.Orientation, tint);
+    }
+
+    private bool IsHeldWallAllowed()
+    {
+        return _wallPlacement.Check(_heldWall) == WallPlacementResult.Allowed;
     }
 }

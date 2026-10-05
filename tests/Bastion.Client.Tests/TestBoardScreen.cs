@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Bastion.Client.Controls;
 using Bastion.Client.Rendering;
 using Bastion.Client.Screens.BoardScene;
 using Bastion.Client.Tests.Navigation;
@@ -28,6 +29,10 @@ public sealed class TestBoardScreen
     // The horizontal wall of the starting position already stands here.
     private static readonly BoardPosition _takenCrossing = new BoardPosition(2, 4);
     private static readonly BoardPosition _unreachableCell = new BoardPosition(0, LastRow);
+
+    // Beside that horizontal wall: along the rows another horizontal wall would
+    // overlap it, but turned it fits.
+    private static readonly BoardPosition _crossingBesideTheWall = new BoardPosition(3, 4);
 
     private static BoardScreen CreateScreen()
     {
@@ -270,6 +275,44 @@ public sealed class TestBoardScreen
         screen.TurnTheWall();
 
         Assert.Null(screen.View.WallPreview);
+    }
+
+    // CU-21 step 3: the wall says whether it fits while it is being aimed, which
+    // is the colour it is drawn in.
+    [Fact]
+    public void View_AWallAimedAtAFreeCrossing_IsPreviewedInTheColourOfWhatFits()
+    {
+        MatchView view = CreateViewAimedAt(_aimedCrossing);
+
+        Assert.Equal(Theme.Preview, view.WallPreview?.Tint);
+    }
+
+    [Fact]
+    public void View_AWallAimedWhereAnotherOneStands_IsPreviewedInTheColourOfWhatDoesNot()
+    {
+        MatchView view = CreateViewAimedAt(_takenCrossing);
+
+        Assert.Equal(Theme.PreviewBlocked, view.WallPreview?.Tint);
+    }
+
+    [Fact]
+    public void View_AWallAimedWhereItWouldOverlapAnotherOne_IsPreviewedInTheColourOfWhatDoesNot()
+    {
+        MatchView view = CreateViewAimedAt(_crossingBesideTheWall);
+
+        Assert.Equal(Theme.PreviewBlocked, view.WallPreview?.Tint);
+    }
+
+    // Turning it asks the rules again, because the answer changes with the
+    // orientation (CU-21 FA-03).
+    [Fact]
+    public void View_AWallTurnedUntilItFits_IsPreviewedInTheColourOfWhatFits()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_crossingBesideTheWall);
+
+        screen.TurnTheWall();
+
+        Assert.Equal(Theme.Preview, screen.View.WallPreview?.Tint);
     }
 
     // Letting the pawn go leaves it on the board and takes every see-through
