@@ -19,6 +19,7 @@ public sealed class TestBoardScreen
     private const int CrossingCount = BoardSize - 1;
     private const int PlayerCount = 2;
     private const int OrientationCount = 2;
+    private const int ClassicWallsPerPlayer = 10;
 
     // The pawn that moves starts on the middle cell of the bottom row, so three
     // of its four neighbours are on the board.
@@ -42,6 +43,42 @@ public sealed class TestBoardScreen
     private static MatchView CreateView()
     {
         return CreateScreen().View;
+    }
+
+    // Three vertical lines of walls, set far enough apart not to overlap one
+    // another or the two walls of the starting position, and none of them shuts a
+    // player in: enough crossings to spend a whole inventory.
+    private static IEnumerable<BoardPosition> GetCrossingsForAWholeInventory()
+    {
+        int[] columns = [0, 3, 6];
+
+        foreach (int column in columns)
+        {
+            for (int row = 0; row < CrossingCount; row += Wall.Length)
+            {
+                yield return new BoardPosition(column, row);
+            }
+        }
+    }
+
+    private static void LayAVerticalWallOn(BoardScreen screen, BoardPosition crossing)
+    {
+        screen.PrepareFor(BoardAction.PlaceWall);
+        screen.TurnTheWall();
+        screen.AimAt(crossing);
+        screen.Place(crossing);
+    }
+
+    private static BoardScreen CreateScreenWithAnEmptyInventory()
+    {
+        BoardScreen screen = CreateScreen();
+
+        foreach (BoardPosition crossing in GetCrossingsForAWholeInventory().Take(ClassicWallsPerPlayer))
+        {
+            LayAVerticalWallOn(screen, crossing);
+        }
+
+        return screen;
     }
 
     private static BoardScreen CreateScreenAimedAt(BoardPosition crossing)
@@ -405,6 +442,69 @@ public sealed class TestBoardScreen
         screen.Place(_takenCrossing);
 
         Assert.Equal(walls, screen.View.Walls.Count);
+    }
+
+    // CU-21 RN-02: the scene builds a classic board, so the player starts with the
+    // ten walls that mode fixes.
+    [Fact]
+    public void RemainingWalls_ANewScene_IsWhatTheClassicModeFixes()
+    {
+        int remaining = CreateScreen().RemainingWalls;
+
+        Assert.Equal(ClassicWallsPerPlayer, remaining);
+    }
+
+    [Fact]
+    public void RemainingWalls_AWallLetGo_IsOneFewer()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_aimedCrossing);
+
+        screen.Place(_aimedCrossing);
+
+        Assert.Equal(ClassicWallsPerPlayer - 1, screen.RemainingWalls);
+    }
+
+    // Only a wall that reaches the board is spent: one the rules turn down costs
+    // the player nothing.
+    [Fact]
+    public void RemainingWalls_AWallTurnedDownByTheRules_IsUnchanged()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_takenCrossing);
+
+        screen.Place(_takenCrossing);
+
+        Assert.Equal(ClassicWallsPerPlayer, screen.RemainingWalls);
+    }
+
+    [Fact]
+    public void RemainingWalls_AWholeInventoryLetGo_IsNone()
+    {
+        BoardScreen screen = CreateScreenWithAnEmptyInventory();
+
+        Assert.Equal(0, screen.RemainingWalls);
+    }
+
+    // CU-21 FA-01: with the inventory empty there is no wall mode to enter, and
+    // the player can only move the pawn.
+    [Fact]
+    public void Action_PreparedToPlaceAWallWithNoneLeft_IsNotPlacingAWall()
+    {
+        BoardScreen screen = CreateScreenWithAnEmptyInventory();
+
+        screen.PrepareFor(BoardAction.PlaceWall);
+
+        Assert.NotEqual(BoardAction.PlaceWall, screen.Action);
+    }
+
+    [Fact]
+    public void View_PreparedToPlaceAWallWithNoneLeft_PreviewsNoWall()
+    {
+        BoardScreen screen = CreateScreenWithAnEmptyInventory();
+
+        screen.PrepareFor(BoardAction.PlaceWall);
+        screen.AimAt(_aimedCrossing);
+
+        Assert.Null(screen.View.WallPreview);
     }
 
     // What is about to be placed is drawn see-through, which is what tells it

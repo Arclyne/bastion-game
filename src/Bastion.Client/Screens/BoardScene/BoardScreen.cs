@@ -20,6 +20,15 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     private const int HorizontalWallRow = 4;
     private const int VerticalWallColumn = 5;
     private const int VerticalWallRow = 2;
+    private const int PlayerCount = 2;
+
+    // The scene builds a classic board, so it hands out what the classic mode
+    // fixes (CU-21 RN-02).
+    private const int ClassicWallsPerPlayer = 10;
+
+    // There is no turn yet in this scene, so the player holding the walls is
+    // always the one whose pawn moves.
+    private const int MovingPlayer = 0;
 
     private static readonly BoardPosition _startingPawn = new BoardPosition(MiddleColumn, FirstRow);
     private static readonly BoardPosition _rivalPawn = new BoardPosition(MiddleColumn, LastRow);
@@ -29,6 +38,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     private readonly MatchView _view = new MatchView();
     private readonly Board _board;
     private readonly WallPlacementValidator _wallPlacement;
+    private readonly WallInventory _inventory = new WallInventory(PlayerCount, ClassicWallsPerPlayer);
 
     private Wall _heldWall;
     private BoardPosition _movingPawn = _startingPawn;
@@ -50,10 +60,19 @@ public sealed class BoardScreen : IScreen, IWorldScreen
 
     public BoardAction Action { get; private set; }
 
+    // What CU-21 FA-01 shows as the inventory, and what closes wall mode once it
+    // reaches zero.
+    public int RemainingWalls => _inventory.GetRemainingWalls(MovingPlayer);
+
     // Nothing is previewed until the player says what they are doing, which is
     // what keeps the board clear the rest of the time.
     public void PrepareFor(BoardAction action)
     {
+        if (action == BoardAction.PlaceWall && !_inventory.HasWallsLeft(MovingPlayer))
+        {
+            return;
+        }
+
         Action = action;
         _view.PawnPreviews.Clear();
         _view.WallPreview = null;
@@ -281,7 +300,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     }
 
     // CU-21 RN-04 and RN-05: a wall that overlaps, crosses or shuts a player in is
-    // not let go of.
+    // not let go of. Only a wall that reaches the board is spent (RN-02).
     private void PlaceTheWall()
     {
         if (_view.WallPreview is null || !IsHeldWallAllowed())
@@ -290,6 +309,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         }
 
         _board.Place(_heldWall);
+        _inventory.Spend(MovingPlayer);
         _view.Walls.Add(new WallMarker(_heldWall.Crossing, _heldWall.Orientation, Theme.FirstPlayer));
         PrepareFor(BoardAction.None);
     }
