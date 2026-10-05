@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Bastion.Domain;
 
 namespace Bastion.Client.Rendering;
 
@@ -31,13 +32,13 @@ public sealed class BoardFrame
     public Vector3 RowAxis => Vector3.Normalize(_rowStep);
 
     // A wall sits exactly on a groove crossing, which is what the anchors mark.
-    public Vector3 GetGroovePosition(BoardSlot groove)
+    public Vector3 GetGroovePosition(BoardPosition groove)
     {
         return _firstGroove + (_columnStep * groove.Column) + (_rowStep * groove.Row);
     }
 
     // Extrapolating also covers the last column and row, which have no crossing.
-    public Vector3 GetCellPosition(BoardSlot cell)
+    public Vector3 GetCellPosition(BoardPosition cell)
     {
         return GetGroovePosition(cell) - ((_columnStep + _rowStep) * HalfCell);
     }

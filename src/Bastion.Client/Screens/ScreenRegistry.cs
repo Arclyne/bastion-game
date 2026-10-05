@@ -8,7 +8,7 @@ using Bastion.Client.Screens.AdminPanel;
 using Bastion.Client.Screens.Appeal;
 using Bastion.Client.Screens.ApplySanction;
 using Bastion.Client.Screens.BannedAccount;
-using Bastion.Client.Screens.Board;
+using Bastion.Client.Screens.BoardScene;
 using Bastion.Client.Screens.BoxPurchaseConfirm;
 using Bastion.Client.Screens.ChangeEmail;
 using Bastion.Client.Screens.ChangeNickname;

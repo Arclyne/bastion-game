@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Bastion.Domain;
 
 namespace Bastion.Client.Rendering;
 
@@ -81,7 +82,7 @@ public sealed class BoardAssetSet
             MathF.Pow(linear.Z, GammaExponent));
     }
 
-    public static string GetAnchorName(BoardSlot groove)
+    public static string GetAnchorName(BoardPosition groove)
     {
         char column = (char)(FirstColumnLetter + groove.Column);
         return string.Concat(AnchorPrefix, column, (groove.Row + FirstRowNumber).ToString());
@@ -89,14 +90,14 @@ public sealed class BoardAssetSet
 
     private static BoardFrame MeasureFrame(Model board)
     {
-        Vector3 origin = GetAnchorPosition(board, new BoardSlot(0, 0));
-        Vector3 nextColumn = GetAnchorPosition(board, new BoardSlot(1, 0));
-        Vector3 nextRow = GetAnchorPosition(board, new BoardSlot(0, 1));
+        Vector3 origin = GetAnchorPosition(board, new BoardPosition(0, 0));
+        Vector3 nextColumn = GetAnchorPosition(board, new BoardPosition(1, 0));
+        Vector3 nextRow = GetAnchorPosition(board, new BoardPosition(0, 1));
 
         return new BoardFrame(origin, nextColumn - origin, nextRow - origin);
     }
 
-    private static Vector3 GetAnchorPosition(Model board, BoardSlot groove)
+    private static Vector3 GetAnchorPosition(Model board, BoardPosition groove)
     {
         string name = GetAnchorName(groove);
         if (!board.Bones.TryGetValue(name, out ModelBone? bone))

@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Bastion.Client.Controls;
+using Bastion.Domain;
 
 namespace Bastion.Client.Rendering;
 
@@ -56,7 +57,7 @@ public sealed class OrbitCamera
 
         _cellSize = frame.CellSize;
 
-        _target = frame.GetCellPosition(new BoardSlot(middle, middle));
+        _target = frame.GetCellPosition(new BoardPosition(middle, middle));
         _normal = frame.Up;
         _columnAxis = frame.ColumnAxis;
         _rowAxis = frame.RowAxis;

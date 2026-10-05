@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Bastion.Domain;
 
 namespace Bastion.Client.Rendering;
 
@@ -13,6 +14,7 @@ public sealed class BoardRenderer
     private const float KeyLevel = 0.65f;
     private const float FillLevel = 0.20f;
     private const float SpecularLevel = 0.06f;
+    private const float OpaqueAlpha = 1.0f;
 
     private static readonly Vector3 _keyLightDirection = Vector3.Normalize(new Vector3(-0.35f, -1.0f, -0.45f));
     private static readonly Vector3 _fillLightDirection = Vector3.Normalize(new Vector3(0.6f, -0.25f, 0.5f));
@@ -46,8 +48,39 @@ public sealed class BoardRenderer
 
         // The board keeps the colours of its own materials, so it passes no tint.
         DrawModel(_assets.Board, Matrix.Identity, null);
-        DrawPawns(view);
+        DrawPawns(view.Pawns);
         DrawWalls(view);
+        DrawPreviews(view);
+    }
+
+    // Translucent pieces come last and only read the depth buffer: writing to it
+    // would let them hide one another and the board behind them.
+    private void DrawPreviews(MatchView view)
+    {
+        if (view.PawnPreviews.Count == 0 && view.WallPreview is null)
+        {
+            return;
+        }
+
+        _device.BlendState = BlendState.AlphaBlend;
+        _device.DepthStencilState = DepthStencilState.DepthRead;
+
+        DrawPawns(view.PawnPreviews);
+
+        if (view.WallPreview is WallMarker wall)
+        {
+            DrawWall(wall);
+        }
+    }
+
+    private void DrawPawn(PawnMarker pawn)
+    {
+        DrawModel(_assets.Pawn, Matrix.CreateTranslation(_assets.Frame.GetCellPosition(pawn.Cell)), pawn.Tint);
+    }
+
+    private void DrawWall(WallMarker wall)
+    {
+        DrawModel(_assets.Wall, GetWallWorld(wall), wall.Tint);
     }
 
     // The sprite batch of the previous frame left the device in 2D mode.
@@ -58,12 +91,11 @@ public sealed class BoardRenderer
         _device.RasterizerState = RasterizerState.CullCounterClockwise;
     }
 
-    private void DrawPawns(MatchView view)
+    private void DrawPawns(IEnumerable<PawnMarker> pawns)
     {
-        foreach (PawnMarker pawn in view.Pawns)
+        foreach (PawnMarker pawn in pawns)
         {
-            var world = Matrix.CreateTranslation(_assets.Frame.GetCellPosition(pawn.Cell));
-            DrawModel(_assets.Pawn, world, pawn.Tint);
+            DrawPawn(pawn);
         }
     }
 
@@ -71,7 +103,7 @@ public sealed class BoardRenderer
     {
         foreach (WallMarker wall in view.Walls)
         {
-            DrawModel(_assets.Wall, GetWallWorld(wall), wall.Tint);
+            DrawWall(wall);
         }
     }
 
@@ -114,6 +146,10 @@ public sealed class BoardRenderer
             effect.View = _camera.View;
             effect.Projection = _projection;
             ConfigureLighting(effect);
+
+            // The tint carries how see-through the piece is, which is what tells a
+            // preview from a piece already on the board.
+            effect.Alpha = tint?.ToVector4().W ?? OpaqueAlpha;
 
             if (tint.HasValue)
             {

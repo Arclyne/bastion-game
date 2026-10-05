@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Xunit;
 using Bastion.Client.Rendering;
+using Bastion.Domain;
 
 namespace Bastion.Client.Tests;
 
@@ -19,7 +20,7 @@ public sealed class TestBoardFrame
     {
         var expected = new Vector3(-3.5f, 0.0f, 3.5f);
 
-        Vector3 position = CreateFrame().GetGroovePosition(new BoardSlot(0, 0));
+        Vector3 position = CreateFrame().GetGroovePosition(new BoardPosition(0, 0));
 
         Assert.Equal(expected, position);
     }
@@ -29,7 +30,7 @@ public sealed class TestBoardFrame
     {
         var expected = new Vector3(3.5f, 0.0f, -3.5f);
 
-        Vector3 position = CreateFrame().GetGroovePosition(new BoardSlot(7, 7));
+        Vector3 position = CreateFrame().GetGroovePosition(new BoardPosition(7, 7));
 
         Assert.Equal(expected, position);
     }
@@ -39,7 +40,7 @@ public sealed class TestBoardFrame
     {
         var expected = new Vector3(-4.0f, 0.0f, 4.0f);
 
-        Vector3 position = CreateFrame().GetCellPosition(new BoardSlot(0, 0));
+        Vector3 position = CreateFrame().GetCellPosition(new BoardPosition(0, 0));
 
         Assert.Equal(expected, position);
     }
@@ -51,7 +52,7 @@ public sealed class TestBoardFrame
     {
         var expected = new Vector3(4.0f, 0.0f, -4.0f);
 
-        Vector3 position = CreateFrame().GetCellPosition(new BoardSlot(8, 8));
+        Vector3 position = CreateFrame().GetCellPosition(new BoardPosition(8, 8));
 
         Assert.Equal(expected, position);
     }
@@ -59,7 +60,7 @@ public sealed class TestBoardFrame
     [Fact]
     public void GetCellPosition_MiddleCell_IsTheCentreOfTheBoard()
     {
-        Vector3 position = CreateFrame().GetCellPosition(new BoardSlot(4, 4));
+        Vector3 position = CreateFrame().GetCellPosition(new BoardPosition(4, 4));
 
         Assert.Equal(Vector3.Zero, position);
     }
@@ -114,7 +115,7 @@ public sealed class TestBoardFrame
         var row = new Vector3(-diagonal, 0.0f, diagonal);
         var frame = new BoardFrame(Vector3.Zero, column, row);
 
-        Vector3 position = frame.GetCellPosition(new BoardSlot(1, 1));
+        Vector3 position = frame.GetCellPosition(new BoardPosition(1, 1));
 
         Assert.Equal(0.0, Vector3.Distance(column * 0.5f + (row * 0.5f), position), 4);
     }
