@@ -5,8 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.FirstTime;
 
-// CU-08 main flow step 1. The one-time choice of pawn and icon (D-13); the
-// nickname was already fixed at registration and only shown here.
 public sealed class FirstTimeScreen : FormScreen
 {
     private const int IconRows = 2;

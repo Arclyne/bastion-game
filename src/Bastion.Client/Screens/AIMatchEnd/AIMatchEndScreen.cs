@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.AIMatchEnd;
 
-// CU-27 main flow step 3. The result plus a review of three mistakes, each
-// meant to open its board position once a board exists to open it on.
 public sealed class AIMatchEndScreen : FormScreen
 {
     private const int MistakeCount = 3;
@@ -88,8 +86,6 @@ public sealed class AIMatchEndScreen : FormScreen
         return TextCatalog.AIMatchEndSubtitle;
     }
 
-    // The outcome, its rewards and the reviewed mistakes come from the AI
-    // match, which does not exist yet, so they stay empty and hidden.
     protected override void ApplyTexts()
     {
         _experienceTile.Caption = TextCatalog.AIMatchEndExperienceCaption;

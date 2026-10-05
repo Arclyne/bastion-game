@@ -6,7 +6,6 @@ public static class EmailMask
 {
     private const int MaxHidden = 6;
 
-    // The first and the last character of the local part stay visible.
     private const int VisibleCharacters = 2;
     private const char AtSign = '@';
     private const char MaskCharacter = '*';

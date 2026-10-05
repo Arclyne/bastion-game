@@ -4,8 +4,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Controls;
 
-// Background and header shared by every full screen, so the wordmark and the
-// ornaments are not laid out again in each one.
 public static class ScreenChrome
 {
     public const int CardTop = 144;

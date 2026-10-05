@@ -7,8 +7,6 @@ using Bastion.Client.Screens.Messages;
 
 namespace Bastion.Client.Screens;
 
-// Keeps the history of screens and the dialog on top. Screens are rebuilt on every visit, so each one starts from
-// a clean state; ScreenRegistry is the only place that knows the concrete screen types.
 public sealed class Navigator : INavigator
 {
     private static readonly ILog _logger = LogManager.GetLogger(typeof(Navigator));
@@ -28,7 +26,6 @@ public sealed class Navigator : INavigator
         _services = services;
     }
 
-    // What is on screen right now, dialog included. The way to change it is GoTo, GoBack or a dialog call.
     public IScreen? Current => _dialog ?? _current;
 
     public ScreenId CurrentId { get; private set; }
@@ -125,7 +122,6 @@ public sealed class Navigator : INavigator
         _dialog = screen;
     }
 
-    // The dialog draws its own backdrop over the screen underneath: both are drawn, only the top one gets input.
     public void Update(InputState input)
     {
         ArgumentNullException.ThrowIfNull(input);

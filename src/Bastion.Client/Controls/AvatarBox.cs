@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// Placeholder for the avatar and its frame. The catalogue of thirty two icons
-// is content, so until it is built this draws the icon number.
 public sealed class AvatarBox : Control
 {
     private const int FrameThickness = 3;

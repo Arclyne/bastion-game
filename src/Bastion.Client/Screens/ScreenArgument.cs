@@ -1,7 +1,5 @@
 namespace Bastion.Client.Screens;
 
-// Values one screen passes to another through INavigator.GoTo; shared here because screens never reference each
-// other's types.
 public static class ScreenArgument
 {
     public const string HostRole = "host";

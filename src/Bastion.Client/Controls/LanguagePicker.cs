@@ -4,8 +4,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Controls;
 
-// The interface language picker sits in the same corner on every screen that
-// offers it, so its geometry and its options are declared once.
 public static class LanguagePicker
 {
     public const int SpanishIndex = 0;
@@ -21,9 +19,10 @@ public static class LanguagePicker
         {
             Options = GetNames(),
             SelectedIndex = Language.IsEnglish ? EnglishIndex : SpanishIndex,
+            OpensDownward = true,
             Bounds = new Rectangle(
+                Theme.WindowWidth - Margin - PickerWidth,
                 Margin,
-                Theme.WindowHeight - Margin - PickerHeight,
                 PickerWidth,
                 PickerHeight)
         };

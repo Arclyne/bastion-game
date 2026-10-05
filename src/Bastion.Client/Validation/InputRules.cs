@@ -6,9 +6,6 @@ using Bastion.Contracts.Accounts;
 
 namespace Bastion.Client.Validation;
 
-// Checks the forms run before sending anything, so obvious mistakes show at once instead of after a round trip
-// (CU-02 FA-03, FA-04). The server repeats them: nothing here is trusted on its own. Rules shared with the server
-// live in AccountRules.
 public static partial class InputRules
 {
     public const int EmptyStrength = 0;
@@ -24,7 +21,6 @@ public static partial class InputRules
     private static readonly string[] _shorteners =
         ["bit.ly", "tinyurl.com", "t.co", "goo.gl", "cutt.ly", "rb.gy", "is.gd", "ow.ly"];
 
-    // Unicode letters, because players are called Nuñez and O'Brien; marks cover accents that compose.
     [GeneratedRegex(@"^\p{L}[\p{L}\p{M}'\- ]{0,49}$")]
     private static partial Regex PersonNamePattern();
 
@@ -80,7 +76,6 @@ public static partial class InputRules
 
         date = default;
 
-        // Digits only: int.TryParse would accept " 12" and "+12", which the three date boxes never mean.
         bool hasDigitsOnly = IsWholeNumber(fields.Day) && IsWholeNumber(fields.Month) && IsWholeNumber(fields.Year);
         if (!hasDigitsOnly
             || !int.TryParse(fields.Day, out int day)

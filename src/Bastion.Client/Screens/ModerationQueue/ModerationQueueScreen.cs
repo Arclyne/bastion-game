@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.ModerationQueue;
 
-// CU-43 main flow step 3. Reports and appeals waiting, with their reason, their
-// age and how many reports the reported player already carries.
 public sealed class ModerationQueueScreen : FormScreen
 {
     private const int RowHeight = 62;
@@ -24,7 +22,6 @@ public sealed class ModerationQueueScreen : FormScreen
     public ModerationQueueScreen(INavigator navigator)
         : base(navigator, WideCardWidth, _cardHeight)
     {
-        // The rows stay hidden until the server sends the queue.
         for (int rowIndex = 0; rowIndex < VisibleRows; rowIndex++)
         {
             var row = new DataRow

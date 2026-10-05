@@ -8,7 +8,6 @@ using Bastion.Contracts.Accounts;
 
 namespace Bastion.Client.Screens.Login;
 
-// Sign-in logic of CU-01 without any MonoGame type, so it can be tested on its own.
 public sealed class LoginController
 {
     private readonly IAccountClient _accounts;
@@ -23,7 +22,6 @@ public sealed class LoginController
         _session = session;
     }
 
-    // Local check only: it never reaches the server, so it does not count as a failed attempt (CU-01 RN-13).
     public static LoginWarnings Validate(string identifier, string password)
     {
         ArgumentNullException.ThrowIfNull(identifier);
@@ -55,7 +53,24 @@ public sealed class LoginController
         return result;
     }
 
-    // A wrong identifier and a wrong password share one message on purpose (CU-01 RN-01).
+    public static ScreenId? GetDestination(LoginResult result)
+    {
+        ArgumentNullException.ThrowIfNull(result);
+
+        switch (result.Code)
+        {
+            case LoginResultCode.Success:
+                return ScreenId.MainMenu;
+            case LoginResultCode.AccountPending:
+                return ScreenId.PendingVerification;
+            case LoginResultCode.AccountSuspended:
+            case LoginResultCode.AccountBanned:
+                return ScreenId.BannedAccount;
+            default:
+                return null;
+        }
+    }
+
     public static string GetMessage(LoginResult result)
     {
         ArgumentNullException.ThrowIfNull(result);

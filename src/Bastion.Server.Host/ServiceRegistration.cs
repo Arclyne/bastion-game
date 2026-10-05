@@ -9,8 +9,6 @@ using Bastion.Server.Services.Sessions;
 
 namespace Bastion.Server.Host;
 
-// Every dependency is stateless and each repository call opens its own DbContext, so singletons are safe here;
-// the WCF service classes are transient because CoreWCF creates one per call.
 public static class ServiceRegistration
 {
     public static IServiceCollection AddBastionRepositories(this IServiceCollection services)

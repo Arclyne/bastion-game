@@ -5,9 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Appeal;
 
-// CU-45 main flow step 1. The sanction detail, the text of the appeal and the
-// warning that the sanction stays in force while it is reviewed. The detail
-// comes from the server, so its box starts empty.
 public sealed class AppealScreen : FormScreen
 {
     private const int CardHeight = 400;

@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// One open session in the active sessions screen. The current one is marked and has no
-// close button: CU-10 forbids closing it from here.
 public sealed class SessionRow : Control
 {
     private const int HorizontalPadding = 16;

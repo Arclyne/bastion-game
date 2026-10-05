@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 using Bastion.Client.Localization;
 using Xunit;
 
@@ -13,8 +15,9 @@ namespace Bastion.Client.Tests;
 public sealed class TestTextCatalog
 {
     private const string ResourceBaseName = "Bastion.Client.Localization.Strings";
+    private const string SolutionFileName = "Bastion.slnx";
+    private const string FontRelativePath = "src/Bastion.Client/Content/Regular.spritefont";
 
-    // A property whose key is missing returns the key itself, such as "Login.Subtitle".
     private static readonly Regex _keyPattern = new Regex(@"^[A-Z][A-Za-z]*\.[A-Za-z_]+$");
 
     private static readonly ResourceManager _manager = new ResourceManager(
@@ -52,6 +55,20 @@ public sealed class TestTextCatalog
             .ToList();
 
         Assert.Empty(emptyKeys);
+    }
+
+    [Fact]
+    public void Strings_EveryCharacter_IsDrawnByTheFonts()
+    {
+        IReadOnlyList<(int Start, int End)> regions = ReadFontRegions();
+
+        var missing = ReadAllValues()
+            .SelectMany(value => value)
+            .Where(character => !regions.Any(region => character >= region.Start && character <= region.End))
+            .Distinct()
+            .ToList();
+
+        Assert.Empty(missing);
     }
 
     [Fact]
@@ -94,6 +111,39 @@ public sealed class TestTextCatalog
             .Select(entry => (string)entry.Key)
             .OrderBy(key => key, StringComparer.Ordinal)
             .ToList();
+    }
+
+    private static IEnumerable<string> ReadAllValues()
+    {
+        return new[] { CultureInfo.InvariantCulture, Language.SpanishMexico }
+            .SelectMany(culture => ReadSet(culture).Cast<DictionaryEntry>())
+            .Select(entry => entry.Value as string ?? string.Empty);
+    }
+
+    private static IReadOnlyList<(int Start, int End)> ReadFontRegions()
+    {
+        string fontPath = Path.Combine(FindSolutionDirectory(), FontRelativePath);
+        return XDocument.Load(fontPath)
+            .Descendants("CharacterRegion")
+            .Select(region => (ReadCharacter(region, "Start"), ReadCharacter(region, "End")))
+            .ToList();
+    }
+
+    private static int ReadCharacter(XElement region, string name)
+    {
+        string value = region.Element(name)?.Value ?? string.Empty;
+        return value.Length == 1 ? value[0] : 0;
+    }
+
+    private static string FindSolutionDirectory()
+    {
+        var directory = new DirectoryInfo(AppContext.BaseDirectory);
+        while (directory is not null && !File.Exists(Path.Combine(directory.FullName, SolutionFileName)))
+        {
+            directory = directory.Parent;
+        }
+
+        return directory?.FullName ?? throw new DirectoryNotFoundException("The solution directory was not found.");
     }
 
     private static ResourceSet ReadSet(CultureInfo culture)

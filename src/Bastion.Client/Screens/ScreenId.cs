@@ -1,7 +1,5 @@
 namespace Bastion.Client.Screens;
 
-// The screens the navigator can reach by name, so a screen asks for a
-// destination without depending on the class that implements it.
 public enum ScreenId
 {
     Login,
@@ -36,9 +34,6 @@ public enum ScreenId
     Customize,
     SettingsLanguage,
 
-    // Not reachable yet from Login or from a session: the server responses that
-    // trigger them (an unverified account, a sanction, a second factor) do not
-    // exist yet.
     MainScreen,
     PendingVerification,
     SecondFactor,
@@ -46,7 +41,6 @@ public enum ScreenId
     FirstTime,
     LinkAccount,
 
-    // The home hub and the match flow it opens.
     MainMenu,
     SelectMode,
     Matchmaking,

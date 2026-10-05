@@ -6,9 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Customize;
 
-// CU-14 main flow step 1. The six slots and the balance. The rotating board
-// preview belongs to the game renderer and is not part of this layer yet, and
-// the balance comes from the server, so its value stays blank until then.
 public sealed class CustomizeScreen : FormScreen
 {
     private const int CardHeight = 392;

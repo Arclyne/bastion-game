@@ -7,7 +7,6 @@ using Bastion.Contracts.Accounts;
 
 namespace Bastion.Client.Screens.Register;
 
-// CU-02 main flow. Registration only asks for what some flow uses: no first or last names (CU-02 RN-16).
 public sealed class RegisterScreen : FormScreen
 {
     private const int MaxNicknameLength = 30;
@@ -16,12 +15,10 @@ public sealed class RegisterScreen : FormScreen
     private const int MaxMonthLength = 2;
     private const int MaxYearLength = 4;
 
-    // A row holds its label, its field and the warning line under it, plus a little air.
     private const int RowAir = 4;
     private const int RegisterRowSpacing = LabelSpace + Theme.FieldHeight + Theme.WarningSpace + RowAir;
     private const int LastRowIndex = 2;
 
-    // The last row prints its warnings into the bottom padding, which therefore cannot be the usual CardPadding.
     private const int BottomPadding = Theme.WarningSpace + RowAir;
     private const int WideCardHeight =
         Theme.CardPadding + LabelSpace + (LastRowIndex * RegisterRowSpacing) + Theme.FieldHeight + BottomPadding;
@@ -180,7 +177,6 @@ public sealed class RegisterScreen : FormScreen
         _passwordField.Warning = warnings.Password;
         _confirmationField.Warning = warnings.Confirmation;
 
-        // Only the day box carries the text, or it would be drawn three times.
         _dayField.Warning = warnings.BirthDate;
         _termsCheckBox.Warning = warnings.Terms;
     }
@@ -207,7 +203,6 @@ public sealed class RegisterScreen : FormScreen
         _createButton.Title = isBusy ? TextCatalog.RegisterCreating : TextCatalog.RegisterCreateButton;
     }
 
-    // CU-02 FA-01: leaving asks first, because what was typed is lost.
     private void OnCancelClicked(object? sender, EventArgs e)
     {
         Popup.Ask(Navigator, new ConfirmRequest
@@ -239,7 +234,6 @@ public sealed class RegisterScreen : FormScreen
         return new TextField { IsPassword = true, Bounds = GetCell(PasswordRow, isRightColumn) };
     }
 
-    // Three boxes instead of one field: clearer for an eight-year-old player (CON-12), with no format to explain.
     private TextField CreateDatePart(int x, int width, int maxLength)
     {
         return new TextField

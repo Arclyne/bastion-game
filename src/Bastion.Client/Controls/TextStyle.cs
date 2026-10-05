@@ -11,7 +11,5 @@ public sealed record TextStyle
 
     public float Scale { get; init; } = 1f;
 
-    // Extra space inserted between letters. SpriteFont only offers one spacing
-    // value shared by every caller, so tracking is applied per draw call.
     public float Tracking { get; init; }
 }

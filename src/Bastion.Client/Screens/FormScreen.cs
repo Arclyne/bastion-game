@@ -7,7 +7,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens;
 
-// Chrome, focus order and button geometry shared by every account screen.
 public abstract class FormScreen : IScreen
 {
     protected const int NarrowCardWidth = 560;
@@ -121,7 +120,6 @@ public abstract class FormScreen : IScreen
             bool isPickerAlreadyOpen = _languagePicker.IsOpen;
             _languagePicker.Update(input);
 
-            // The click that closes the open list must not also reach the control below it.
             if (isPickerAlreadyOpen && input.HasClicked)
             {
                 return;
@@ -180,8 +178,6 @@ public abstract class FormScreen : IScreen
         _languagePicker?.Draw(canvas);
     }
 
-    // The height of a card filled with a list of rows. Several screens work it
-    // out the same way, and some of them add their own header on top.
     protected static int ComputeListCardHeight(int visibleRows, int rowHeight, int rowGap)
     {
         return (Theme.CardPadding * 2) + (visibleRows * rowHeight) + ((visibleRows - 1) * rowGap);
@@ -192,8 +188,6 @@ public abstract class FormScreen : IScreen
         return new ValueBox { Bounds = bounds };
     }
 
-    // Lists that alternate the style of their rows share this, so the modulus
-    // is not repeated in every screen.
     protected static bool IsEvenRow(int index)
     {
         return index % AlternateEvery == 0;
@@ -208,8 +202,6 @@ public abstract class FormScreen : IScreen
 
     protected abstract void ApplyTexts();
 
-    // Draw order is registration order, so anything that can overlap the rest
-    // is registered last.
     protected void Register(Control control)
     {
         ArgumentNullException.ThrowIfNull(control);
@@ -249,8 +241,6 @@ public abstract class FormScreen : IScreen
         return new Button { Style = ButtonStyle.Outline, Bounds = bounds };
     }
 
-    // Stacked buttons fall outside the window on the taller cards, so those
-    // screens lay their actions out in one row.
     protected void LayOutActionsInRow(IReadOnlyList<Button> actions)
     {
         ArgumentNullException.ThrowIfNull(actions);
@@ -302,8 +292,6 @@ public abstract class FormScreen : IScreen
 
     private void OnLanguageSelected(object? sender, SelectionChangedEventArgs e)
     {
-        // Only a screen that draws the picker subscribes to it, so this guard
-        // states the invariant instead of silencing the nullable warning.
         if (_languagePicker is null)
         {
             return;

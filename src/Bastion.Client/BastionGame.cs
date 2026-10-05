@@ -37,8 +37,6 @@ public sealed class BastionGame : Game
             SynchronizeWithVerticalRetrace = true,
         };
 
-        // Applied before the first catalog lookup, or the interface would start in the operating system language,
-        // which may be neither of the two supported ones.
         Language.Apply(Language.Default);
 
         _navigator = new Navigator(services);
@@ -102,7 +100,6 @@ public sealed class BastionGame : Game
         base.UnloadContent();
     }
 
-    // DesktopGL delivers characters already resolved by the system, with accents and keyboard layout applied.
     private void OnTextInput(object? sender, TextInputEventArgs e)
     {
         _input.AddCharacter(e.Character);

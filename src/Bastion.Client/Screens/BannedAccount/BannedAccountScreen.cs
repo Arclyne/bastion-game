@@ -5,9 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.BannedAccount;
 
-// CU-01 FA-09 to FA-10, continuing into CU-45. Login does not branch on the
-// account state or on active sanctions yet, so nothing reaches this screen.
-// The reason, type and end date come from the server, so their boxes start empty.
 public sealed class BannedAccountScreen : FormScreen
 {
     private const int NoticeHeight = 40;

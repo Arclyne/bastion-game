@@ -28,8 +28,6 @@ public sealed class Button : Control
 
     public bool IsCompact { get; init; }
 
-    // Lets a dialog give its primary button the tone color instead of always
-    // the orange accent.
     public Color Accent { get; init; } = Theme.Accent;
 
     public event EventHandler? Clicked;
@@ -168,7 +166,6 @@ public sealed class Button : Control
         DrawArrow(canvas, new Point(Bounds.Right - ArrowMargin, Bounds.Center.Y), color);
     }
 
-    // A right pointing arrow built from one stroke and two diagonals.
     private static void DrawArrow(Canvas canvas, Point center, Color color)
     {
         var stroke = new Rectangle(

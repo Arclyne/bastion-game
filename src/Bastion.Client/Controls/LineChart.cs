@@ -4,8 +4,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// Elo over time, with the division threshold marked (CU-15). It plots whatever
-// list it is given; the real series arrives from the server.
 public sealed class LineChart : Control
 {
     private const int Padding = 12;

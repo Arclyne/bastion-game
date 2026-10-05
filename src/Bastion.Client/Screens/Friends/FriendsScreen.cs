@@ -6,9 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Friends;
 
-// The friend list the social use cases return to. Removing a friend is CU-49
-// and asks for confirmation, because the friendship row disappears for good.
-// The friends come from the server, so the rows stay hidden until then.
 public sealed class FriendsScreen : FormScreen
 {
     private const int CardHeight = 380;

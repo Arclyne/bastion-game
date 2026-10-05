@@ -9,8 +9,6 @@ using Bastion.Contracts.Leaderboard;
 
 namespace Bastion.Client.Screens.Leaderboard;
 
-// CU-35: the ranking of one game mode read from the server, filtered by mode (FA-04) and paged, with the player's
-// own position pinned at the bottom.
 public sealed class LeaderboardScreen : FormScreen
 {
     private const int SelectorGap = 16;
@@ -60,6 +58,7 @@ public sealed class LeaderboardScreen : FormScreen
         _pageLine = new TextLine
         {
             Style = TextLineStyle.Muted,
+            IsCentered = true,
             Bounds = new Rectangle(
                 ContentX + PageButtonWidth,
                 footerTop,
@@ -102,7 +101,6 @@ public sealed class LeaderboardScreen : FormScreen
         return TextCatalog.LeaderboardSubtitle;
     }
 
-    // The page itself is not re-requested on a language change: numbers are formatted again from what arrived.
     protected override void ApplyTexts()
     {
         _modeSelector.Label = TextCatalog.LeaderboardModeLabel;

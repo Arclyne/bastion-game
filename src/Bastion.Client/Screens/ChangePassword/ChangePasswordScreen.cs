@@ -87,8 +87,6 @@ public sealed class ChangePasswordScreen : FormScreen
         Navigator.GoBack();
     }
 
-    // Only the server knows the current password, so the client just checks
-    // that one was typed.
     private bool Validate()
     {
         _currentField.Warning = _currentField.Text.Length > 0 ? null : TextCatalog.LoginPasswordRequired;

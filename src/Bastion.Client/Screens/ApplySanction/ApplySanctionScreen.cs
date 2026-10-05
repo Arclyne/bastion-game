@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.ApplySanction;
 
-// CU-44 main flow step 1. Scope, type and duration, with the previous sanctions
-// of that player in sight because they decide the severity (CU-44 RN-06).
 public sealed class ApplySanctionScreen : FormScreen
 {
     private const int CardHeight = 400;
@@ -44,7 +42,6 @@ public sealed class ApplySanctionScreen : FormScreen
 
         int historyTop = FirstRowTop + (RowSpacing * HistoryRow);
 
-        // The rows stay hidden until the server sends the previous sanctions.
         for (int historyIndex = 0; historyIndex < VisibleHistory; historyIndex++)
         {
             var row = new DataRow
@@ -119,7 +116,6 @@ public sealed class ApplySanctionScreen : FormScreen
         return [TextCatalog.ApplySanctionDurationDay, TextCatalog.ApplySanctionDurationWeek];
     }
 
-    // CU-44 RN-08: the confirmation sums the sanction up in one sentence.
     private void OnApplyClicked(object? sender, EventArgs e)
     {
         Navigator.ShowConfirm(new ConfirmRequest

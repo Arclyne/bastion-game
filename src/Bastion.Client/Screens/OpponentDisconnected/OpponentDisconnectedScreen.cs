@@ -5,12 +5,8 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.OpponentDisconnected;
 
-// CU-26 main flow, and CU-24 FA-06. The use case draws this over the board
-// (RN-03); the navigator has no concept yet of a screen over another, so it
-// is a full screen.
 public sealed class OpponentDisconnectedScreen : FormScreen
 {
-
     private const float ClaimDelaySeconds = 60f;
     private const float NotStarted = -1f;
     private const string ClockPattern = @"m\:ss";

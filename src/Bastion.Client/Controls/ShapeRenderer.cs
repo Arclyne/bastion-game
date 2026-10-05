@@ -9,7 +9,6 @@ public sealed class ShapeRenderer : IDisposable
 {
     private const float LineThickness = 2f;
 
-    // Pixels are sampled at their center so the anti aliased edge is symmetric.
     private const float PixelCenter = 0.5f;
 
     private readonly GraphicsDevice _device;
@@ -35,8 +34,6 @@ public sealed class ShapeRenderer : IDisposable
         _batch.Draw(Pixel, bounds, color);
     }
 
-    // A rotated one pixel sprite. The elo chart needs segments between two
-    // arbitrary points, which rectangles cannot draw.
     public void DrawLine(Point from, Point to, Color color)
     {
         var delta = new Vector2(to.X - from.X, to.Y - from.Y);
@@ -122,8 +119,6 @@ public sealed class ShapeRenderer : IDisposable
         return pixels;
     }
 
-    // Signed distance to the rounded edge: negative inside, positive outside.
-    // It is what lets the corner be smoothed instead of stepped.
     private static float GetSignedDistance(int x, int y, RoundedRectangleShape shape)
     {
         float halfWidth = shape.Width / 2f;

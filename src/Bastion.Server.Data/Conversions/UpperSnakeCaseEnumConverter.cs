@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Bastion.Server.Data.Conversions;
 
-// The database stores domain codes as UPPER_SNAKE_CASE text (ACTIVE, LOGIN_SUCCEEDED) so the CHECK constraints
-// stay readable; the code works with enums.
 public sealed class UpperSnakeCaseEnumConverter<TEnum> : ValueConverter<TEnum, string>
     where TEnum : struct, Enum
 {

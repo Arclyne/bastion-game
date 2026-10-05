@@ -5,10 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Matchmaking;
 
-// CU-17 main flow step 4. The use case draws this as a panel over the menu
-// that leaves the rest of the game reachable (RN-08); the navigator has no
-// concept yet of a screen running behind another, so this is a full screen
-// with the one control that matters: cancel.
 public sealed class MatchmakingScreen : FormScreen
 {
     private const int TitleHeight = 28;
@@ -21,8 +17,6 @@ public sealed class MatchmakingScreen : FormScreen
     private const float NotStarted = -1f;
     private const string ClockPattern = @"m\:ss";
 
-    // Stands in for the server answering with a rival. The wait is what the
-    // player sees; the number goes away with the matchmaking request.
     private const float SearchSeconds = 4f;
 
     private readonly TextLine _title;

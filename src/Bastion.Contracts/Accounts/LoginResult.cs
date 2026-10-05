@@ -19,4 +19,7 @@ public sealed class LoginResult
 
     [DataMember]
     public int LockMinutes { get; set; }
+
+    [DataMember]
+    public string? Email { get; set; }
 }

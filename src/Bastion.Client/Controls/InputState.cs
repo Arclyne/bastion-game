@@ -40,8 +40,6 @@ public sealed class InputState
         _characters.Clear();
     }
 
-    // Fed by the window TextInput event, which already resolves accents and the
-    // user keyboard layout. Reading raw keys would need manual translation.
     public void AddCharacter(char character)
     {
         _characters.Add(character);

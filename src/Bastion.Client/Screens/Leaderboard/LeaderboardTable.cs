@@ -5,8 +5,6 @@ using Bastion.Client.Controls;
 
 namespace Bastion.Client.Screens.Leaderboard;
 
-// The ranking as a table with translated column headers, the rows of the current page and the player's own row
-// pinned below them (CU-35 main flow step 4).
 public sealed class LeaderboardTable : Control
 {
     public const int HeaderHeight = 28;
@@ -17,8 +15,7 @@ public sealed class LeaderboardTable : Control
     private const int ColumnCount = 5;
     private const int StripeEvery = 2;
 
-    // Left edge of each column as a fraction of the table width: position, player, elo, matches, wins.
-    private static readonly float[] _columnStarts = [0f, 0.1f, 0.55f, 0.7f, 0.85f];
+    private static readonly float[] _columnStarts = [0f, 0.08f, 0.46f, 0.62f, 0.8f];
 
     public IReadOnlyList<string> Headers { get; set; } = [];
 

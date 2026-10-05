@@ -5,9 +5,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.PurchaseConfirm;
 
-// CU-38 main flow step 4. The price, the balance now and the balance after,
-// which CU-38 RN-07 asks to show before charging anything. The values come
-// from the server, so the boxes start empty.
 public sealed class PurchaseConfirmScreen : FormScreen
 {
     private const int CardHeight = 330;

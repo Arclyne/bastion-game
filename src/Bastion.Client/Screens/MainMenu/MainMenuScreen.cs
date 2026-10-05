@@ -6,8 +6,6 @@ using Bastion.Client.Session;
 
 namespace Bastion.Client.Screens.MainMenu;
 
-// CU-01 main flow step 19. The home hub once a session is open: the player's numbers up top, the three ways to
-// start a match, and the rest of the game one tap away. Prototype 3.4.
 public sealed class MainMenuScreen : FormScreen
 {
     private const int HeaderHeight = 24;
@@ -193,14 +191,11 @@ public sealed class MainMenuScreen : FormScreen
         Navigator.GoTo(ScreenId.AccountSettings);
     }
 
-    // Who may open it is the server's call; the entry is always drawn.
     private void OnModerationClicked(object? sender, EventArgs e)
     {
         Navigator.GoTo(ScreenId.AdminPanel);
     }
 
-    // The level, elo, streak and coins arrive with the profile service (CU-15); until then the tiles show only
-    // their captions instead of made-up numbers.
     protected override void ApplyTexts()
     {
         _header.Text = _session.Nickname;
@@ -245,7 +240,6 @@ public sealed class MainMenuScreen : FormScreen
         return new Button
         {
             Style = ButtonStyle.Secondary,
-            HasArrow = true,
             Bounds = new Rectangle(x, top, width, ActionHeight)
         };
     }

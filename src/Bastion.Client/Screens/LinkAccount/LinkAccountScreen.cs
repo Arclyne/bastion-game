@@ -6,10 +6,6 @@ using Bastion.Client.Validation;
 
 namespace Bastion.Client.Screens.LinkAccount;
 
-// CU-07 main flow step 1. Presentation only, like Register: it does not
-// validate against the server and does not build the link request. Laid out
-// by hand, like DeleteAccount, because the notice above the fields pushes them
-// lower than FirstRowTop assumes.
 public sealed class LinkAccountScreen : FormScreen
 {
     private const int MaxNicknameLength = 30;

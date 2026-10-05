@@ -6,9 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.AddFriend;
 
-// CU-30 main flow step 1. One field that accepts the nickname or the friend
-// code, plus the people the player has met recently (CU-30 RN-07). The
-// suggestions come from the server, so their rows stay hidden until then.
 public sealed class AddFriendScreen : FormScreen
 {
     private const int CardHeight = 380;
@@ -67,7 +64,6 @@ public sealed class AddFriendScreen : FormScreen
         _backButton.Title = TextCatalog.CommonBackButton;
     }
 
-    // The search needs the server, which is not wired to this screen yet.
     private void OnSearchClicked(object? sender, EventArgs e)
     {
     }

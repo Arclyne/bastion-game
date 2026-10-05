@@ -5,13 +5,8 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Match;
 
-// CU-17 main flow step 7. The board itself belongs to the game renderer,
-// which does not exist yet; this is the frame around it: whose turn it is,
-// the two actions that are neither a move nor a wall (CU-22, CU-23), and the
-// match chat.
 public sealed class MatchScreen : FormScreen
 {
-
     private const int HeaderHeight = 22;
     private const int ClockNudge = 2;
     private const int SectionGap = 14;
@@ -128,8 +123,6 @@ public sealed class MatchScreen : FormScreen
         return TextCatalog.MatchSubtitle;
     }
 
-    // The turn, the clock, the players, their walls and the chat come from the
-    // server, so their lines stay empty until it answers.
     protected override void ApplyTexts()
     {
         RefreshActionChips();
@@ -159,8 +152,6 @@ public sealed class MatchScreen : FormScreen
         });
     }
 
-    // The offer waits for the rival. Until the server is there to answer it,
-    // the wait resolves the way D-15 describes: the rival stopped answering.
     private void OnDrawOffered()
     {
         Navigator.GoTo(ScreenId.OpponentDisconnected);

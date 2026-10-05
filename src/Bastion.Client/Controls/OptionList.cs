@@ -4,8 +4,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// Picks one option among several, stacked. Selector lays its options side by
-// side, which does not fit the five report reasons of CU-42.
 public sealed class OptionList : Control
 {
     private const int OptionHeight = 44;

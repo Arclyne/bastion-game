@@ -5,8 +5,6 @@ using System.Text;
 
 namespace Bastion.Client.Session;
 
-// The session stores a device fingerprint and the client version (CU-01 step 5); the fingerprint is a hash so the
-// machine and user names never leave the computer.
 public static class DeviceIdentity
 {
     private const string UnknownVersion = "0.0.0";

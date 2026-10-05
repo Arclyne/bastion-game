@@ -6,8 +6,6 @@ using Bastion.Client.Localization;
 
 namespace Bastion.Client.Screens.Report;
 
-// CU-42 main flow step 1. Five reasons, an optional description and the notice
-// of what evidence travels with the report (CU-42 RN-02).
 public sealed class ReportScreen : FormScreen
 {
     private const int CardHeight = 470;

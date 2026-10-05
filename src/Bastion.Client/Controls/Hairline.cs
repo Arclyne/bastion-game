@@ -7,8 +7,6 @@ public static class Hairline
 {
     private const int Thickness = 1;
 
-    // The rectangle gives the start and the length; the height it carries is
-    // ignored, because a hairline is always one pixel tall.
     public static void DrawHorizontal(Canvas canvas, Rectangle line, Color color)
     {
         ArgumentNullException.ThrowIfNull(canvas);

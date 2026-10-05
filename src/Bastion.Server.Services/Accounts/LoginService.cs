@@ -58,7 +58,12 @@ public sealed class LoginService : ILoginService
         LoginResultCode statusCode = MapStatus(outcome.Account.AccountStatus);
         if (statusCode != LoginResultCode.Success)
         {
-            return Refuse(statusCode, attempt with { Result = MapStatusResult(statusCode) });
+            var refused = new LoginResult
+            {
+                Code = statusCode,
+                Email = statusCode == LoginResultCode.AccountPending ? outcome.Account.Email : null,
+            };
+            return new LoginOutcome(refused, attempt with { Result = MapStatusResult(statusCode) });
         }
 
         string token = await _sessions.OpenAsync(outcome.Account.AccountId, request);
@@ -86,7 +91,6 @@ public sealed class LoginService : ILoginService
         return new LoginOutcome(new LoginResult { Code = code }, attempt);
     }
 
-    // Only ACTIVE accounts may sign in; each other status has its own message (CU-01 RN-04).
     private static LoginResultCode MapStatus(AccountStatus status)
     {
         switch (status)

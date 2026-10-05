@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework;
 
 namespace Bastion.Client.Controls;
 
-// Warning the player must read before acting (CU-11, CU-13 RN-01).
-// It is not a dialog: it stays on the form.
 public sealed class NoticeBox : Control
 {
     private const int RuleWidth = 4;
@@ -13,7 +11,6 @@ public sealed class NoticeBox : Control
 
     public string Text { get; set; } = string.Empty;
 
-    // A critical notice announces something that cannot be undone.
     public bool IsCritical { get; init; }
 
     public override void Draw(Canvas canvas)
