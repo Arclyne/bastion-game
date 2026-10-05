@@ -8,6 +8,7 @@ using Bastion.Client.Screens.AdminPanel;
 using Bastion.Client.Screens.Appeal;
 using Bastion.Client.Screens.ApplySanction;
 using Bastion.Client.Screens.BannedAccount;
+using Bastion.Client.Screens.BoardScene;
 using Bastion.Client.Screens.BoxPurchaseConfirm;
 using Bastion.Client.Screens.ChangeEmail;
 using Bastion.Client.Screens.ChangeNickname;
@@ -116,6 +117,7 @@ public static class ScreenRegistry
         [ScreenId.AIDifficulty] = context => new AIDifficultyScreen(context.Navigator),
         [ScreenId.AIMatchEnd] = context => new AIMatchEndScreen(context.Navigator),
         [ScreenId.TutorialIndex] = context => new TutorialIndexScreen(context.Navigator),
+        [ScreenId.BoardScene] = context => new BoardScreen(context.Navigator, context.Services.Board),
     };
 
     public static IReadOnlyCollection<ScreenId> RegisteredScreens => _factories.Keys;

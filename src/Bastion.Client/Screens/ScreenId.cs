@@ -60,5 +60,9 @@ public enum ScreenId
     AIMatchEnd,
     Spectator,
     Replay,
-    TutorialIndex
+    TutorialIndex,
+
+    // The board on its own, with no interface over it. It is where the board is
+    // built and looked at; the client opens it directly with --board.
+    BoardScene
 }

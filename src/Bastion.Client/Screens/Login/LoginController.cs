@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading.Tasks;
 using Bastion.Client.Localization;
 using Bastion.Client.Networking;
+using Bastion.Client.Screens;
 using Bastion.Client.Session;
 using Bastion.Contracts.Accounts;
 
@@ -53,6 +54,26 @@ public sealed class LoginController
         }
 
         return result;
+    }
+
+    // Where each answer leads (CU-01): the hub, the pending-verification notice or the sanction screen. Null means
+    // the player stays on the form and reads a message.
+    public static ScreenId? GetDestination(LoginResult result)
+    {
+        ArgumentNullException.ThrowIfNull(result);
+
+        switch (result.Code)
+        {
+            case LoginResultCode.Success:
+                return ScreenId.MainMenu;
+            case LoginResultCode.AccountPending:
+                return ScreenId.PendingVerification;
+            case LoginResultCode.AccountSuspended:
+            case LoginResultCode.AccountBanned:
+                return ScreenId.BannedAccount;
+            default:
+                return null;
+        }
     }
 
     // A wrong identifier and a wrong password share one message on purpose (CU-01 RN-01).

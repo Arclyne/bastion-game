@@ -31,7 +31,10 @@ public static class Program
     public static void Main(string[] args)
     {
         ConfigureLogging();
-        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+        // The content root is the build output, where appsettings.json is copied, so the server starts the same way
+        // from any working directory (for example with dotnet run --project).
+        var options = new WebApplicationOptions { Args = args, ContentRootPath = AppContext.BaseDirectory };
+        WebApplicationBuilder builder = WebApplication.CreateBuilder(options);
 
         // User secrets load in every environment, not only Development, so a developer machine never needs the
         // connection string in a file inside the repository.

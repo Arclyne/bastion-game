@@ -1,0 +1,101 @@
+using System.Collections.Generic;
+using System.Linq;
+using Bastion.Client.Localization;
+using Bastion.Client.Screens;
+using Bastion.Client.Tests.Navigation;
+using Xunit;
+
+namespace Bastion.Client.Tests;
+
+public sealed class TestScreenNavigation
+{
+    private const ScreenId Entry = ScreenId.MainScreen;
+
+    // Screens that end the flow on purpose by sending the player back to a known place.
+    private static readonly HashSet<ScreenId> _homeScreens = [ScreenId.MainScreen, ScreenId.Login, ScreenId.MainMenu];
+
+    // Leaving a match means resigning or abandoning it, which ends on one of these screens (CU-23, CU-24).
+    private static readonly HashSet<ScreenId> _matchExits = [ScreenId.MatchEnd, ScreenId.AIMatchEnd];
+
+    // Two-factor sign-in (CU-01 FA-09) needs the email service, which does not exist yet.
+    private static readonly HashSet<ScreenId> _notYetReachable = [ScreenId.SecondFactor];
+
+    // The versus screen is the transition into a match that is about to start (CU-17): its only way on is the match.
+    private static readonly HashSet<ScreenId> _transitions = [ScreenId.VersusScreen];
+
+    // The board scene is opened with --board, to build and look at the board on
+    // its own. It is not part of the flow a player walks through, and it is left
+    // with the escape key rather than with a control.
+    private static readonly HashSet<ScreenId> _constructionScreens = [ScreenId.BoardScene];
+
+    private readonly Dictionary<ScreenId, IReadOnlyList<PressOutcome>> _outcomes;
+
+    public TestScreenNavigation()
+    {
+        Language.Apply(Language.English);
+        _outcomes = ScreenRegistry.RegisteredScreens.ToDictionary(screen => screen, ScreenExplorer.Explore);
+    }
+
+    [Fact]
+    public void Crawl_FromTheTitleScreen_ReachesEveryScreen()
+    {
+        HashSet<ScreenId> reached = Crawl();
+
+        IEnumerable<ScreenId> unreachableScreens = ScreenRegistry.RegisteredScreens
+            .Where(screen => !reached.Contains(screen) && IsExpectedToBeReachable(screen));
+        string unreachable = string.Join(", ", unreachableScreens);
+
+        Assert.Equal(string.Empty, unreachable);
+    }
+
+    [Fact]
+    public void Explore_EveryScreen_HasAWayOut()
+    {
+        var screens = ScreenRegistry.RegisteredScreens
+            .Where(IsExpectedToHaveAWayOut)
+            .ToList();
+
+        string deadEnds = string.Join(", ", screens.Where(screen => !HasWayOut(_outcomes[screen])));
+
+        Assert.Equal(string.Empty, deadEnds);
+    }
+
+    private static bool IsExpectedToBeReachable(ScreenId screen)
+    {
+        return !_notYetReachable.Contains(screen) && !_constructionScreens.Contains(screen);
+    }
+
+    private static bool IsExpectedToHaveAWayOut(ScreenId screen)
+    {
+        return !_homeScreens.Contains(screen) && !_transitions.Contains(screen)
+            && !_constructionScreens.Contains(screen);
+    }
+
+    private HashSet<ScreenId> Crawl()
+    {
+        var reached = new HashSet<ScreenId> { Entry };
+        var pending = new Queue<ScreenId>([Entry]);
+        while (pending.Count > 0)
+        {
+            foreach (ScreenId next in _outcomes[pending.Dequeue()].SelectMany(outcome => outcome.Destinations))
+            {
+                if (reached.Add(next))
+                {
+                    pending.Enqueue(next);
+                }
+            }
+        }
+
+        return reached;
+    }
+
+    private static bool HasWayOut(IReadOnlyList<PressOutcome> outcomes)
+    {
+        return outcomes.Any(outcome => outcome.HasGoneBack || outcome.Destinations.Any(IsExit));
+    }
+
+    private static bool IsExit(ScreenId screen)
+    {
+        return _homeScreens.Contains(screen) || _matchExits.Contains(screen);
+    }
+}

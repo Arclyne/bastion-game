@@ -29,6 +29,9 @@ public sealed class DropDown : Control
 
     public bool IsOpen { get; private set; }
 
+    // The list opens upward by default; a picker placed at the top of the window opens it downward instead.
+    public bool OpensDownward { get; init; }
+
     public event EventHandler<SelectionChangedEventArgs>? SelectionChanged;
 
     public override void Update(InputState input)
@@ -104,8 +107,9 @@ public sealed class DropDown : Control
     private Rectangle GetPanel()
     {
         int height = (Options.Count * OptionHeight) + (PanelPadding * 2);
+        int top = OpensDownward ? Bounds.Bottom + PanelGap : Bounds.Y - PanelGap - height;
 
-        return new Rectangle(Bounds.X, Bounds.Y - PanelGap - height, Bounds.Width, height);
+        return new Rectangle(Bounds.X, top, Bounds.Width, height);
     }
 
     private Rectangle GetOption(int index)

@@ -57,6 +57,19 @@ public static class Theme
     public static readonly Color Field = new(0xE8, 0xE4, 0xDA);
     public static readonly Color FieldFocused = new(0xDE, 0xD9, 0xCC);
 
+    // What is about to be placed: green and see-through, so the board underneath
+    // reads through it.
+    public static readonly Color Preview = new(0x45, 0xD9, 0x8F, 0x8C);
+
+    // The same piece where the rules turn it down. Only the hue changes, so the
+    // two answers read apart at a glance without the shape moving.
+    public static readonly Color PreviewBlocked = new(0xD9, 0x45, 0x4B, 0x8C);
+
+    // Player colours proposed by the model notes, so a pawn is told apart by its
+    // colour and not only by its shape.
+    public static readonly Color FirstPlayer = new(0xD8, 0x5A, 0x30);
+    public static readonly Color SecondPlayer = new(0x1D, 0x9E, 0x75);
+
     public static readonly Color Accent = new(0xEC, 0x4B, 0x22);
     public static readonly Color AccentLight = new(0xEE, 0x61, 0x3D);
 

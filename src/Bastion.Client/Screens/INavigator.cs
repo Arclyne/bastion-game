@@ -6,6 +6,8 @@ public interface INavigator
 {
     void GoTo(ScreenId screen, string? argument = null);
 
+    bool CanGoBack { get; }
+
     void GoBack();
 
     void ReturnTo(ScreenId screen);

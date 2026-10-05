@@ -30,6 +30,7 @@ public sealed class PrivateMatchScreen : FormScreen
     private readonly TextLine _joinTitle;
     private readonly TextField _codeField;
     private readonly Button _joinButton;
+    private readonly Button _backButton;
 
     public PrivateMatchScreen(INavigator navigator)
         : base(navigator, WideCardWidth, CardHeight)
@@ -67,6 +68,9 @@ public sealed class PrivateMatchScreen : FormScreen
         _joinButton = CreateOutlineButton(
             new Rectangle(rightX, top + JoinButtonTop, columnWidth, Theme.PanelButtonHeight));
         _joinButton.Clicked += OnJoinClicked;
+        _backButton = CreateSecondaryButton();
+        _backButton.MoveTo(PrimaryButtonBounds);
+        _backButton.Clicked += OnBackClicked;
 
         Register(_createTitle);
         Register(_createHint);
@@ -74,6 +78,7 @@ public sealed class PrivateMatchScreen : FormScreen
         Register(_joinTitle);
         RegisterField(_codeField);
         Register(_joinButton);
+        Register(_backButton);
 
         ApplyTexts();
         FocusFirstField();
@@ -94,6 +99,7 @@ public sealed class PrivateMatchScreen : FormScreen
         _codeField.Label = TextCatalog.PrivateMatchCodeLabel;
         _codeField.Placeholder = TextCatalog.PrivateMatchCodePlaceholder;
         _joinButton.Title = TextCatalog.PrivateMatchJoinButton;
+        _backButton.Title = TextCatalog.CommonBackButton;
     }
 
     private void OnCreateClicked(object? sender, EventArgs e)
@@ -112,5 +118,10 @@ public sealed class PrivateMatchScreen : FormScreen
         }
 
         Navigator.GoTo(ScreenId.WaitingRoom, ScreenArgument.GuestRole);
+    }
+
+    private void OnBackClicked(object? sender, EventArgs e)
+    {
+        Navigator.GoBack();
     }
 }

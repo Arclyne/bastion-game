@@ -27,7 +27,7 @@ public sealed class SelectModeScreen : FormScreen
     private int _clockIndex;
 
     public SelectModeScreen(INavigator navigator)
-        : base(navigator, NarrowCardWidth, CardHeight)
+        : base(navigator, WideCardWidth, CardHeight)
     {
         int top = Card.Y + Theme.CardPadding;
 

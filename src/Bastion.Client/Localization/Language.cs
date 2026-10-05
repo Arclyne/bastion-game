@@ -14,8 +14,8 @@ public static class Language
 
     public static readonly CultureInfo English = new CultureInfo(EnglishCode);
 
-    // D-21 makes es-MX the language the game starts in; en-US stays the neutral resource.
-    public static CultureInfo Default => SpanishMexico;
+    // English is both the neutral resource and the language the game starts in; es-MX is the translation.
+    public static CultureInfo Default => English;
 
     public static CultureInfo Current => CultureInfo.CurrentUICulture;
 

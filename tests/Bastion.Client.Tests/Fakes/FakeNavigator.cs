@@ -4,6 +4,8 @@ namespace Bastion.Client.Tests.Fakes;
 
 public sealed class FakeNavigator : INavigator
 {
+
+    public bool CanGoBack => true;
     public void GoTo(ScreenId screen, string? argument = null)
     {
     }

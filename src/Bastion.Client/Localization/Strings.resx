@@ -1481,7 +1481,7 @@
     <comment>CU-02 main flow step 2, primary option.</comment>
   </data>
   <data name="Register.CreateButtonDetail" xml:space="preserve">
-    <value>we will send you an email to activate it</value>
+    <value>you can sign in as soon as it is created</value>
     <comment>Second line of the primary button. Announces the verification token of main flow step 20.</comment>
   </data>
   <data name="Register.Creating" xml:space="preserve">
@@ -1593,11 +1593,11 @@
     <comment>Year hint, in the convention of each language.</comment>
   </data>
   <data name="RegistrationSuccess.Detail" xml:space="preserve">
-    <value>you can close the game while you check it</value>
+    <value>with your player name or your email</value>
     <comment>Second line of the primary button.</comment>
   </data>
   <data name="RegistrationSuccess.EmailLabel" xml:space="preserve">
-    <value>SENT TO</value>
+    <value>ACCOUNT EMAIL</value>
     <comment>Label of the masked address box.</comment>
   </data>
   <data name="RegistrationSuccess.Notice" xml:space="preserve">
@@ -2075,5 +2075,9 @@
   <data name="MatchHistory.Empty" xml:space="preserve">
     <value>You have not played any matches yet.</value>
     <comment>Empty-state line shown where the first match row would be.</comment>
+  </data>
+  <data name="DeleteAccount.LossSummary" xml:space="preserve">
+    <value>Your elo, matches, skins and coins, your friends and your ranking spot are deleted. Your name becomes free for others.</value>
+    <comment>What deleting the account removes (CU-11).</comment>
   </data>
 </root>

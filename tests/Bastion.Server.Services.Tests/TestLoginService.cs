@@ -95,6 +95,28 @@ public sealed class TestLoginService
     }
 
     [Fact]
+    public async Task LogInAsync_PendingAccount_ReturnsTheEmailToShow()
+    {
+        _accounts.Accounts.Add(AccountBuilder.Create(AccountStatus.Pending));
+        LoginRequest request = CreateRequest(AccountBuilder.Nickname, AccountBuilder.Password);
+
+        LoginOutcome outcome = await _service.LogInAsync(request);
+
+        Assert.Equal(AccountBuilder.Email, outcome.Result.Email);
+    }
+
+    [Fact]
+    public async Task LogInAsync_WrongPasswordOnPendingAccount_HidesTheEmail()
+    {
+        _accounts.Accounts.Add(AccountBuilder.Create(AccountStatus.Pending));
+        LoginRequest request = CreateRequest(AccountBuilder.Nickname, "Wrong#Pass1");
+
+        LoginOutcome outcome = await _service.LogInAsync(request);
+
+        Assert.Null(outcome.Result.Email);
+    }
+
+    [Fact]
     public async Task LogInAsync_BannedAccount_ReturnsAccountBanned()
     {
         _accounts.Accounts.Add(AccountBuilder.Create(AccountStatus.Banned));

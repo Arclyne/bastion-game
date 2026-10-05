@@ -21,9 +21,11 @@ public static class LanguagePicker
         {
             Options = GetNames(),
             SelectedIndex = Language.IsEnglish ? EnglishIndex : SpanishIndex,
+            // Top-right corner: the title is centred and the card starts lower, so no screen places anything there.
+            OpensDownward = true,
             Bounds = new Rectangle(
+                Theme.WindowWidth - Margin - PickerWidth,
                 Margin,
-                Theme.WindowHeight - Margin - PickerHeight,
                 PickerWidth,
                 PickerHeight)
         };

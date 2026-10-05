@@ -3,6 +3,7 @@ using System.IO;
 using log4net;
 using log4net.Config;
 using Bastion.Client.Networking;
+using Bastion.Client.Screens;
 using Bastion.Client.Session;
 
 namespace Bastion.Client;
@@ -11,8 +12,14 @@ public static class Program
 {
     private const string LogConfigurationFileName = "log4net.config";
 
-    public static void Main()
+    // Opens the board on its own instead of the usual flow, to build and look at
+    // the scene without going through the menus.
+    private const string BoardSceneOption = "--board";
+
+    public static void Main(string[] args)
     {
+        ArgumentNullException.ThrowIfNull(args);
+
         ConfigureLogging();
 
         using var accounts = new AccountClient();
@@ -23,8 +30,13 @@ public static class Program
             Leaderboard = leaderboard,
             Session = new SessionContext(),
         };
-        using var game = new BastionGame(services);
+        using var game = new BastionGame(services, GetStartScreen(args));
         game.Run();
+    }
+
+    private static ScreenId GetStartScreen(string[] args)
+    {
+        return Array.IndexOf(args, BoardSceneOption) >= 0 ? ScreenId.BoardScene : ScreenId.MainScreen;
     }
 
     private static void ConfigureLogging()

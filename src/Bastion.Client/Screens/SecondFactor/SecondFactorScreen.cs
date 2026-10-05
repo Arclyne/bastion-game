@@ -18,7 +18,8 @@ public sealed class SecondFactorScreen : FormScreen
     private const int HintHeight = 20;
     private const int ResendGap = 10;
     private const int ResendButtonTop = HintHeight + ResendGap;
-    private const int FieldTop = ResendButtonTop + Theme.SmallButtonHeight + LabelSpace;
+    private const int FieldLabelGap = 12;
+    private const int FieldTop = ResendButtonTop + Theme.SmallButtonHeight + FieldLabelGap + LabelSpace;
     private const int ExpiresGap = 10;
     private const int ExpiresHeight = 20;
     private const int ContentHeight = FieldTop + Theme.FieldHeight + ExpiresGap + ExpiresHeight;

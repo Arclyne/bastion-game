@@ -101,7 +101,7 @@ CREATE TABLE dbo.Account (
     PasswordHash                     VARBINARY(64)  NULL,  -- Cryptographic hash of the password; never in plain text (CU-01 RN-02).
     PasswordSalt                     VARBINARY(32)  NULL,  -- Salt of the hash.
     BirthDate                        DATE           NULL,  -- Used to check the minimum age of eight; the age is not stored (CU-02).
-    PreferredLanguage                VARCHAR(10)    NOT NULL DEFAULT ('es-MX'),  -- Language of the interface and the emails, `es-MX` or `en` (D-21); it follows the player to any device (CU-12 RN-08).
+    PreferredLanguage                VARCHAR(10)    NOT NULL DEFAULT ('en'),  -- Language of the interface and the emails, `en` (the default) or `es-MX` (D-21); it follows the player to any device (CU-12 RN-08).
     FailedAttempts                   TINYINT        NOT NULL DEFAULT (0),  -- Consecutive failed sign-in attempts (CU-01 RN-03).
     LastFailedAttemptAt              DATETIME2(0)   NULL,  -- Used to reset the counter after 24 hours (CU-01 RN-03).
     LockedUntil                      DATETIME2(0)   NULL,  -- End of the current escalating lockout.
