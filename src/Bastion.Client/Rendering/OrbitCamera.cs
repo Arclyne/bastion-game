@@ -69,6 +69,10 @@ public sealed class OrbitCamera
         _distance = _restingDistance;
     }
 
+    // True while the button that is down has already turned the board, so a
+    // screen can tell a drag from a click on the same button.
+    public bool HasTurnedWhilePressed => _hasTurnedWhilePressed;
+
     public Matrix View => Matrix.CreateLookAt(Position, _target, GetUpDirection());
 
     public Vector3 Position

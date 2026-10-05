@@ -19,6 +19,9 @@ public sealed class BoardRenderer
     // Below this the ray runs along the board instead of meeting it.
     private const float LevelWithTheBoard = 0.0001f;
 
+    // One crossing fewer per side than cells, since a wall needs two to lie on.
+    private const int CrossingsPerSide = BoardAssetSet.ClassicBoardSize - 1;
+
     // The two ends of the ray, as the viewport measures depth.
     private const float NearDepth = 0.0f;
     private const float FarDepth = 1.0f;
@@ -58,7 +61,21 @@ public sealed class BoardRenderer
 
         BoardPosition crossing = _assets.Frame.GetCrossingAt(point.Value);
 
-        return IsOnTheBoard(crossing) ? crossing : null;
+        return IsOnTheBoard(crossing, CrossingsPerSide) ? crossing : null;
+    }
+
+    // A pawn stands on a cell, so a move is aimed at one of those instead.
+    public BoardPosition? FindCell(Point pointer)
+    {
+        Vector3? point = FindPointOnTheBoard(pointer);
+        if (point is null)
+        {
+            return null;
+        }
+
+        BoardPosition cell = _assets.Frame.GetCellAt(point.Value);
+
+        return IsOnTheBoard(cell, BoardAssetSet.ClassicBoardSize) ? cell : null;
     }
 
     private Vector3? FindPointOnTheBoard(Point pointer)
@@ -87,12 +104,10 @@ public sealed class BoardRenderer
         return distance < 0.0f ? null : near + (direction * distance);
     }
 
-    private static bool IsOnTheBoard(BoardPosition crossing)
+    private static bool IsOnTheBoard(BoardPosition position, int count)
     {
-        int count = BoardAssetSet.ClassicBoardSize - 1;
-
-        return crossing.Column >= 0 && crossing.Column < count
-            && crossing.Row >= 0 && crossing.Row < count;
+        return position.Column >= 0 && position.Column < count
+            && position.Row >= 0 && position.Row < count;
     }
 
     public void Draw(MatchView view)

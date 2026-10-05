@@ -23,6 +23,12 @@ public sealed class TestBoardScreen
     // of its four neighbours are on the board.
     private const int ReachableFromTheBackRow = 3;
 
+    private static readonly BoardPosition _aimedCrossing = new BoardPosition(3, 5);
+
+    // The horizontal wall of the starting position already stands here.
+    private static readonly BoardPosition _takenCrossing = new BoardPosition(2, 4);
+    private static readonly BoardPosition _unreachableCell = new BoardPosition(0, LastRow);
+
     private static BoardScreen CreateScreen()
     {
         return new BoardScreen(new RecordingNavigator(), null);
@@ -31,6 +37,20 @@ public sealed class TestBoardScreen
     private static MatchView CreateView()
     {
         return CreateScreen().View;
+    }
+
+    private static BoardScreen CreateScreenAimedAt(BoardPosition crossing)
+    {
+        BoardScreen screen = CreateScreen();
+        screen.PrepareFor(BoardAction.PlaceWall);
+        screen.AimAt(crossing);
+
+        return screen;
+    }
+
+    private static MatchView CreateViewAimedAt(BoardPosition crossing)
+    {
+        return CreateScreenAimedAt(crossing).View;
     }
 
     private static MatchView CreateViewPreparedFor(BoardAction action)
@@ -185,6 +205,163 @@ public sealed class TestBoardScreen
         screen.PrepareFor(BoardAction.MovePawn);
 
         Assert.Null(screen.View.WallPreview);
+    }
+
+    // CU-21 FA-03: the wall is turned before it is let go of. It comes out of the
+    // inventory the way the model is modelled, along the columns.
+    [Fact]
+    public void View_AWallJustAimed_LiesAlongTheColumns()
+    {
+        MatchView view = CreateViewAimedAt(_aimedCrossing);
+
+        Assert.Equal(WallOrientation.Horizontal, view.WallPreview?.Orientation);
+    }
+
+    [Fact]
+    public void View_AWallTurnedOnce_LiesAlongTheRows()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_aimedCrossing);
+
+        screen.TurnTheWall();
+
+        Assert.Equal(WallOrientation.Vertical, screen.View.WallPreview?.Orientation);
+    }
+
+    [Fact]
+    public void View_AWallTurnedTwice_LiesAlongTheColumnsAgain()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_aimedCrossing);
+
+        screen.TurnTheWall();
+        screen.TurnTheWall();
+
+        Assert.Equal(WallOrientation.Horizontal, screen.View.WallPreview?.Orientation);
+    }
+
+    [Fact]
+    public void View_AWallTurned_StaysOnTheCrossingItWasAimedAt()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_aimedCrossing);
+
+        screen.TurnTheWall();
+
+        Assert.Equal(_aimedCrossing, screen.View.WallPreview?.Groove);
+    }
+
+    [Fact]
+    public void View_AWallTakenAfterTurningTheLastOne_LiesAlongTheColumns()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_aimedCrossing);
+        screen.TurnTheWall();
+
+        screen.PrepareFor(BoardAction.PlaceWall);
+        screen.AimAt(_aimedCrossing);
+
+        Assert.Equal(WallOrientation.Horizontal, screen.View.WallPreview?.Orientation);
+    }
+
+    // Nothing is held while a move is being made, so there is nothing to turn.
+    [Fact]
+    public void View_TurnedWhileMoving_PreviewsNoWall()
+    {
+        BoardScreen screen = CreateScreen();
+        screen.PrepareFor(BoardAction.MovePawn);
+
+        screen.TurnTheWall();
+
+        Assert.Null(screen.View.WallPreview);
+    }
+
+    // Letting the pawn go leaves it on the board and takes every see-through
+    // piece away with it.
+    [Fact]
+    public void View_APawnLetGoOnAReachableCell_StandsOnThatCell()
+    {
+        BoardScreen screen = CreateScreen();
+        screen.PrepareFor(BoardAction.MovePawn);
+        BoardPosition cell = screen.View.PawnPreviews[0].Cell;
+
+        screen.Place(cell);
+
+        Assert.Contains(screen.View.Pawns, pawn => pawn.Cell == cell);
+    }
+
+    [Fact]
+    public void View_APawnLetGo_PreviewsNoPawnAnyMore()
+    {
+        BoardScreen screen = CreateScreen();
+        screen.PrepareFor(BoardAction.MovePawn);
+
+        screen.Place(screen.View.PawnPreviews[0].Cell);
+
+        Assert.Empty(screen.View.PawnPreviews);
+    }
+
+    [Fact]
+    public void Action_APawnLetGo_IsNoneAgain()
+    {
+        BoardScreen screen = CreateScreen();
+        screen.PrepareFor(BoardAction.MovePawn);
+
+        screen.Place(screen.View.PawnPreviews[0].Cell);
+
+        Assert.Equal(BoardAction.None, screen.Action);
+    }
+
+    [Fact]
+    public void View_APawnLetGo_KeepsTheSameNumberOfPawns()
+    {
+        BoardScreen screen = CreateScreen();
+        screen.PrepareFor(BoardAction.MovePawn);
+
+        screen.Place(screen.View.PawnPreviews[0].Cell);
+
+        Assert.Equal(PlayerCount, screen.View.Pawns.Count);
+    }
+
+    // A cell the rules do not allow is not a place to let the pawn go.
+    [Fact]
+    public void Action_APawnLetGoOnACellOutOfReach_IsStillMoving()
+    {
+        BoardScreen screen = CreateScreen();
+        screen.PrepareFor(BoardAction.MovePawn);
+
+        screen.Place(_unreachableCell);
+
+        Assert.Equal(BoardAction.MovePawn, screen.Action);
+    }
+
+    [Fact]
+    public void View_AWallLetGoOnAFreeCrossing_StandsOnTheBoard()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_aimedCrossing);
+        int walls = screen.View.Walls.Count;
+
+        screen.Place(_aimedCrossing);
+
+        Assert.Equal(walls + 1, screen.View.Walls.Count);
+    }
+
+    [Fact]
+    public void View_AWallLetGo_PreviewsNoWallAnyMore()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_aimedCrossing);
+
+        screen.Place(_aimedCrossing);
+
+        Assert.Null(screen.View.WallPreview);
+    }
+
+    // CU-21 RN-04: a wall that overlaps another one is not let go of.
+    [Fact]
+    public void View_AWallLetGoWhereAnotherOneStands_StaysOffTheBoard()
+    {
+        BoardScreen screen = CreateScreenAimedAt(_takenCrossing);
+        int walls = screen.View.Walls.Count;
+
+        screen.Place(_takenCrossing);
+
+        Assert.Equal(walls, screen.View.Walls.Count);
     }
 
     // What is about to be placed is drawn see-through, which is what tells it

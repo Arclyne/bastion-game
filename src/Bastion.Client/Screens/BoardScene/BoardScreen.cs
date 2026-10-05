@@ -20,13 +20,16 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     private const int VerticalWallColumn = 5;
     private const int VerticalWallRow = 2;
 
-    private static readonly BoardPosition _movingPawn = new BoardPosition(MiddleColumn, FirstRow);
+    private static readonly BoardPosition _startingPawn = new BoardPosition(MiddleColumn, FirstRow);
     private static readonly BoardPosition _rivalPawn = new BoardPosition(MiddleColumn, LastRow);
 
     private readonly INavigator _navigator;
     private readonly BoardRenderer? _renderer;
     private readonly MatchView _view = new MatchView();
     private readonly Board _board;
+
+    private Wall _heldWall;
+    private BoardPosition _movingPawn = _startingPawn;
 
     public BoardScreen(INavigator navigator, BoardRenderer? renderer)
     {
@@ -55,7 +58,59 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         if (action == BoardAction.MovePawn)
         {
             ShowReachableCells();
+            return;
         }
+
+        if (action == BoardAction.PlaceWall)
+        {
+            _heldWall = new Wall(default, WallOrientation.Horizontal);
+        }
+    }
+
+    // CU-21 FA-03: the wall is turned before it is let go of, and it keeps the
+    // crossing it was being aimed at.
+    public void TurnTheWall()
+    {
+        if (Action != BoardAction.PlaceWall)
+        {
+            return;
+        }
+
+        _heldWall = _heldWall.Turn();
+
+        if (_view.WallPreview is not null)
+        {
+            ShowHeldWall();
+        }
+    }
+
+    // Letting go of the piece puts it on the board and leaves nothing prepared,
+    // so every see-through piece goes away with it.
+    public void Place(BoardPosition cell)
+    {
+        if (Action == BoardAction.MovePawn)
+        {
+            MoveThePawn(cell);
+            return;
+        }
+
+        if (Action == BoardAction.PlaceWall)
+        {
+            PlaceTheWall();
+        }
+    }
+
+    // The crossing comes from the pointer while the game runs, and straight from
+    // a test otherwise.
+    public void AimAt(BoardPosition crossing)
+    {
+        if (Action != BoardAction.PlaceWall)
+        {
+            return;
+        }
+
+        _heldWall = _heldWall with { Crossing = crossing };
+        ShowHeldWall();
     }
 
     public void Update(InputState input)
@@ -65,6 +120,10 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         ReadAction(input);
         ReadWayOut(input);
         AimTheWall(input);
+        // Confirming goes first on purpose: the camera clears the mark that says
+        // the button was used to turn the board, and reading it afterwards would
+        // let the click that ends a drag place a piece.
+        Confirm(input);
         _renderer?.Camera.Update(input);
     }
 
@@ -90,7 +149,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
             new Wall(new BoardPosition(VerticalWallColumn, VerticalWallRow), WallOrientation.Vertical),
         ];
 
-        return new Board(Size, walls, [_movingPawn, _rivalPawn]);
+        return new Board(Size, walls, [_startingPawn, _rivalPawn]);
     }
 
     private void ReadAction(InputState input)
@@ -103,6 +162,11 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         if (input.IsKeyNewlyPressed(Keys.E))
         {
             PrepareFor(BoardAction.PlaceWall);
+        }
+
+        if (input.IsKeyNewlyPressed(Keys.R))
+        {
+            TurnTheWall();
         }
     }
 
@@ -131,7 +195,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     // wall lands on the crossing its anchor marks.
     private void ShowStartingPosition()
     {
-        _view.Pawns.Add(new PawnMarker(_movingPawn, Theme.FirstPlayer));
+        _view.Pawns.Add(new PawnMarker(_startingPawn, Theme.FirstPlayer));
         _view.Pawns.Add(new PawnMarker(_rivalPawn, Theme.SecondPlayer));
 
         foreach (Wall wall in _board.Walls)
@@ -162,9 +226,67 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         }
 
         BoardPosition? crossing = _renderer.FindCrossing(input.MousePosition);
+        if (crossing is null)
+        {
+            _view.WallPreview = null;
+            return;
+        }
 
-        _view.WallPreview = crossing is null
-            ? null
-            : new WallMarker(crossing.Value, WallOrientation.Vertical, Theme.Preview);
+        AimAt(crossing.Value);
+    }
+
+    // The camera owns dragging with the same button, so only a click that did not
+    // turn the board counts as letting a piece go.
+    private void Confirm(InputState input)
+    {
+        if (Action == BoardAction.None || !input.HasClicked || _renderer is null)
+        {
+            return;
+        }
+
+        if (_renderer.Camera.HasTurnedWhilePressed)
+        {
+            return;
+        }
+
+        BoardPosition? cell = _renderer.FindCell(input.MousePosition);
+        if (cell is not null)
+        {
+            Place(cell.Value);
+        }
+    }
+
+    // Only a cell the rules allow, which is one of the cells being previewed.
+    private void MoveThePawn(BoardPosition cell)
+    {
+        if (!_view.PawnPreviews.Exists(preview => preview.Cell == cell))
+        {
+            return;
+        }
+
+        _board.MovePawn(_movingPawn, cell);
+        _view.Pawns.RemoveAll(pawn => pawn.Cell == _movingPawn);
+        _movingPawn = cell;
+        _view.Pawns.Add(new PawnMarker(cell, Theme.FirstPlayer));
+        PrepareFor(BoardAction.None);
+    }
+
+    // CU-21 RN-04: a wall that overlaps or crosses another one is not let go of.
+    private void PlaceTheWall()
+    {
+        if (_view.WallPreview is null
+            || new WallPlacementValidator(_board).Check(_heldWall) != WallPlacementResult.Allowed)
+        {
+            return;
+        }
+
+        _board.Place(_heldWall);
+        _view.Walls.Add(new WallMarker(_heldWall.Crossing, _heldWall.Orientation, Theme.FirstPlayer));
+        PrepareFor(BoardAction.None);
+    }
+
+    private void ShowHeldWall()
+    {
+        _view.WallPreview = new WallMarker(_heldWall.Crossing, _heldWall.Orientation, Theme.Preview);
     }
 }

@@ -49,6 +49,13 @@ public sealed class BoardFrame
         return new BoardPosition((int)MathF.Round(column), (int)MathF.Round(row));
     }
 
+    // A cell sits half a step back from its crossing, so the point is carried
+    // forward by that much before it is matched against the grid.
+    public BoardPosition GetCellAt(Vector3 point)
+    {
+        return GetCrossingAt(point + ((_columnStep + _rowStep) * HalfCell));
+    }
+
     // Extrapolating also covers the last column and row, which have no crossing.
     public Vector3 GetCellPosition(BoardPosition cell)
     {

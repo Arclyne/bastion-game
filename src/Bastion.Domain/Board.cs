@@ -58,6 +58,12 @@ public sealed class Board
         _walls.Add(wall);
     }
 
+    public void MovePawn(BoardPosition from, BoardPosition to)
+    {
+        _pawns.Remove(from);
+        _pawns.Add(to);
+    }
+
     // The two cells are taken to be neighbours, which is the only way a pawn
     // travels.
     public bool IsWallBetween(BoardPosition from, BoardPosition to)
