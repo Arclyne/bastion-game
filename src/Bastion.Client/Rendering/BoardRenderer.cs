@@ -16,6 +16,13 @@ public sealed class BoardRenderer
     private const float SpecularLevel = 0.06f;
     private const float OpaqueAlpha = 1.0f;
 
+    // Below this the ray runs along the board instead of meeting it.
+    private const float LevelWithTheBoard = 0.0001f;
+
+    // The two ends of the ray, as the viewport measures depth.
+    private const float NearDepth = 0.0f;
+    private const float FarDepth = 1.0f;
+
     private static readonly Vector3 _keyLightDirection = Vector3.Normalize(new Vector3(-0.35f, -1.0f, -0.45f));
     private static readonly Vector3 _fillLightDirection = Vector3.Normalize(new Vector3(0.6f, -0.25f, 0.5f));
 
@@ -38,6 +45,55 @@ public sealed class BoardRenderer
     }
 
     public OrbitCamera Camera => _camera;
+
+    // A wall is laid on a crossing of grooves, not on a cell, so that is what the
+    // pointer is matched against.
+    public BoardPosition? FindCrossing(Point pointer)
+    {
+        Vector3? point = FindPointOnTheBoard(pointer);
+        if (point is null)
+        {
+            return null;
+        }
+
+        BoardPosition crossing = _assets.Frame.GetCrossingAt(point.Value);
+
+        return IsOnTheBoard(crossing) ? crossing : null;
+    }
+
+    private Vector3? FindPointOnTheBoard(Point pointer)
+    {
+        Viewport viewport = _device.Viewport;
+        Matrix view = _camera.View;
+        Matrix projection = _camera.GetProjection(viewport.AspectRatio);
+        var screen = new Vector3(pointer.X, pointer.Y, NearDepth);
+
+        Vector3 near = viewport.Unproject(screen, projection, view, Matrix.Identity);
+        Vector3 far = viewport.Unproject(screen with { Z = FarDepth }, projection, view, Matrix.Identity);
+        var direction = Vector3.Normalize(far - near);
+        Vector3 normal = _assets.Frame.Up;
+        float slope = Vector3.Dot(direction, normal);
+
+        return MathF.Abs(slope) < LevelWithTheBoard
+            ? null
+            : MeasureHit(near, direction, slope);
+    }
+
+    private Vector3? MeasureHit(Vector3 near, Vector3 direction, float slope)
+    {
+        Vector3 onTheBoard = _assets.Frame.GetGroovePosition(default);
+        float distance = Vector3.Dot(onTheBoard - near, _assets.Frame.Up) / slope;
+
+        return distance < 0.0f ? null : near + (direction * distance);
+    }
+
+    private static bool IsOnTheBoard(BoardPosition crossing)
+    {
+        int count = BoardAssetSet.ClassicBoardSize - 1;
+
+        return crossing.Column >= 0 && crossing.Column < count
+            && crossing.Row >= 0 && crossing.Row < count;
+    }
 
     public void Draw(MatchView view)
     {

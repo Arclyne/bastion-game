@@ -10,6 +10,10 @@ namespace Bastion.Client.Tests;
 // running towards negative Z, with the first groove crossing at (-3.5, 0, 3.5).
 public sealed class TestBoardFrame
 {
+    private const float AlmostHalfACell = 0.49f;
+    private const float PastHalfACell = 0.51f;
+    private const float SomeHeight = 3.0f;
+
     private static BoardFrame CreateFrame()
     {
         return new BoardFrame(new Vector3(-3.5f, 0.0f, 3.5f), Vector3.UnitX, -Vector3.UnitZ);
@@ -118,6 +122,57 @@ public sealed class TestBoardFrame
         Vector3 position = frame.GetCellPosition(new BoardPosition(1, 1));
 
         Assert.Equal(0.0, Vector3.Distance(column * 0.5f + (row * 0.5f), position), 4);
+    }
+
+    // What the pointer lands on: the crossing nearest to the point it meets the
+    // board at, so a wall rides on the one under the cursor.
+    [Fact]
+    public void GetCrossingAt_ThePointOfACrossing_IsThatCrossing()
+    {
+        BoardFrame frame = CreateFrame();
+        var crossing = new BoardPosition(5, 2);
+
+        BoardPosition found = frame.GetCrossingAt(frame.GetGroovePosition(crossing));
+
+        Assert.Equal(crossing, found);
+    }
+
+    [Fact]
+    public void GetCrossingAt_JustPastACrossing_IsStillThatCrossing()
+    {
+        BoardFrame frame = CreateFrame();
+        var crossing = new BoardPosition(5, 2);
+        Vector3 nudged = frame.GetGroovePosition(crossing) + (Vector3.UnitX * AlmostHalfACell);
+
+        BoardPosition found = frame.GetCrossingAt(nudged);
+
+        Assert.Equal(crossing, found);
+    }
+
+    [Fact]
+    public void GetCrossingAt_PastTheMiddleTowardsTheNext_IsTheNextCrossing()
+    {
+        BoardFrame frame = CreateFrame();
+        var crossing = new BoardPosition(5, 2);
+        Vector3 nudged = frame.GetGroovePosition(crossing) + (Vector3.UnitX * PastHalfACell);
+
+        BoardPosition found = frame.GetCrossingAt(nudged);
+
+        Assert.Equal(new BoardPosition(crossing.Column + 1, crossing.Row), found);
+    }
+
+    // The height of the point does not matter: what counts is where it falls on
+    // the plane of the board.
+    [Fact]
+    public void GetCrossingAt_APointAboveTheBoard_IsTheCrossingUnderIt()
+    {
+        BoardFrame frame = CreateFrame();
+        var crossing = new BoardPosition(3, 6);
+        Vector3 above = frame.GetGroovePosition(crossing) + (Vector3.Up * SomeHeight);
+
+        BoardPosition found = frame.GetCrossingAt(above);
+
+        Assert.Equal(crossing, found);
     }
 
     [Fact]

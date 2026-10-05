@@ -144,12 +144,14 @@ public sealed class TestBoardScreen
         Assert.Null(view.WallPreview);
     }
 
+    // The wall rides on the crossing the pointer is over, so until it is aimed
+    // there is no crossing to lay it on and nothing is drawn.
     [Fact]
-    public void View_PreparedToPlaceAWall_PreviewsTheWall()
+    public void View_PreparedToPlaceAWallAndNotAimedYet_PreviewsNoWall()
     {
         MatchView view = CreateViewPreparedFor(BoardAction.PlaceWall);
 
-        Assert.NotNull(view.WallPreview);
+        Assert.Null(view.WallPreview);
     }
 
     [Fact]
@@ -193,16 +195,6 @@ public sealed class TestBoardScreen
         MatchView view = CreateViewPreparedFor(BoardAction.MovePawn);
 
         byte? alpha = view.PawnPreviews.FirstOrDefault()?.Tint.A;
-
-        Assert.True(alpha < byte.MaxValue);
-    }
-
-    [Fact]
-    public void View_APreviewedWall_IsNotSolid()
-    {
-        MatchView view = CreateViewPreparedFor(BoardAction.PlaceWall);
-
-        byte? alpha = view.WallPreview?.Tint.A;
 
         Assert.True(alpha < byte.MaxValue);
     }

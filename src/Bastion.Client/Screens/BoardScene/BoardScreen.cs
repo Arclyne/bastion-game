@@ -19,8 +19,6 @@ public sealed class BoardScreen : IScreen, IWorldScreen
     private const int HorizontalWallRow = 4;
     private const int VerticalWallColumn = 5;
     private const int VerticalWallRow = 2;
-    private const int HeldWallColumn = 1;
-    private const int HeldWallRow = 1;
 
     private static readonly BoardPosition _movingPawn = new BoardPosition(MiddleColumn, FirstRow);
     private static readonly BoardPosition _rivalPawn = new BoardPosition(MiddleColumn, LastRow);
@@ -57,12 +55,6 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         if (action == BoardAction.MovePawn)
         {
             ShowReachableCells();
-            return;
-        }
-
-        if (action == BoardAction.PlaceWall)
-        {
-            ShowHeldWall();
         }
     }
 
@@ -72,6 +64,7 @@ public sealed class BoardScreen : IScreen, IWorldScreen
 
         ReadAction(input);
         ReadWayOut(input);
+        AimTheWall(input);
         _renderer?.Camera.Update(input);
     }
 
@@ -159,12 +152,19 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         }
     }
 
-    // Until there is a pointer over the board, the held wall sits on a crossing
-    // picked here.
-    private void ShowHeldWall()
+    // The held wall rides on the crossing the pointer is over, and nowhere else:
+    // off the board there is no crossing to lay it on, so it is not drawn.
+    private void AimTheWall(InputState input)
     {
-        var crossing = new BoardPosition(HeldWallColumn, HeldWallRow);
+        if (Action != BoardAction.PlaceWall || _renderer is null)
+        {
+            return;
+        }
 
-        _view.WallPreview = new WallMarker(crossing, WallOrientation.Vertical, Theme.Preview);
+        BoardPosition? crossing = _renderer.FindCrossing(input.MousePosition);
+
+        _view.WallPreview = crossing is null
+            ? null
+            : new WallMarker(crossing.Value, WallOrientation.Vertical, Theme.Preview);
     }
 }

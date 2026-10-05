@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Bastion.Domain;
 
@@ -35,6 +36,17 @@ public sealed class BoardFrame
     public Vector3 GetGroovePosition(BoardPosition groove)
     {
         return _firstGroove + (_columnStep * groove.Column) + (_rowStep * groove.Row);
+    }
+
+    // The steps are not unit vectors, so each coordinate is the point projected
+    // onto its own step.
+    public BoardPosition GetCrossingAt(Vector3 point)
+    {
+        Vector3 offset = point - _firstGroove;
+        float column = Vector3.Dot(offset, _columnStep) / _columnStep.LengthSquared();
+        float row = Vector3.Dot(offset, _rowStep) / _rowStep.LengthSquared();
+
+        return new BoardPosition((int)MathF.Round(column), (int)MathF.Round(row));
     }
 
     // Extrapolating also covers the last column and row, which have no crossing.
