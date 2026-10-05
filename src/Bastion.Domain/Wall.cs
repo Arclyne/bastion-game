@@ -1,3 +1,5 @@
+using System;
+
 namespace Bastion.Domain;
 
 // The crossing is named by the cell at its lower left corner, as the server
@@ -16,5 +18,27 @@ public readonly record struct Wall(BoardPosition Crossing, WallOrientation Orien
             : WallOrientation.Horizontal;
 
         return this with { Orientation = turned };
+    }
+
+    // Whether the wall lies across the step between two neighbouring cells, which
+    // is the only way it stops anything. It lives here so the board, the path
+    // finder and a wall that is only being considered all ask the same question.
+    public bool IsBetween(BoardPosition from, BoardPosition to)
+    {
+        if (from.Column == to.Column)
+        {
+            return Orientation == WallOrientation.Horizontal
+                && Crossing.Row == Math.Min(from.Row, to.Row)
+                && IsLineCovered(Crossing.Column, from.Column);
+        }
+
+        return Orientation == WallOrientation.Vertical
+            && Crossing.Column == Math.Min(from.Column, to.Column)
+            && IsLineCovered(Crossing.Row, from.Row);
+    }
+
+    private static bool IsLineCovered(int start, int line)
+    {
+        return line >= start && line < start + Length;
     }
 }

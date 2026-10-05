@@ -4,13 +4,17 @@ using Bastion.Domain;
 
 namespace Bastion.Domain.Tests;
 
-// CU-21 RN-04: walls neither overlap nor cross.
+// CU-21 RN-04 and RN-05: walls neither overlap nor cross, and none of them
+// leaves a player without a way to its goal side.
 public sealed class TestWallPlacementValidator
 {
     private const int ClassicSize = 9;
     private const int CrossingsPerSide = ClassicSize - 1;
 
     private static readonly BoardPosition _crossing = new BoardPosition(3, 4);
+
+    // Stands in the bottom left corner, which is the cheapest corner to seal.
+    private static readonly Pawn _cornerPawn = new Pawn(new BoardPosition(0, 0), BoardSide.Top);
 
     private static WallPlacementResult Check(Wall placed, Wall wall)
     {
@@ -111,6 +115,32 @@ public sealed class TestWallPlacementValidator
         var crossing = new BoardPosition(_crossing.Column + 1, _crossing.Row);
 
         WallPlacementResult result = Check(placed, new Wall(crossing, WallOrientation.Vertical));
+
+        Assert.Equal(WallPlacementResult.Allowed, result);
+    }
+
+    // CU-21 RN-05: the wall is turned down when it leaves a player with no way to
+    // its goal side. These two walls seal the bottom left corner between them.
+    [Fact]
+    public void Check_AWallThatShutsAPlayerIn_SaysSo()
+    {
+        var overTheCorner = new Wall(new BoardPosition(0, 1), WallOrientation.Horizontal);
+        var board = new Board(ClassicSize, [overTheCorner], [_cornerPawn]);
+        var besideTheCorner = new Wall(new BoardPosition(1, 0), WallOrientation.Vertical);
+
+        WallPlacementResult result = new WallPlacementValidator(board).Check(besideTheCorner);
+
+        Assert.Equal(WallPlacementResult.ShutsAPlayerIn, result);
+    }
+
+    // One of the two on its own only forces a detour, which the rules allow.
+    [Fact]
+    public void Check_AWallThatOnlyForcesADetour_IsAllowed()
+    {
+        var board = new Board(ClassicSize, [], [_cornerPawn]);
+        var overTheCorner = new Wall(new BoardPosition(0, 1), WallOrientation.Horizontal);
+
+        WallPlacementResult result = new WallPlacementValidator(board).Check(overTheCorner);
 
         Assert.Equal(WallPlacementResult.Allowed, result);
     }

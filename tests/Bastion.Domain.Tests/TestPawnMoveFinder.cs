@@ -18,10 +18,17 @@ public sealed class TestPawnMoveFinder
     private static readonly BoardPosition _right = new BoardPosition(Centre + 1, Centre);
     private static readonly BoardPosition _left = new BoardPosition(Centre - 1, Centre);
 
+    // Which side a pawn is heading for says nothing about where it may step, so
+    // every pawn here is given the same goal.
+    private static Board CreateBoard(IEnumerable<Wall> walls, IEnumerable<BoardPosition> cells)
+    {
+        return new Board(ClassicSize, walls, cells.Select(cell => new Pawn(cell, BoardSide.Top)));
+    }
+
     private static BoardPosition[] GetMoves(IEnumerable<Wall> walls, IEnumerable<BoardPosition> rivals)
     {
         var pawns = new List<BoardPosition>(rivals) { _pawn };
-        var finder = new PawnMoveFinder(new Board(ClassicSize, walls, pawns));
+        var finder = new PawnMoveFinder(CreateBoard(walls, pawns));
 
         return [.. finder.GetMoves(_pawn).OrderBy(cell => cell.Column).ThenBy(cell => cell.Row)];
     }
@@ -37,7 +44,7 @@ public sealed class TestPawnMoveFinder
     [Fact]
     public void GetMoves_FromACorner_OffersOnlyTheTwoNeighboursOnTheBoard()
     {
-        var finder = new PawnMoveFinder(new Board(ClassicSize, [], [new BoardPosition(0, 0)]));
+        var finder = new PawnMoveFinder(CreateBoard([], [new BoardPosition(0, 0)]));
 
         IReadOnlyList<BoardPosition> moves = finder.GetMoves(new BoardPosition(0, 0));
 
@@ -123,7 +130,7 @@ public sealed class TestPawnMoveFinder
     {
         var pawn = new BoardPosition(Centre, ClassicSize - 2);
         var rival = new BoardPosition(Centre, ClassicSize - 1);
-        var finder = new PawnMoveFinder(new Board(ClassicSize, [], [pawn, rival]));
+        var finder = new PawnMoveFinder(CreateBoard([], [pawn, rival]));
 
         IReadOnlyList<BoardPosition> moves = finder.GetMoves(pawn);
 

@@ -13,9 +13,9 @@ public sealed class Board
     public const int MinimumSize = 2;
 
     private readonly HashSet<Wall> _walls;
-    private readonly HashSet<BoardPosition> _pawns;
+    private readonly List<Pawn> _pawns;
 
-    public Board(int size, IEnumerable<Wall> walls, IEnumerable<BoardPosition> pawns)
+    public Board(int size, IEnumerable<Wall> walls, IEnumerable<Pawn> pawns)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(size, MinimumSize);
         ArgumentNullException.ThrowIfNull(walls);
@@ -30,7 +30,7 @@ public sealed class Board
 
     public IReadOnlyCollection<Wall> Walls => _walls;
 
-    public IReadOnlyCollection<BoardPosition> Pawns => _pawns;
+    public IReadOnlyList<Pawn> Pawns => _pawns;
 
     // One crossing fewer per side than cells, since a wall needs two cells to
     // lie on.
@@ -49,7 +49,34 @@ public sealed class Board
 
     public bool HasPawn(BoardPosition cell)
     {
-        return _pawns.Contains(cell);
+        return _pawns.Exists(pawn => pawn.Cell == cell);
+    }
+
+    // Zero steps away means the cell already is on that side, which is how a
+    // player wins and where a path ends (CU-21 RN-05).
+    public bool IsOnSide(BoardPosition cell, BoardSide side)
+    {
+        return GetStepsToSide(cell, side) == 0;
+    }
+
+    // How many rows or columns are left to that side. A pawn covers at most one
+    // of them per move, so this never overstates the distance and can be used to
+    // steer a search towards the goal.
+    public int GetStepsToSide(BoardPosition cell, BoardSide side)
+    {
+        return side switch
+        {
+            BoardSide.Bottom => cell.Row,
+            BoardSide.Top => Size - 1 - cell.Row,
+            BoardSide.Left => cell.Column,
+            BoardSide.Right => Size - 1 - cell.Column,
+            _ => throw new ArgumentOutOfRangeException(nameof(side), side, "Unknown board side.")
+        };
+    }
+
+    public bool HasWall(Wall wall)
+    {
+        return _walls.Contains(wall);
     }
 
     // A placed wall is never taken back (CU-21 RN-07).
@@ -58,44 +85,31 @@ public sealed class Board
         _walls.Add(wall);
     }
 
+    // The pawn keeps the goal it was given: moving changes where it stands, never
+    // which side it is trying to reach.
     public void MovePawn(BoardPosition from, BoardPosition to)
     {
-        _pawns.Remove(from);
-        _pawns.Add(to);
+        int index = _pawns.FindIndex(pawn => pawn.Cell == from);
+        if (index < 0)
+        {
+            return;
+        }
+
+        _pawns[index] = _pawns[index] with { Cell = to };
     }
 
     // The two cells are taken to be neighbours, which is the only way a pawn
     // travels.
     public bool IsWallBetween(BoardPosition from, BoardPosition to)
     {
-        if (from.Column == to.Column)
-        {
-            int groove = Math.Min(from.Row, to.Row);
-
-            return _walls.Any(wall => IsHorizontalAcross(wall, groove, from.Column));
-        }
-
-        int crossing = Math.Min(from.Column, to.Column);
-
-        return _walls.Any(wall => IsVerticalAcross(wall, crossing, from.Row));
+        return IsWallBetween(from, to, null);
     }
 
-    private static bool IsHorizontalAcross(Wall wall, int groove, int column)
+    // The candidate is a wall that is only being considered, so it is not on the
+    // board and has to be read on top of it (CU-21 step 13).
+    public bool IsWallBetween(BoardPosition from, BoardPosition to, Wall? candidate)
     {
-        return wall.Orientation == WallOrientation.Horizontal
-            && wall.Crossing.Row == groove
-            && IsLineCovered(wall.Crossing.Column, column);
-    }
-
-    private static bool IsVerticalAcross(Wall wall, int crossing, int row)
-    {
-        return wall.Orientation == WallOrientation.Vertical
-            && wall.Crossing.Column == crossing
-            && IsLineCovered(wall.Crossing.Row, row);
-    }
-
-    private static bool IsLineCovered(int start, int line)
-    {
-        return line >= start && line < start + Wall.Length;
+        return _walls.Any(wall => wall.IsBetween(from, to))
+            || (candidate is not null && candidate.Value.IsBetween(from, to));
     }
 }

@@ -7,5 +7,6 @@ public enum WallPlacementResult
     Allowed,
     OutsideTheBoard,
     Overlaps,
-    Crosses
+    Crosses,
+    ShutsAPlayerIn
 }

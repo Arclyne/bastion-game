@@ -4,17 +4,22 @@ using System.Linq;
 
 namespace Bastion.Domain;
 
-// CU-21 RN-04: walls neither overlap nor cross each other. RN-05, which keeps a
-// wall from shutting a player in, is not part of this check.
+// CU-21 RN-04 and RN-05: walls neither overlap nor cross each other, and none of
+// them leaves a player without a way to its goal side.
 public sealed class WallPlacementValidator
 {
     private readonly Board _board;
+    private readonly EnclosureValidator _enclosure;
 
     public WallPlacementValidator(Board board)
     {
         ArgumentNullException.ThrowIfNull(board);
 
         _board = board;
+
+        // Kept for as long as this validator lives, which is what lets it answer
+        // about one wall after another without walking the board each time.
+        _enclosure = new EnclosureValidator(board);
     }
 
     public WallPlacementResult Check(Wall wall)
@@ -32,6 +37,13 @@ public sealed class WallPlacementValidator
         if (_board.Walls.Any(placed => IsOverlappedBy(placed, wall)))
         {
             return WallPlacementResult.Overlaps;
+        }
+
+        // Last on purpose: it is the only rule that has to walk the board, so
+        // every cheaper reason to turn the wall down is spent first (RN-05).
+        if (_enclosure.FindShutInPlayer(wall) is not null)
+        {
+            return WallPlacementResult.ShutsAPlayerIn;
         }
 
         return WallPlacementResult.Allowed;

@@ -6,14 +6,6 @@ namespace Bastion.Domain;
 // Where a pawn may go, as CU-20 RN-02, RN-03 and RN-04 decide it.
 public sealed class PawnMoveFinder
 {
-    private static readonly BoardStep[] _straightSteps =
-    [
-        new BoardStep(0, 1),
-        new BoardStep(1, 0),
-        new BoardStep(0, -1),
-        new BoardStep(-1, 0),
-    ];
-
     private readonly Board _board;
 
     public PawnMoveFinder(Board board)
@@ -27,7 +19,7 @@ public sealed class PawnMoveFinder
     {
         var moves = new List<BoardPosition>();
 
-        foreach (BoardStep step in _straightSteps)
+        foreach (BoardStep step in BoardStep.StraightSteps)
         {
             AddMovesTowards(moves, pawn, step);
         }
@@ -37,7 +29,7 @@ public sealed class PawnMoveFinder
 
     private void AddMovesTowards(List<BoardPosition> moves, BoardPosition pawn, BoardStep step)
     {
-        BoardPosition neighbour = Advance(pawn, step);
+        BoardPosition neighbour = pawn.Step(step);
         if (!CanTravel(pawn, neighbour))
         {
             return;
@@ -56,7 +48,7 @@ public sealed class PawnMoveFinder
     // and there is nowhere to land.
     private void AddJumpsOver(List<BoardPosition> moves, BoardPosition rival, BoardStep step)
     {
-        BoardPosition behind = Advance(rival, step);
+        BoardPosition behind = rival.Step(step);
         if (CanLand(rival, behind))
         {
             moves.Add(behind);
@@ -65,7 +57,7 @@ public sealed class PawnMoveFinder
 
         foreach (BoardStep side in GetSides(step))
         {
-            BoardPosition diagonal = Advance(rival, side);
+            BoardPosition diagonal = rival.Step(side);
             if (CanLand(rival, diagonal))
             {
                 moves.Add(diagonal);
@@ -81,11 +73,6 @@ public sealed class PawnMoveFinder
             new BoardStep(step.Rows, step.Columns),
             new BoardStep(-step.Rows, -step.Columns),
         ];
-    }
-
-    private static BoardPosition Advance(BoardPosition cell, BoardStep step)
-    {
-        return new BoardPosition(cell.Column + step.Columns, cell.Row + step.Rows);
     }
 
     private bool CanTravel(BoardPosition from, BoardPosition to)

@@ -152,7 +152,13 @@ public sealed class BoardScreen : IScreen, IWorldScreen
             new Wall(new BoardPosition(VerticalWallColumn, VerticalWallRow), WallOrientation.Vertical),
         ];
 
-        return new Board(Size, walls, [_startingPawn, _rivalPawn]);
+        Pawn[] pawns =
+        [
+            new Pawn(_startingPawn, BoardSide.Top),
+            new Pawn(_rivalPawn, BoardSide.Bottom),
+        ];
+
+        return new Board(Size, walls, pawns);
     }
 
     private void ReadAction(InputState input)
@@ -274,7 +280,8 @@ public sealed class BoardScreen : IScreen, IWorldScreen
         PrepareFor(BoardAction.None);
     }
 
-    // CU-21 RN-04: a wall that overlaps or crosses another one is not let go of.
+    // CU-21 RN-04 and RN-05: a wall that overlaps, crosses or shuts a player in is
+    // not let go of.
     private void PlaceTheWall()
     {
         if (_view.WallPreview is null || !IsHeldWallAllowed())
