@@ -1,5 +1,6 @@
 using System;
 using System.ServiceModel;
+using System.ServiceModel.Security;
 using System.Threading.Tasks;
 using log4net;
 
@@ -8,6 +9,8 @@ namespace Bastion.Client.Networking;
 public sealed class ServiceChannel<TContract> : IDisposable
     where TContract : class
 {
+    private const string ServerCertificateName = "bastion-server";
+
     private static readonly ILog _logger = LogManager.GetLogger(typeof(ServiceChannel<TContract>));
 
     private readonly ChannelFactory<TContract> _factory;
@@ -16,8 +19,15 @@ public sealed class ServiceChannel<TContract> : IDisposable
     {
         ArgumentNullException.ThrowIfNull(path);
 
-        var binding = new NetTcpBinding(SecurityMode.None);
-        _factory = new ChannelFactory<TContract>(binding, new EndpointAddress(ServerAddress.Create(path)));
+        var binding = new NetTcpBinding(SecurityMode.Transport);
+        binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.None;
+        var identity = new DnsEndpointIdentity(ServerCertificateName);
+        _factory = new ChannelFactory<TContract>(binding, new EndpointAddress(ServerAddress.Create(path), identity));
+        _factory.Credentials.ServiceCertificate.SslCertificateAuthentication = new X509ServiceCertificateAuthentication
+        {
+            CertificateValidationMode = X509CertificateValidationMode.Custom,
+            CustomCertificateValidator = new ThumbprintCertificateValidator(ServerAddress.GetCertificateThumbprint()),
+        };
     }
 
     public async Task<TResult?> CallAsync<TResult>(Func<TContract, Task<TResult>> operation)

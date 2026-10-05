@@ -8,12 +8,25 @@ public static class ServerAddress
 {
     private const string HostVariable = "BASTION_SERVER_HOST";
     private const string PortVariable = "BASTION_SERVER_PORT";
+    private const string ThumbprintVariable = "BASTION_SERVER_THUMBPRINT";
 
     public static Uri Create(string path)
     {
         ArgumentNullException.ThrowIfNull(path);
 
         return ServiceEndpoints.CreateAddress(GetHost(), GetPort(), path);
+    }
+
+    public static string GetCertificateThumbprint()
+    {
+        string? thumbprint = Environment.GetEnvironmentVariable(ThumbprintVariable);
+        if (string.IsNullOrWhiteSpace(thumbprint))
+        {
+            throw new InvalidOperationException(
+                $"The server certificate thumbprint is not configured. Variable={ThumbprintVariable}");
+        }
+
+        return thumbprint;
     }
 
     private static string GetHost()
